@@ -9,10 +9,9 @@
 import UIKit
 import SpriteKit
 
-class ViewController: UIViewController {
+class GameViewController: UIViewController {
 
     var skview: SKView?
-    var gameView: UIView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,19 +22,19 @@ class ViewController: UIViewController {
         let star0 = Star(radius: 100,
                         position: CGPoint(x: -105, y: -12),
                         strength: 0.00001,
-                        diameter: 20,
+                        diameter: 10,
                         angularVelocity: 0)
         
         let star1 = Star(radius: 50,
                          position: CGPoint(x: 140, y: 75),
                          strength: 0.0001,
-                         diameter: 30,
+                         diameter: 7,
                          angularVelocity: 0)
         
         let star2 = Star(radius: 50,
                          position: CGPoint(x: 110, y: -60),
                          strength: 0.0001,
-                         diameter: 20,
+                         diameter: 7,
                          angularVelocity: 0)
         
         stars.append(star0)
@@ -44,8 +43,8 @@ class ViewController: UIViewController {
         
         let spaceship = Spaceship(spaceshipTextureName: "spaceship",
                                   position: CGPoint(x: -265, y: -120),
-                                  velocity: CGVector(dx: 10, dy: 50),
-                                  radius: 5)
+                                  velocity: CGVector.zero,
+                                  radius: 7)
         
         self.skview = SKView(frame: self.view.bounds)
         self.view.addSubview(skview!)
@@ -55,10 +54,11 @@ class ViewController: UIViewController {
             view.presentScene(level)
             
             view.ignoresSiblingOrder = true
-            view.showsFields = true
+//            view.showsFields = true
+//            view.showsPhysics = true
             setNeedsFocusUpdate()
         }
-                
+        
     }
 
 }
