@@ -34,6 +34,7 @@ class HomePresenter: HomeViewPresenter {
             NSLocalizedString("home-new-game", comment: "Button: New Game"),
             for: .normal
         )
+        button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
@@ -41,6 +42,7 @@ class HomePresenter: HomeViewPresenter {
         var button = UIButton()
         button.tintColor = UIColor.white
         button.setTitle(NSLocalizedString("home-profile", comment: "Button: Profile"), for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
@@ -52,6 +54,7 @@ class HomePresenter: HomeViewPresenter {
     func setUpHomeView(viewC: HomeViewController) {
         
         viewC.view.addSubview(newGameBtn)
+        viewC.view.addSubview(profileBtn)
         
         // MARK: - Setup Safe Margins
         var safeTopAnchor: NSLayoutYAxisAnchor {

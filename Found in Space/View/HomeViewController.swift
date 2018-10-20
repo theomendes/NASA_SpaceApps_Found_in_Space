@@ -21,10 +21,12 @@ class HomeViewController: UIViewController, HomeView {
     
     func goToNewGame(_ sender: UIButton!) {
         // Do something
+        print("New Game touched")
     }
     
     func goToProfile(_ sender: UIButton!) {
         // do something
+        print("Profile touched")
     }
 
 }

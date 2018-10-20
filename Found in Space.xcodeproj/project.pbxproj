@@ -16,11 +16,11 @@
 		3197FE9E217B84A100011ED3 /* GlobalScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3197FE9D217B84A100011ED3 /* GlobalScore.swift */; };
 		3197FEA1217B93E300011ED3 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3197FEA0217B93E300011ED3 /* HomeViewController.swift */; };
 		3197FEA5217B967C00011ED3 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3197FEA4217B967C00011ED3 /* HomePresenter.swift */; };
-		3197FEA8217B981500011ED3 /* Localization.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3197FEAA217B981500011ED3 /* Localization.strings */; };
+		3197FECA217BB23E00011ED3 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3197FEC9217BB23E00011ED3 /* Launch Screen.storyboard */; };
+		3197FECD217BB2F600011ED3 /* Localization.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3197FECF217BB2F600011ED3 /* Localization.strings */; };
 		31EA400B217B4F32001C5464 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EA400A217B4F32001C5464 /* AppDelegate.swift */; };
 		31EA400D217B4F32001C5464 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EA400C217B4F32001C5464 /* ViewController.swift */; };
 		31EA4012217B4F33001C5464 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31EA4011217B4F33001C5464 /* Assets.xcassets */; };
-		31EA4015217B4F33001C5464 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31EA4013217B4F33001C5464 /* LaunchScreen.storyboard */; };
 		31EA4020217B4F33001C5464 /* Found_in_SpaceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EA401F217B4F33001C5464 /* Found_in_SpaceUITests.swift */; };
 		B97404CAE33B8DD0A15F7E71 /* Pods_Found_in_SpaceUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E43B8E7FDEB6C99213791B9 /* Pods_Found_in_SpaceUITests.framework */; };
 		D2B4EC239155A7BC033CE631 /* Pods_Found_in_Space.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97A9CB54DFE99672BCDE2742 /* Pods_Found_in_Space.framework */; };
@@ -46,13 +46,13 @@
 		3197FE9D217B84A100011ED3 /* GlobalScore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalScore.swift; sourceTree = "<group>"; };
 		3197FEA0217B93E300011ED3 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		3197FEA4217B967C00011ED3 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
-		3197FEA9217B981500011ED3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localization.strings; sourceTree = "<group>"; };
-		3197FEAB217B983400011ED3 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localization.strings"; sourceTree = "<group>"; };
+		3197FEC9217BB23E00011ED3 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		3197FECE217BB2F600011ED3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localization.strings; sourceTree = "<group>"; };
+		3197FED0217BB2FC00011ED3 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localization.strings"; sourceTree = "<group>"; };
 		31EA4007217B4F32001C5464 /* Found in Space.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Found in Space.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		31EA400A217B4F32001C5464 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		31EA400C217B4F32001C5464 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		31EA4011217B4F33001C5464 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		31EA4014217B4F33001C5464 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		31EA4016217B4F33001C5464 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		31EA401B217B4F33001C5464 /* Found in SpaceUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Found in SpaceUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		31EA401F217B4F33001C5464 /* Found_in_SpaceUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Found_in_SpaceUITests.swift; sourceTree = "<group>"; };
@@ -176,9 +176,9 @@
 				31EA400A217B4F32001C5464 /* AppDelegate.swift */,
 				31EA400C217B4F32001C5464 /* ViewController.swift */,
 				31EA4011217B4F33001C5464 /* Assets.xcassets */,
-				31EA4013217B4F33001C5464 /* LaunchScreen.storyboard */,
 				31EA4016217B4F33001C5464 /* Info.plist */,
-				3197FEAA217B981500011ED3 /* Localization.strings */,
+				3197FEC9217BB23E00011ED3 /* Launch Screen.storyboard */,
+				3197FECF217BB2F600011ED3 /* Localization.strings */,
 			);
 			path = "Found in Space";
 			sourceTree = "<group>";
@@ -298,9 +298,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				31EA4015217B4F33001C5464 /* LaunchScreen.storyboard in Resources */,
-				3197FEA8217B981500011ED3 /* Localization.strings in Resources */,
 				31EA4012217B4F33001C5464 /* Assets.xcassets in Resources */,
+				3197FECD217BB2F600011ED3 /* Localization.strings in Resources */,
+				3197FECA217BB23E00011ED3 /* Launch Screen.storyboard in Resources */,
 				1D2E5D9A217B7958008DD793 /* Reference.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -433,21 +433,13 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		3197FEAA217B981500011ED3 /* Localization.strings */ = {
+		3197FECF217BB2F600011ED3 /* Localization.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				3197FEA9217B981500011ED3 /* en */,
-				3197FEAB217B983400011ED3 /* pt-BR */,
+				3197FECE217BB2F600011ED3 /* en */,
+				3197FED0217BB2FC00011ED3 /* pt-BR */,
 			);
 			name = Localization.strings;
-			sourceTree = "<group>";
-		};
-		31EA4013217B4F33001C5464 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				31EA4014217B4F33001C5464 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
