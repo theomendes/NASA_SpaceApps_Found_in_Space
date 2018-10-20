@@ -1,0 +1,12 @@
+/* 
+  Localization.strings
+  Found in Space
+
+  Created by Theo Mendes on 20/10/18.
+  Copyright © 2018 NASA Space Apps 2018. All rights reserved.
+*/
+
+//==============================
+//      HOME PRESENTER
+//==============================
+"home-new-game" = "New Game";

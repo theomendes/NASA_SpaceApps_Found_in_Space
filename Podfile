@@ -7,6 +7,9 @@ target 'Found in Space' do
 
   # Pods for Found in Space
   pod 'SwiftLint', '~> 0.27'
+  pod 'SwiftLint', '~> 0.27'
+  pod 'Firebase/Core', '~> 5.10'
+  pod 'Firebase/Auth', '~> 5.0'
 
   target 'Found in SpaceUITests' do
     inherit! :search_paths
