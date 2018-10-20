@@ -28,6 +28,11 @@ class Level: SKScene, SKPhysicsContactDelegate {
         self.stars = stars
         self.initialPosition = spaceship.position
         
+        let hubble = Hubble(radius: 50,
+                            position: CGPoint(x: 270, y: 0),
+                            strength: 0.001,
+                            angularVelocity: 0)
+        
         boundMax = view.bounds.width/2
         
         super.init(size: view.frame.size)
@@ -44,6 +49,10 @@ class Level: SKScene, SKPhysicsContactDelegate {
         addChild(background)
         
         addChild(spaceship)
+        
+        addChild(hubble)
+        
+        
         for star in stars {
             addChild(star)
         }
@@ -140,7 +149,11 @@ class Level: SKScene, SKPhysicsContactDelegate {
         let death = SKAction.sequence([.fadeOut(withDuration: loseDelay),
                                        .removeFromParent()])
         
-        if contact.bodyA.categoryBitMask > contact.bodyB.categoryBitMask {
+        if contact.bodyA.categoryBitMask == Constants.hubbleBodyCategory || contact.bodyB.categoryBitMask == Constants.hubbleBodyCategory {
+            print("yay")
+        }
+        
+        else if contact.bodyA.categoryBitMask > contact.bodyB.categoryBitMask {
             firstNode.physicsBody?.isDynamic = false
             explosion?.position = firstNode.position
             addChild(explosion!)
