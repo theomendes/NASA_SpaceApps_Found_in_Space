@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>554837173341-2hkrtqh312c5pkodi89tdfb03s9hs3ge.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.554837173341-2hkrtqh312c5pkodi89tdfb03s9hs3ge</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAKiPodqNk9LWtKxoNgzTXOv2f-UIrsI_U</string>
+	<key>GCM_SENDER_ID</key>
+	<string>554837173341</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>org.spaceappschallenge.Found-in-Space</string>
+	<key>PROJECT_ID</key>
+	<string>nasa-spaceapps-2018-puc-rio</string>
+	<key>STORAGE_BUCKET</key>
+	<string>nasa-spaceapps-2018-puc-rio.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true></true>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false></false>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:554837173341:ios:07dfa61663612e24</string>
+	<key>DATABASE_URL</key>
+	<string>https://nasa-spaceapps-2018-puc-rio.firebaseio.com</string>
+</dict>
+</plist>

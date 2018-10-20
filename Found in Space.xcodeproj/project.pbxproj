@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		31D66B0A217B6A3A0014DFF3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 31D66B09217B6A3A0014DFF3 /* GoogleService-Info.plist */; };
+		31D66B0E217B71520014DFF3 /* FIRAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D66B0D217B71520014DFF3 /* FIRAuth.swift */; };
 		31EA400B217B4F32001C5464 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EA400A217B4F32001C5464 /* AppDelegate.swift */; };
 		31EA400D217B4F32001C5464 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EA400C217B4F32001C5464 /* ViewController.swift */; };
 		31EA4010217B4F32001C5464 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31EA400E217B4F32001C5464 /* Main.storyboard */; };
@@ -28,6 +30,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		31D66B09217B6A3A0014DFF3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		31D66B0D217B71520014DFF3 /* FIRAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FIRAuth.swift; sourceTree = "<group>"; };
 		31EA4007217B4F32001C5464 /* Found in Space.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Found in Space.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		31EA400A217B4F32001C5464 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		31EA400C217B4F32001C5464 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -66,6 +70,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		31D66B0B217B70F40014DFF3 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				31D66B0D217B71520014DFF3 /* FIRAuth.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		31EA3FFE217B4F32001C5464 = {
 			isa = PBXGroup;
 			children = (
@@ -89,12 +101,14 @@
 		31EA4009217B4F32001C5464 /* Found in Space */ = {
 			isa = PBXGroup;
 			children = (
+				31D66B0B217B70F40014DFF3 /* Services */,
 				31EA400A217B4F32001C5464 /* AppDelegate.swift */,
 				31EA400C217B4F32001C5464 /* ViewController.swift */,
 				31EA400E217B4F32001C5464 /* Main.storyboard */,
 				31EA4011217B4F33001C5464 /* Assets.xcassets */,
 				31EA4013217B4F33001C5464 /* LaunchScreen.storyboard */,
 				31EA4016217B4F33001C5464 /* Info.plist */,
+				31D66B09217B6A3A0014DFF3 /* GoogleService-Info.plist */,
 			);
 			path = "Found in Space";
 			sourceTree = "<group>";
@@ -140,6 +154,7 @@
 				31EA4004217B4F32001C5464 /* Frameworks */,
 				31EA4005217B4F32001C5464 /* Resources */,
 				31D66B08217B55BA0014DFF3 /* ShellScript */,
+				0860FBEC05427EACDB335E15 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -213,6 +228,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				31EA4015217B4F33001C5464 /* LaunchScreen.storyboard in Resources */,
+				31D66B0A217B6A3A0014DFF3 /* GoogleService-Info.plist in Resources */,
 				31EA4012217B4F33001C5464 /* Assets.xcassets in Resources */,
 				31EA4010217B4F32001C5464 /* Main.storyboard in Resources */,
 			);
@@ -228,16 +244,34 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0860FBEC05427EACDB335E15 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Found in Space/Pods-Found in Space-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Found in Space/Pods-Found in Space-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		31D66B08217B55BA0014DFF3 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
-			);
-			outputFileListPaths = (
 			);
 			outputPaths = (
 			);
@@ -289,6 +323,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				31EA400D217B4F32001C5464 /* ViewController.swift in Sources */,
+				31D66B0E217B71520014DFF3 /* FIRAuth.swift in Sources */,
 				31EA400B217B4F32001C5464 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
