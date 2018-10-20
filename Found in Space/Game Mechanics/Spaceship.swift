@@ -11,10 +11,6 @@ import SpriteKit
 class Spaceship: SKSpriteNode {
     var radius: CGFloat
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
     init(
         spaceshipTextureName: String,
         position: CGPoint,
@@ -48,15 +44,19 @@ class Spaceship: SKSpriteNode {
         physicsBody?.velocity = velocity
         physicsBody?.angularVelocity = angularVelocity
         
-        physicsBody?.fieldBitMask = Constants.starGravityCategory //É atraído por estrelas
-        physicsBody?.categoryBitMask = Constants.spaceshipBodyCategory //É da categoria planeta
-        physicsBody?.collisionBitMask = 0 //starBodyCategory //Colide com estrelas
+        physicsBody?.fieldBitMask = Constants.starGravityCategory
+        physicsBody?.categoryBitMask = Constants.spaceshipBodyCategory
+        physicsBody?.collisionBitMask = 0
         physicsBody?.contactTestBitMask = Constants.starBodyCategory
         physicsBody?.usesPreciseCollisionDetection = true
         
-        physicsBody?.isDynamic = true
+        physicsBody?.isDynamic = false
         
         addChild(gravityField)
     }
-
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
 }

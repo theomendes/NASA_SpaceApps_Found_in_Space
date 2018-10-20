@@ -6,4 +6,12 @@
 //  Copyright © 2018 NASA Space Apps 2018. All rights reserved.
 //
 
-import Foundation
+struct LevelData: Codable {
+    let id: String
+    let type: Int
+    let gridSize: [Int]
+    let plasmas: [[Int]]
+    let obstacles: [[Int]]
+    let ghost: [Int]
+    let goal: Int
+}
