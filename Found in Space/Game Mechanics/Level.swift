@@ -12,14 +12,22 @@ class Level: SKScene, SKPhysicsContactDelegate {
     var spaceship: Spaceship?
     var stars: [Star]?
     
+    var initialPosition: CGPoint
     var finalPoint: CGPoint?
     var hasLaunched = false
     var pathNode: SKShapeNode!
+    
+    let boundMax: CGFloat!
+    
+    let loseDelay = 0.3
     
     init(levelID: String, spaceship: Spaceship, stars: [Star], in view: UIView) {
         
         self.spaceship = spaceship
         self.stars = stars
+        self.initialPosition = spaceship.position
+        
+        boundMax = view.bounds.width/2
         
         super.init(size: view.frame.size)
         scaleMode = .aspectFill
@@ -61,16 +69,16 @@ class Level: SKScene, SKPhysicsContactDelegate {
         
         myPath.move(to: initialPos)
         
-        //        let unit = unitVector((spaceship?.position)!, finalPoint!)
-        //        let dir = unit * 50
-        //        myPath.addLine(to: translade(point: initialPos, by: dir))
-        myPath.addLine(to: finalPoint!/70)
+        let colorCoefficient = distance((spaceship?.position)!, finalPoint!) / 700
+        
+        let unit = unitVector((spaceship?.position)!, finalPoint!)
+        let dir = unit * (20 + 100 * colorCoefficient)
+        myPath.addLine(to: translade(point: initialPos, by: dir))
         if let node = pathNode {
             node.removeFromParent()
         }
         pathNode = SKShapeNode(path: myPath)
         
-        let colorCoefficient = distance((spaceship?.position)!, finalPoint!) / 700
         pathNode.lineWidth = 2
         pathNode.fillColor = UIColor(red: colorCoefficient, green: 1-colorCoefficient, blue: 0, alpha: 1)
         pathNode.strokeColor = UIColor(red: colorCoefficient, green: 1-colorCoefficient, blue: 0, alpha: 1)
@@ -115,9 +123,9 @@ class Level: SKScene, SKPhysicsContactDelegate {
         //swiftlint:disable end
         
         let explosion = SKEmitterNode(fileNamed: "Explosion")
-        explosion?.particlePositionRange = CGVector(dx: 40, dy: 40)
+        explosion?.particlePositionRange = CGVector(dx: 20, dy: 20)
         
-        let death = SKAction.sequence([.fadeOut(withDuration: 0.3),
+        let death = SKAction.sequence([.fadeOut(withDuration: loseDelay),
                                        .removeFromParent()])
         
         if contact.bodyA.categoryBitMask > contact.bodyB.categoryBitMask {
@@ -125,11 +133,43 @@ class Level: SKScene, SKPhysicsContactDelegate {
             explosion?.position = firstNode.position
             addChild(explosion!)
             firstNode.run(death)
+            self.reset()
         } else {
             secondNode.physicsBody?.isDynamic = false
             explosion?.position = secondNode.position
             secondNode.addChild(explosion!)
             secondNode.run(death)
+            self.reset()
+        }
+    }
+    
+    func reset() {
+        let lostScreen = SKSpriteNode(color: UIColor.black, size: self.size)
+        lostScreen.alpha = 0
+        lostScreen.zPosition = 3
+        let lostAction = SKAction.sequence([.fadeIn(withDuration: 0.2),
+                                            .fadeOut(withDuration: 0.2),
+                                            .removeFromParent()])
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + loseDelay, execute: {
+            self.addChild(lostScreen)
+            lostScreen.run(lostAction)
+        })
+            
+        DispatchQueue.main.asyncAfter(deadline: .now() + loseDelay + 0.2, execute: {
+            self.spaceship?.removeFromParent()
+            self.spaceship?.removeAllActions()
+            self.spaceship?.alpha = 1
+            self.spaceship?.position = self.initialPosition
+            self.spaceship?.physicsBody?.isDynamic = false
+            self.addChild(self.spaceship!)
+            self.hasLaunched = false
+        })
+    }
+    
+    override func update(_ currentTime: TimeInterval) {
+        if distance(CGPoint.zero, (spaceship?.position)!) > boundMax {
+            reset()
         }
     }
 }
@@ -160,6 +200,7 @@ func unitVector(_ pointA: CGPoint, _ pointB: CGPoint) -> CGVector {
     return CGVector(dx: pointB.x - pointA.x, dy: pointB.y - pointA.y)/distance(pointA, pointB)
 }
 
+//swiftlint:disable:next identifier_name
 func translade(point: CGPoint, by: CGVector) -> CGPoint {
     return CGPoint(x: point.x + by.dx, y: point.y + by.dy)
 }
