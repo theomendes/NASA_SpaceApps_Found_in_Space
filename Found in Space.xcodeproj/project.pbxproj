@@ -11,6 +11,11 @@
 		1D2E5D92217B69C4008DD793 /* Star.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2E5D91217B69C3008DD793 /* Star.swift */; };
 		1D2E5D94217B6A1E008DD793 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2E5D93217B6A1E008DD793 /* Constants.swift */; };
 		1D2E5D96217B6B22008DD793 /* Spaceship.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2E5D95217B6B22008DD793 /* Spaceship.swift */; };
+		3197FE9C217B7F6300011ED3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3197FE9B217B7F6300011ED3 /* User.swift */; };
+		3197FE9E217B84A100011ED3 /* GlobalScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3197FE9D217B84A100011ED3 /* GlobalScore.swift */; };
+		3197FEA1217B93E300011ED3 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3197FEA0217B93E300011ED3 /* HomeViewController.swift */; };
+		3197FEA5217B967C00011ED3 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3197FEA4217B967C00011ED3 /* HomePresenter.swift */; };
+		3197FEA8217B981500011ED3 /* Localization.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3197FEAA217B981500011ED3 /* Localization.strings */; };
 		31EA400B217B4F32001C5464 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EA400A217B4F32001C5464 /* AppDelegate.swift */; };
 		31EA400D217B4F32001C5464 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EA400C217B4F32001C5464 /* ViewController.swift */; };
 		31EA4012217B4F33001C5464 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31EA4011217B4F33001C5464 /* Assets.xcassets */; };
@@ -35,6 +40,12 @@
 		1D2E5D91217B69C3008DD793 /* Star.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Star.swift; sourceTree = "<group>"; };
 		1D2E5D93217B6A1E008DD793 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		1D2E5D95217B6B22008DD793 /* Spaceship.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spaceship.swift; sourceTree = "<group>"; };
+		3197FE9B217B7F6300011ED3 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		3197FE9D217B84A100011ED3 /* GlobalScore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalScore.swift; sourceTree = "<group>"; };
+		3197FEA0217B93E300011ED3 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		3197FEA4217B967C00011ED3 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
+		3197FEA9217B981500011ED3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localization.strings; sourceTree = "<group>"; };
+		3197FEAB217B983400011ED3 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localization.strings"; sourceTree = "<group>"; };
 		31EA4007217B4F32001C5464 /* Found in Space.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Found in Space.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		31EA400A217B4F32001C5464 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		31EA400C217B4F32001C5464 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -90,6 +101,45 @@
 			path = "Game Mechanics";
 			sourceTree = "<group>";
 		};
+		3197FE99217B7F0A00011ED3 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		3197FE9A217B7F1B00011ED3 /* Instances */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Instances;
+			sourceTree = "<group>";
+		};
+		3197FE9F217B84A600011ED3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3197FE9D217B84A100011ED3 /* GlobalScore.swift */,
+				3197FE9B217B7F6300011ED3 /* User.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3197FEA2217B964F00011ED3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3197FEA0217B93E300011ED3 /* HomeViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3197FEA3217B966700011ED3 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				3197FEA4217B967C00011ED3 /* HomePresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
 		31EA3FFE217B4F32001C5464 = {
 			isa = PBXGroup;
 			children = (
@@ -113,6 +163,11 @@
 		31EA4009217B4F32001C5464 /* Found in Space */ = {
 			isa = PBXGroup;
 			children = (
+				3197FE9A217B7F1B00011ED3 /* Instances */,
+				3197FE99217B7F0A00011ED3 /* Services */,
+				3197FE9F217B84A600011ED3 /* Model */,
+				3197FEA2217B964F00011ED3 /* View */,
+				3197FEA3217B966700011ED3 /* Presenter */,
 				1D2E5D8E217B687A008DD793 /* Game Mechanics */,
 				1D2E5D8D217B6708008DD793 /* Game UI */,
 				31EA400A217B4F32001C5464 /* AppDelegate.swift */,
@@ -120,6 +175,7 @@
 				31EA4011217B4F33001C5464 /* Assets.xcassets */,
 				31EA4013217B4F33001C5464 /* LaunchScreen.storyboard */,
 				31EA4016217B4F33001C5464 /* Info.plist */,
+				3197FEAA217B981500011ED3 /* Localization.strings */,
 			);
 			path = "Found in Space";
 			sourceTree = "<group>";
@@ -221,6 +277,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"pt-BR",
 			);
 			mainGroup = 31EA3FFE217B4F32001C5464;
 			productRefGroup = 31EA4008217B4F32001C5464 /* Products */;
@@ -239,6 +296,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				31EA4015217B4F33001C5464 /* LaunchScreen.storyboard in Resources */,
+				3197FEA8217B981500011ED3 /* Localization.strings in Resources */,
 				31EA4012217B4F33001C5464 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -342,8 +400,12 @@
 				1D2E5D94217B6A1E008DD793 /* Constants.swift in Sources */,
 				1D2E5D90217B68C8008DD793 /* Level.swift in Sources */,
 				31EA400D217B4F32001C5464 /* ViewController.swift in Sources */,
+				3197FEA5217B967C00011ED3 /* HomePresenter.swift in Sources */,
 				1D2E5D96217B6B22008DD793 /* Spaceship.swift in Sources */,
 				31EA400B217B4F32001C5464 /* AppDelegate.swift in Sources */,
+				3197FEA1217B93E300011ED3 /* HomeViewController.swift in Sources */,
+				3197FE9E217B84A100011ED3 /* GlobalScore.swift in Sources */,
+				3197FE9C217B7F6300011ED3 /* User.swift in Sources */,
 				1D2E5D92217B69C4008DD793 /* Star.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -367,6 +429,15 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		3197FEAA217B981500011ED3 /* Localization.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3197FEA9217B981500011ED3 /* en */,
+				3197FEAB217B983400011ED3 /* pt-BR */,
+			);
+			name = Localization.strings;
+			sourceTree = "<group>";
+		};
 		31EA4013217B4F33001C5464 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -382,6 +453,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -443,6 +515,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -500,7 +573,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = S92SHJVP84;
+				DEVELOPMENT_TEAM = SV3T6FB38J;
 				INFOPLIST_FILE = "Found in Space/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -519,7 +592,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = S92SHJVP84;
+				DEVELOPMENT_TEAM = SV3T6FB38J;
 				INFOPLIST_FILE = "Found in Space/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
