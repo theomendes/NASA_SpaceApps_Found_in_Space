@@ -19,6 +19,7 @@ class Level: SKScene, SKPhysicsContactDelegate {
     
     let boundMax: CGFloat!
     
+    var playing = true
     let loseDelay = 0.3
     
     init(levelID: String, spaceship: Spaceship, stars: [Star], in view: UIView) {
@@ -74,6 +75,13 @@ class Level: SKScene, SKPhysicsContactDelegate {
         let unit = unitVector((spaceship?.position)!, finalPoint!)
         let dir = unit * (20 + 100 * colorCoefficient)
         myPath.addLine(to: translade(point: initialPos, by: dir))
+        
+        if dir.dx > 0 {
+            self.spaceship?.zRotation = atan(dir.dy/dir.dx) - CGFloat.pi/2
+        } else {
+            self.spaceship?.zRotation = atan(dir.dy/dir.dx) + CGFloat.pi/2
+        }
+        
         if let node = pathNode {
             node.removeFromParent()
         }
@@ -88,18 +96,19 @@ class Level: SKScene, SKPhysicsContactDelegate {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch in touches {
             let location = touch.location(in: self)
-            if !hasLaunched {
+            if !hasLaunched && playing {
                 self.finalPoint = location
                 drawLine(to: location)
             } else {
-                let direction = CGVector.new(pointA: location, pointB: (self.spaceship?.position)!)
-                self.spaceship?.physicsBody?.applyImpulse(direction / 1000)
+                var direction = CGVector.new(pointA: (self.spaceship?.position)!, pointB: location)
+                direction = direction.normalized()
+                self.spaceship?.physicsBody?.applyImpulse(direction / 3)
             }
         }
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if !hasLaunched {
+        if !hasLaunched && playing {
             for touch in touches {
                 let location = touch.location(in: self)
                 self.finalPoint = location
@@ -110,7 +119,7 @@ class Level: SKScene, SKPhysicsContactDelegate {
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if !hasLaunched {
+        if !hasLaunched && playing {
             pathNode.removeFromParent()
             let velocity = CGVector.new(pointA: (spaceship?.position)!, pointB: finalPoint!)
             self.spaceship?.physicsBody?.isDynamic = true
@@ -148,11 +157,12 @@ class Level: SKScene, SKPhysicsContactDelegate {
     
     func reset() {
         self.hasLaunched = false
+        self.playing = false
         let lostScreen = SKSpriteNode(color: UIColor.black, size: self.size)
         lostScreen.alpha = 0
         lostScreen.zPosition = 3
-        let lostAction = SKAction.sequence([.fadeIn(withDuration: 0.2),
-                                            .fadeOut(withDuration: 0.2),
+        let lostAction = SKAction.sequence([.fadeIn(withDuration: 0.1),
+                                            .fadeOut(withDuration: 0.1),
                                             .removeFromParent()])
         
         DispatchQueue.main.asyncAfter(deadline: .now() + loseDelay, execute: {
@@ -167,6 +177,7 @@ class Level: SKScene, SKPhysicsContactDelegate {
             self.spaceship?.position = self.initialPosition
             self.spaceship?.physicsBody?.isDynamic = false
             self.addChild(self.spaceship!)
+            self.playing = true
         })
     }
     
@@ -174,12 +185,17 @@ class Level: SKScene, SKPhysicsContactDelegate {
         if distance(CGPoint.zero, (spaceship?.position)!) > boundMax {
             reset()
         }
-    }
-}
-
-extension CGVector {
-    static func new(pointA: CGPoint, pointB: CGPoint) -> CGVector {
-        return CGVector(dx: pointB.x - pointA.x, dy: pointB.y - pointA.y)
+        
+        if hasLaunched {
+            let xvel = (self.spaceship?.physicsBody?.velocity.dx)!
+            let yvel = (self.spaceship?.physicsBody?.velocity.dy)!
+            if xvel > 0 {
+                self.spaceship?.zRotation = atan(yvel/xvel) - CGFloat.pi/2
+            } else {
+                self.spaceship?.zRotation = atan(yvel/xvel) + CGFloat.pi/2
+            }
+        }
+        
     }
 }
 
@@ -206,4 +222,19 @@ func unitVector(_ pointA: CGPoint, _ pointB: CGPoint) -> CGVector {
 //swiftlint:disable:next identifier_name
 func translade(point: CGPoint, by: CGVector) -> CGPoint {
     return CGPoint(x: point.x + by.dx, y: point.y + by.dy)
+}
+
+extension CGVector {
+    static func new(pointA: CGPoint, pointB: CGPoint) -> CGVector {
+        return CGVector(dx: pointB.x - pointA.x, dy: pointB.y - pointA.y)
+    }
+    
+    func norm() -> CGFloat {
+        return sqrt((self.dx*self.dx)+(self.dy*self.dy))
+    }
+    
+    func normalized() -> CGVector {
+        return self / self.norm()
+    }
+
 }
