@@ -11,3 +11,10 @@
 //==============================
 "home-new-game" = "Novo Jogo";
 "home-profile" = "Perfil";
+
+//==============================
+//      LOGIN PRESENTER
+//==============================
+"login-email-placeholder" = "Email";
+"login-password-placeholder" = "Senha";
+"login-login-placeholder" = "Entrar";

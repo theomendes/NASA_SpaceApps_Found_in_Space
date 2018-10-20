@@ -34,6 +34,7 @@ class HomeViewController: UIViewController, HomeView {
     func goToProfile(_ sender: UIButton!) {
         // do something
         print("Profile touched")
+        self.present(LoginViewController(), animated: true, completion: nil)
     }
 
 }

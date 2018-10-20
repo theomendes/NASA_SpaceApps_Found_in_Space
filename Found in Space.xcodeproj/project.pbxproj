@@ -13,9 +13,6 @@
 		1D2E5D94217B6A1E008DD793 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2E5D93217B6A1E008DD793 /* Constants.swift */; };
 		1D2E5D96217B6B22008DD793 /* Spaceship.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2E5D95217B6B22008DD793 /* Spaceship.swift */; };
 		1D2E5D9A217B7958008DD793 /* Reference.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1D2E5D99217B7958008DD793 /* Reference.sks */; };
-		1D8E9B56217BB8800080B668 /* DaoJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D8E9B54217BB8800080B668 /* DaoJson.swift */; };
-		1D8E9B57217BB8800080B668 /* LevelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D8E9B55217BB8800080B668 /* LevelData.swift */; };
-		1D8E9B59217BBC8F0080B668 /* Explosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1D8E9B58217BBC8F0080B668 /* Explosion.sks */; };
 		3197FE9C217B7F6300011ED3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3197FE9B217B7F6300011ED3 /* User.swift */; };
 		3197FE9E217B84A100011ED3 /* GlobalScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3197FE9D217B84A100011ED3 /* GlobalScore.swift */; };
 		3197FEA1217B93E300011ED3 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3197FEA0217B93E300011ED3 /* HomeViewController.swift */; };
@@ -24,6 +21,13 @@
 		3197FED3217BBAD000011ED3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3197FED5217BBAD000011ED3 /* Localizable.strings */; };
 		3197FED8217BBDCE00011ED3 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3197FED7217BBDCE00011ED3 /* LoginViewController.swift */; };
 		3197FEDA217BBE5500011ED3 /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3197FED9217BBE5500011ED3 /* LoginPresenter.swift */; };
+		3197FEDD217BCD5F00011ED3 /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3197FEDC217BCD5F00011ED3 /* UIFont.swift */; };
+		3197FEE2217BD15E00011ED3 /* Oxygen-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3197FEE0217BD14A00011ED3 /* Oxygen-Bold.ttf */; };
+		3197FEE3217BD15E00011ED3 /* Oxygen-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3197FEDF217BD14900011ED3 /* Oxygen-Light.ttf */; };
+		3197FEE4217BD15E00011ED3 /* Oxygen-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3197FEE1217BD14A00011ED3 /* Oxygen-Regular.ttf */; };
+		3197FEE6217BDB2900011ED3 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3197FEE5217BDB2900011ED3 /* UIView.swift */; };
+		3197FEE8217BDBCC00011ED3 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3197FEE7217BDBCC00011ED3 /* UIColor.swift */; };
+		3197FEEB217BE2C400011ED3 /* UIButtonWithGradientAndShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3197FEEA217BE2C400011ED3 /* UIButtonWithGradientAndShadow.swift */; };
 		31EA400B217B4F32001C5464 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EA400A217B4F32001C5464 /* AppDelegate.swift */; };
 		31EA400D217B4F32001C5464 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EA400C217B4F32001C5464 /* GameViewController.swift */; };
 		31EA4012217B4F33001C5464 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31EA4011217B4F33001C5464 /* Assets.xcassets */; };
@@ -49,10 +53,6 @@
 		1D2E5D93217B6A1E008DD793 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		1D2E5D95217B6B22008DD793 /* Spaceship.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spaceship.swift; sourceTree = "<group>"; };
 		1D2E5D99217B7958008DD793 /* Reference.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Reference.sks; sourceTree = "<group>"; };
-		1D8E9B53217BB8800080B668 /* Levels.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Levels.json; sourceTree = "<group>"; };
-		1D8E9B54217BB8800080B668 /* DaoJson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaoJson.swift; sourceTree = "<group>"; };
-		1D8E9B55217BB8800080B668 /* LevelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelData.swift; sourceTree = "<group>"; };
-		1D8E9B58217BBC8F0080B668 /* Explosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Explosion.sks; sourceTree = "<group>"; };
 		3197FE9B217B7F6300011ED3 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		3197FE9D217B84A100011ED3 /* GlobalScore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalScore.swift; sourceTree = "<group>"; };
 		3197FEA0217B93E300011ED3 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -62,6 +62,13 @@
 		3197FED6217BBAD200011ED3 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		3197FED7217BBDCE00011ED3 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		3197FED9217BBE5500011ED3 /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
+		3197FEDC217BCD5F00011ED3 /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
+		3197FEDF217BD14900011ED3 /* Oxygen-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oxygen-Light.ttf"; sourceTree = "<group>"; };
+		3197FEE0217BD14A00011ED3 /* Oxygen-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oxygen-Bold.ttf"; sourceTree = "<group>"; };
+		3197FEE1217BD14A00011ED3 /* Oxygen-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oxygen-Regular.ttf"; sourceTree = "<group>"; };
+		3197FEE5217BDB2900011ED3 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		3197FEE7217BDBCC00011ED3 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		3197FEEA217BE2C400011ED3 /* UIButtonWithGradientAndShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonWithGradientAndShadow.swift; sourceTree = "<group>"; };
 		31EA4007217B4F32001C5464 /* Found in Space.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Found in Space.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		31EA400A217B4F32001C5464 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		31EA400C217B4F32001C5464 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
@@ -114,7 +121,6 @@
 				1D2E5D91217B69C3008DD793 /* Star.swift */,
 				1D2E5D93217B6A1E008DD793 /* Constants.swift */,
 				1D2E5D99217B7958008DD793 /* Reference.sks */,
-				1D8E9B58217BBC8F0080B668 /* Explosion.sks */,
 			);
 			path = "Game Mechanics";
 			sourceTree = "<group>";
@@ -138,9 +144,6 @@
 			children = (
 				3197FE9D217B84A100011ED3 /* GlobalScore.swift */,
 				3197FE9B217B7F6300011ED3 /* User.swift */,
-				1D8E9B54217BB8800080B668 /* DaoJson.swift */,
-				1D8E9B55217BB8800080B668 /* LevelData.swift */,
-				1D8E9B53217BB8800080B668 /* Levels.json */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -161,6 +164,34 @@
 				3197FED9217BBE5500011ED3 /* LoginPresenter.swift */,
 			);
 			path = Presenter;
+			sourceTree = "<group>";
+		};
+		3197FEDB217BCD4D00011ED3 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3197FEDC217BCD5F00011ED3 /* UIFont.swift */,
+				3197FEE5217BDB2900011ED3 /* UIView.swift */,
+				3197FEE7217BDBCC00011ED3 /* UIColor.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		3197FEDE217BD0F700011ED3 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				3197FEE0217BD14A00011ED3 /* Oxygen-Bold.ttf */,
+				3197FEDF217BD14900011ED3 /* Oxygen-Light.ttf */,
+				3197FEE1217BD14A00011ED3 /* Oxygen-Regular.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		3197FEE9217BE2BB00011ED3 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				3197FEEA217BE2C400011ED3 /* UIButtonWithGradientAndShadow.swift */,
+			);
+			path = Buttons;
 			sourceTree = "<group>";
 		};
 		31EA3FFE217B4F32001C5464 = {
@@ -186,6 +217,9 @@
 		31EA4009217B4F32001C5464 /* Found in Space */ = {
 			isa = PBXGroup;
 			children = (
+				3197FEE9217BE2BB00011ED3 /* Buttons */,
+				3197FEDE217BD0F700011ED3 /* Fonts */,
+				3197FEDB217BCD4D00011ED3 /* Extensions */,
 				3197FE9A217B7F1B00011ED3 /* Instances */,
 				3197FE99217B7F0A00011ED3 /* Services */,
 				3197FE9F217B84A600011ED3 /* Model */,
@@ -320,8 +354,11 @@
 			files = (
 				31EA4012217B4F33001C5464 /* Assets.xcassets in Resources */,
 				1D8E9B59217BBC8F0080B668 /* Explosion.sks in Resources */,
+				3197FEE3217BD15E00011ED3 /* Oxygen-Light.ttf in Resources */,
 				3197FED3217BBAD000011ED3 /* Localizable.strings in Resources */,
+				3197FEE2217BD15E00011ED3 /* Oxygen-Bold.ttf in Resources */,
 				3197FECA217BB23E00011ED3 /* Launch Screen.storyboard in Resources */,
+				3197FEE4217BD15E00011ED3 /* Oxygen-Regular.ttf in Resources */,
 				1D2E5D9A217B7958008DD793 /* Reference.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -422,11 +459,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1D8E9B57217BB8800080B668 /* LevelData.swift in Sources */,
 				3197FEDA217BBE5500011ED3 /* LoginPresenter.swift in Sources */,
 				1D2E5D94217B6A1E008DD793 /* Constants.swift in Sources */,
 				1D2E5D90217B68C8008DD793 /* Level.swift in Sources */,
 				31EA400D217B4F32001C5464 /* GameViewController.swift in Sources */,
+				3197FEE8217BDBCC00011ED3 /* UIColor.swift in Sources */,
+				3197FEEB217BE2C400011ED3 /* UIButtonWithGradientAndShadow.swift in Sources */,
 				3197FEA5217B967C00011ED3 /* HomePresenter.swift in Sources */,
 				1D2E5D96217B6B22008DD793 /* Spaceship.swift in Sources */,
 				31EA400B217B4F32001C5464 /* AppDelegate.swift in Sources */,
@@ -434,6 +472,8 @@
 				1D8E9B56217BB8800080B668 /* DaoJson.swift in Sources */,
 				3197FEA1217B93E300011ED3 /* HomeViewController.swift in Sources */,
 				3197FE9E217B84A100011ED3 /* GlobalScore.swift in Sources */,
+				3197FEDD217BCD5F00011ED3 /* UIFont.swift in Sources */,
+				3197FEE6217BDB2900011ED3 /* UIView.swift in Sources */,
 				3197FE9C217B7F6300011ED3 /* User.swift in Sources */,
 				1D2E5D92217B69C4008DD793 /* Star.swift in Sources */,
 				3197FED8217BBDCE00011ED3 /* LoginViewController.swift in Sources */,
@@ -596,6 +636,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 32H23754C8;
+				DEVELOPMENT_TEAM = SV3T6FB38J;
 				INFOPLIST_FILE = "Found in Space/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -615,6 +656,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 32H23754C8;
+				DEVELOPMENT_TEAM = SV3T6FB38J;
 				INFOPLIST_FILE = "Found in Space/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

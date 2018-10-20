@@ -10,12 +10,20 @@ import UIKit
 import Firebase
 
 class LoginViewController: UIViewController, LoginView {
+    
     var presenter: LoginPresenter!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        presenter = LoginPresenter(view: self)
+        presenter.setUpLoginView(viewC: self)
+        presenter.setupBtnActions()
+    }
+    
+    func performLogin(_ sender: UIButton!) {
+        //
     }
     
     override func viewDidAppear(_ animated: Bool) {
