@@ -8,6 +8,7 @@
 
 import XCTest
 
+// swiftlint:disable all
 class Found_in_SpaceUITests: XCTestCase {
 
     override func setUp() {
@@ -32,3 +33,4 @@ class Found_in_SpaceUITests: XCTestCase {
     }
 
 }
+// swiftlint:enable all

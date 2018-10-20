@@ -6,6 +6,7 @@ target 'Found in Space' do
   use_frameworks!
 
   # Pods for Found in Space
+  pod 'SwiftLint', '~> 0.27'
 
   target 'Found in SpaceUITests' do
     inherit! :search_paths
