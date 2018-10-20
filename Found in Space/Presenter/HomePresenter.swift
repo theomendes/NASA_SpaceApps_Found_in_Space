@@ -48,8 +48,9 @@ class HomePresenter: HomeViewPresenter {
     var profileBtn: UIButton = {
         var button = UIButton()
         button.tintColor = UIColor.white
-        button.setTitle(NSLocalizedString("home-profile", comment: "Button: Profile"), for: .normal)
+        button.setTitle("", for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.setBackgroundImage(UIImage(named: "homeProfile"), for: .normal)
         return button
     }()
     
@@ -121,6 +122,8 @@ class HomePresenter: HomeViewPresenter {
         
         profileBtn.rightAnchor.constraint(equalTo: safeRightAnchor).isActive = true
         profileBtn.topAnchor.constraint(equalTo: safeTopAnchor, constant: 10).isActive = true
+        profileBtn.widthAnchor.constraint(equalToConstant: 50.0).isActive = true
+        profileBtn.heightAnchor.constraint(equalToConstant: 50.0).isActive = true
         
         backgroundImage.topAnchor.constraint(equalTo: viewC.view.topAnchor).isActive = true
         backgroundImage.rightAnchor.constraint(equalTo: viewC.view.rightAnchor).isActive = true
