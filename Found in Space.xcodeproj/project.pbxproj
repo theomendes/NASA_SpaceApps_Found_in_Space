@@ -11,7 +11,6 @@
 		1D2E5D92217B69C4008DD793 /* Star.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2E5D91217B69C3008DD793 /* Star.swift */; };
 		1D2E5D94217B6A1E008DD793 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2E5D93217B6A1E008DD793 /* Constants.swift */; };
 		1D2E5D96217B6B22008DD793 /* Spaceship.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2E5D95217B6B22008DD793 /* Spaceship.swift */; };
-		1D2E5D9A217B7958008DD793 /* Reference.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1D2E5D99217B7958008DD793 /* Reference.sks */; };
 		1D8E9B56217BB8800080B668 /* DaoJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D8E9B54217BB8800080B668 /* DaoJson.swift */; };
 		1D8E9B57217BB8800080B668 /* LevelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D8E9B55217BB8800080B668 /* LevelData.swift */; };
 		1D8E9B59217BBC8F0080B668 /* Explosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1D8E9B58217BBC8F0080B668 /* Explosion.sks */; };
@@ -52,7 +51,6 @@
 		1D2E5D91217B69C3008DD793 /* Star.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Star.swift; sourceTree = "<group>"; };
 		1D2E5D93217B6A1E008DD793 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		1D2E5D95217B6B22008DD793 /* Spaceship.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spaceship.swift; sourceTree = "<group>"; };
-		1D2E5D99217B7958008DD793 /* Reference.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Reference.sks; sourceTree = "<group>"; };
 		1D8E9B53217BB8800080B668 /* Levels.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Levels.json; sourceTree = "<group>"; };
 		1D8E9B54217BB8800080B668 /* DaoJson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaoJson.swift; sourceTree = "<group>"; };
 		1D8E9B55217BB8800080B668 /* LevelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelData.swift; sourceTree = "<group>"; };
@@ -123,7 +121,6 @@
 				1D2E5D95217B6B22008DD793 /* Spaceship.swift */,
 				1D2E5D91217B69C3008DD793 /* Star.swift */,
 				1D2E5D93217B6A1E008DD793 /* Constants.swift */,
-				1D2E5D99217B7958008DD793 /* Reference.sks */,
 				1D8E9B58217BBC8F0080B668 /* Explosion.sks */,
 			);
 			path = "Game Mechanics";
@@ -356,7 +353,6 @@
 				3197FEE2217BD15E00011ED3 /* Oxygen-Bold.ttf in Resources */,
 				3197FECA217BB23E00011ED3 /* Launch Screen.storyboard in Resources */,
 				3197FEE4217BD15E00011ED3 /* Oxygen-Regular.ttf in Resources */,
-				1D2E5D9A217B7958008DD793 /* Reference.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
