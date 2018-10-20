@@ -21,7 +21,9 @@ class Level: SKScene, SKPhysicsContactDelegate {
     
     var playing = true
     let loseDelay = 0.3
-        
+    
+    let boostBar: BoostBar
+    
     init(levelID: String, spaceship: Spaceship, stars: [Star], in view: UIView) {
         
         self.spaceship = spaceship
@@ -29,6 +31,8 @@ class Level: SKScene, SKPhysicsContactDelegate {
         self.initialPosition = spaceship.position
         
         boundMax = view.bounds.width/2
+        
+        boostBar = BoostBar(position: CGPoint(x: -201, y: 151))
         
         super.init(size: view.frame.size)
         scaleMode = .aspectFill
@@ -56,6 +60,7 @@ class Level: SKScene, SKPhysicsContactDelegate {
         let zoomInAction = SKAction.scale(to: 0.9, duration: 0)
         cameraNode.run(zoomInAction)
         
+//        self.addChild(boostBar)å
     }
     
     required init?(coder aDecoder: NSCoder) {

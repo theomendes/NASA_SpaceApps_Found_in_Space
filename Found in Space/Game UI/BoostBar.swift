@@ -11,40 +11,25 @@ import SpriteKit
 class BoostBar: SKSpriteNode {
     private var meter: SKSpriteNode
     
-    init() {
-        let eSize = CGSize(width: 247.15, height: 100.481)
-        let energyLevelBackground = SKShapeNode(rectOf: CGSize(width: eSize.width,
-                                                               height: eSize.height-20),
-                                                    cornerRadius: 20)
-        let border = SKShapeNode(rectOf: eSize, cornerRadius: 20)
-        meter = SKSpriteNode(texture: nil, color: #colorLiteral(red: 0.5176470588, green: 0.9764705882, blue: 0.6470588235, alpha: 1), size: eSize)
-        meter.anchorPoint = CGPoint(x: 0, y: 0.5)
-        
-        border.fillColor = .clear
-        border.strokeColor = #colorLiteral(red: 0.4706224799, green: 0.1552460492, blue: 0.5764831901, alpha: 1)
-        border.lineWidth = 20
-        border.zPosition = 3
-        energyLevelBackground.addChild(border)
-        
-        super.init(texture: SKTexture(imageNamed: "plasmaBar"),
-                   color: .clear,
-                   size: CGSize(width: 403.063, height: 124.912))
-        
-        energyLevelBackground.fillColor = #colorLiteral(red: 0.6666666667, green: 0.2039215686, blue: 0.7921568627, alpha: 1)
-        energyLevelBackground.strokeColor = .clear
+    init(position: CGPoint) {
+//        let texture = SKTexture(imageNamed: <#T##String#>)
+        meter = SKSpriteNode(texture: nil, color: UIColor.white, size: CGSize(width: 403.063, height: 124.912))
+        super.init(texture: nil, color: .clear, size: CGSize(width: 0, height: 0))
         
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
         
         self.zPosition = 1
         meter.zPosition = 2
-        energyLevelBackground.zPosition = 1
         
-        self.position = CGPoint(x: -170, y: 400)//y:450
+        self.position = position
         meter.position = CGPoint(x: absolutePosition(of: self).x + 50-meter.frame.size.width/2, y: absolutePosition(of: self).y)
-        energyLevelBackground.position = CGPoint(x: absolutePosition(of: self).x + 50, y: absolutePosition(of: self).y)
         
-        self.addChild(meter)
-        self.addChild(energyLevelBackground)
+        let maskbar = SKCropNode()
+        maskbar.maskNode = SKSpriteNode(fileNamed: "fuelMask")
+        maskbar.addChild(meter)
+        
+        self.addChild(maskbar)
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
