@@ -12,6 +12,9 @@
 		1D2E5D94217B6A1E008DD793 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2E5D93217B6A1E008DD793 /* Constants.swift */; };
 		1D2E5D96217B6B22008DD793 /* Spaceship.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2E5D95217B6B22008DD793 /* Spaceship.swift */; };
 		1D2E5D9A217B7958008DD793 /* Reference.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1D2E5D99217B7958008DD793 /* Reference.sks */; };
+		1D8E9B56217BB8800080B668 /* DaoJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D8E9B54217BB8800080B668 /* DaoJson.swift */; };
+		1D8E9B57217BB8800080B668 /* LevelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D8E9B55217BB8800080B668 /* LevelData.swift */; };
+		1D8E9B59217BBC8F0080B668 /* Explosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1D8E9B58217BBC8F0080B668 /* Explosion.sks */; };
 		3197FE9C217B7F6300011ED3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3197FE9B217B7F6300011ED3 /* User.swift */; };
 		3197FE9E217B84A100011ED3 /* GlobalScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3197FE9D217B84A100011ED3 /* GlobalScore.swift */; };
 		3197FEA1217B93E300011ED3 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3197FEA0217B93E300011ED3 /* HomeViewController.swift */; };
@@ -48,6 +51,10 @@
 		1D2E5D93217B6A1E008DD793 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		1D2E5D95217B6B22008DD793 /* Spaceship.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spaceship.swift; sourceTree = "<group>"; };
 		1D2E5D99217B7958008DD793 /* Reference.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Reference.sks; sourceTree = "<group>"; };
+		1D8E9B53217BB8800080B668 /* Levels.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Levels.json; sourceTree = "<group>"; };
+		1D8E9B54217BB8800080B668 /* DaoJson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaoJson.swift; sourceTree = "<group>"; };
+		1D8E9B55217BB8800080B668 /* LevelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelData.swift; sourceTree = "<group>"; };
+		1D8E9B58217BBC8F0080B668 /* Explosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Explosion.sks; sourceTree = "<group>"; };
 		3197FE9B217B7F6300011ED3 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		3197FE9D217B84A100011ED3 /* GlobalScore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalScore.swift; sourceTree = "<group>"; };
 		3197FEA0217B93E300011ED3 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -112,6 +119,7 @@
 				1D2E5D91217B69C3008DD793 /* Star.swift */,
 				1D2E5D93217B6A1E008DD793 /* Constants.swift */,
 				1D2E5D99217B7958008DD793 /* Reference.sks */,
+				1D8E9B58217BBC8F0080B668 /* Explosion.sks */,
 			);
 			path = "Game Mechanics";
 			sourceTree = "<group>";
@@ -135,6 +143,9 @@
 			children = (
 				3197FE9D217B84A100011ED3 /* GlobalScore.swift */,
 				3197FE9B217B7F6300011ED3 /* User.swift */,
+				1D8E9B54217BB8800080B668 /* DaoJson.swift */,
+				1D8E9B55217BB8800080B668 /* LevelData.swift */,
+				1D8E9B53217BB8800080B668 /* Levels.json */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -334,6 +345,8 @@
 			files = (
 				31EA4012217B4F33001C5464 /* Assets.xcassets in Resources */,
 				3197FEE3217BD15E00011ED3 /* Oxygen-Light.ttf in Resources */,
+				3197FECD217BB2F600011ED3 /* Localization.strings in Resources */,
+				1D8E9B59217BBC8F0080B668 /* Explosion.sks in Resources */,
 				3197FED3217BBAD000011ED3 /* Localizable.strings in Resources */,
 				3197FEE2217BD15E00011ED3 /* Oxygen-Bold.ttf in Resources */,
 				3197FECA217BB23E00011ED3 /* Launch Screen.storyboard in Resources */,
@@ -438,6 +451,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D8E9B57217BB8800080B668 /* LevelData.swift in Sources */,
 				3197FEDA217BBE5500011ED3 /* LoginPresenter.swift in Sources */,
 				1D2E5D94217B6A1E008DD793 /* Constants.swift in Sources */,
 				1D2E5D90217B68C8008DD793 /* Level.swift in Sources */,
@@ -445,6 +459,7 @@
 				3197FEA5217B967C00011ED3 /* HomePresenter.swift in Sources */,
 				1D2E5D96217B6B22008DD793 /* Spaceship.swift in Sources */,
 				31EA400B217B4F32001C5464 /* AppDelegate.swift in Sources */,
+				1D8E9B56217BB8800080B668 /* DaoJson.swift in Sources */,
 				3197FEA1217B93E300011ED3 /* HomeViewController.swift in Sources */,
 				3197FE9E217B84A100011ED3 /* GlobalScore.swift in Sources */,
 				3197FEDD217BCD5F00011ED3 /* UIFont.swift in Sources */,
@@ -610,6 +625,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SV3T6FB38J;
+				DEVELOPMENT_TEAM = S92SHJVP84;
+				DEVELOPMENT_TEAM = WYJ7BJDNJS;
+				DEVELOPMENT_TEAM = S92SHJVP84;
 				INFOPLIST_FILE = "Found in Space/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -629,6 +647,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SV3T6FB38J;
+				DEVELOPMENT_TEAM = S92SHJVP84;
+				DEVELOPMENT_TEAM = WYJ7BJDNJS;
+				DEVELOPMENT_TEAM = S92SHJVP84;
 				INFOPLIST_FILE = "Found in Space/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
