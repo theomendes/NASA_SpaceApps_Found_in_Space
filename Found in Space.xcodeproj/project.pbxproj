@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		31D66B0A217B6A3A0014DFF3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 31D66B09217B6A3A0014DFF3 /* GoogleService-Info.plist */; };
-		31D66B0E217B71520014DFF3 /* FIRAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D66B0D217B71520014DFF3 /* FIRAuth.swift */; };
 		1D2E5D90217B68C8008DD793 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2E5D8F217B68C8008DD793 /* Level.swift */; };
 		1D2E5D92217B69C4008DD793 /* Star.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2E5D91217B69C3008DD793 /* Star.swift */; };
 		1D2E5D94217B6A1E008DD793 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2E5D93217B6A1E008DD793 /* Constants.swift */; };
@@ -33,8 +31,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		31D66B09217B6A3A0014DFF3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		31D66B0D217B71520014DFF3 /* FIRAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FIRAuth.swift; sourceTree = "<group>"; };
 		1D2E5D8F217B68C8008DD793 /* Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
 		1D2E5D91217B69C3008DD793 /* Star.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Star.swift; sourceTree = "<group>"; };
 		1D2E5D93217B6A1E008DD793 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -76,12 +72,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		31D66B0B217B70F40014DFF3 /* Services */ = {
-			isa = PBXGroup;
-			children = (
-				31D66B0D217B71520014DFF3 /* FIRAuth.swift */,
-			);
-			path = Services;
 		1D2E5D8D217B6708008DD793 /* Game UI */ = {
 			isa = PBXGroup;
 			children = (
@@ -123,7 +113,6 @@
 		31EA4009217B4F32001C5464 /* Found in Space */ = {
 			isa = PBXGroup;
 			children = (
-				31D66B0B217B70F40014DFF3 /* Services */,
 				1D2E5D8E217B687A008DD793 /* Game Mechanics */,
 				1D2E5D8D217B6708008DD793 /* Game UI */,
 				31EA400A217B4F32001C5464 /* AppDelegate.swift */,
@@ -131,7 +120,6 @@
 				31EA4011217B4F33001C5464 /* Assets.xcassets */,
 				31EA4013217B4F33001C5464 /* LaunchScreen.storyboard */,
 				31EA4016217B4F33001C5464 /* Info.plist */,
-				31D66B09217B6A3A0014DFF3 /* GoogleService-Info.plist */,
 			);
 			path = "Found in Space";
 			sourceTree = "<group>";
@@ -177,7 +165,7 @@
 				31EA4004217B4F32001C5464 /* Frameworks */,
 				31EA4005217B4F32001C5464 /* Resources */,
 				31D66B08217B55BA0014DFF3 /* ShellScript */,
-				0860FBEC05427EACDB335E15 /* [CP] Embed Pods Frameworks */,
+				C08D1F293F8830949561D92E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -251,7 +239,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				31EA4015217B4F33001C5464 /* LaunchScreen.storyboard in Resources */,
-				31D66B0A217B6A3A0014DFF3 /* GoogleService-Info.plist in Resources */,
 				31EA4012217B4F33001C5464 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -266,10 +253,29 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0860FBEC05427EACDB335E15 /* [CP] Embed Pods Frameworks */ = {
+		31D66B08217B55BA0014DFF3 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+		};
+		C08D1F293F8830949561D92E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Found in Space/Pods-Found in Space-frameworks.sh",
@@ -278,6 +284,8 @@
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
@@ -287,19 +295,6 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Found in Space/Pods-Found in Space-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
-		};
-		31D66B08217B55BA0014DFF3 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
 		};
 		EF77655652BAE08583954B92 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -347,7 +342,6 @@
 				1D2E5D94217B6A1E008DD793 /* Constants.swift in Sources */,
 				1D2E5D90217B68C8008DD793 /* Level.swift in Sources */,
 				31EA400D217B4F32001C5464 /* ViewController.swift in Sources */,
-				31D66B0E217B71520014DFF3 /* FIRAuth.swift in Sources */,
 				1D2E5D96217B6B22008DD793 /* Spaceship.swift in Sources */,
 				31EA400B217B4F32001C5464 /* AppDelegate.swift in Sources */,
 				1D2E5D92217B69C4008DD793 /* Star.swift in Sources */,
