@@ -17,6 +17,16 @@ class HomeViewController: UIViewController, HomeView {
         presenter = HomePresenter(view: self)
         presenter.setUpHomeView(viewC: self)
         presenter.setupBtnActions()
+        
+        for family in UIFont.familyNames {
+            
+            let sName: String = family as String
+            print("family: \(sName)")
+            
+            for name in UIFont.fontNames(forFamilyName: sName) {
+                print("name: \(name as String)")
+            }
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -34,6 +44,7 @@ class HomeViewController: UIViewController, HomeView {
     func goToProfile(_ sender: UIButton!) {
         // do something
         print("Profile touched")
+        self.present(LoginViewController(), animated: true, completion: nil)
     }
 
 }

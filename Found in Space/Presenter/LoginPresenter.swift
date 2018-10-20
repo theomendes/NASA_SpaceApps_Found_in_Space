@@ -8,7 +8,9 @@
 
 import UIKit
 
-@objc protocol LoginView {}
+@objc protocol LoginView {
+    @objc func performLogin(_ sender: UIButton!)
+}
 
 protocol LoginViewPresenter: LoginView {}
 
@@ -24,23 +26,54 @@ class LoginPresenter: LoginViewPresenter {
     }
     
     // MARK: - Declaration of UI Elements
-    var newGameBtn: UIButton = {
+    var emailInput: UITextField = {
+        var input = UITextField()
+        input.placeholder = NSLocalizedString(
+            "login-email-placeholder",
+            comment: "Text Field: E-mail"
+        )
+        input.autocapitalizationType = .none
+        input.autocorrectionType = .no
+        input.keyboardType = .emailAddress
+        input.keyboardAppearance = .dark
+        input.translatesAutoresizingMaskIntoConstraints = false
+        return input
+    }()
+    
+    var pwdInput: UITextField = {
+        var input = UITextField()
+        input.placeholder = NSLocalizedString(
+            "login-password-placeholder",
+            comment: "Text Field: Password"
+        )
+        input.autocapitalizationType = .none
+        input.autocorrectionType = .no
+        input.keyboardType = .default
+        input.keyboardAppearance = .dark
+        input.isSecureTextEntry = true
+        input.translatesAutoresizingMaskIntoConstraints = false
+        return input
+    }()
+    
+    var loginBtn: UIButton = {
         var button = UIButton()
-        button.tintColor = UIColor.white
         button.setTitle(
-            NSLocalizedString("home-new-game", comment: "Button: New Game"),
+            NSLocalizedString("login-login-placeholder", comment: "Button: Login"),
             for: .normal
         )
+        button.setTitleColor(UIColor.white, for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
-    var profileBtn: UIButton = {
-        var button = UIButton()
-        button.tintColor = UIColor.white
-        button.setTitle(NSLocalizedString("home-profile", comment: "Button: Profile"), for: .normal)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
+    var loginStackView: UIStackView = {
+        var view = UIStackView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.axis = .vertical
+        view.distribution = .fill
+        view.spacing = 30
+        view.alignment = .center
+        return view
     }()
     
     /**
@@ -48,10 +81,15 @@ class LoginPresenter: LoginViewPresenter {
      
      - parameter vc: Current ViewController
      */
-    func setUpHomeView(viewC: HomeViewController) {
+    func setUpLoginView(viewC: LoginViewController) {
         
-        viewC.view.addSubview(newGameBtn)
-        viewC.view.addSubview(profileBtn)
+        viewC.view.backgroundColor = UIColor.white
+        
+        viewC.view.addSubview(loginStackView)
+        
+        loginStackView.addArrangedSubview(emailInput)
+        loginStackView.addArrangedSubview(pwdInput)
+        loginStackView.addArrangedSubview(loginBtn)
         
         // MARK: - Setup Safe Margins
         var safeTopAnchor: NSLayoutYAxisAnchor {
@@ -79,16 +117,27 @@ class LoginPresenter: LoginViewPresenter {
         }
         
         // MARK: - Constraints
-        newGameBtn.centerXAnchor.constraint(equalTo: viewC.view.centerXAnchor).isActive = true
-        newGameBtn.centerYAnchor.constraint(equalTo: viewC.view.centerYAnchor).isActive = true
+        loginStackView.centerXAnchor.constraint(equalTo: viewC.view.centerXAnchor).isActive = true
+        loginStackView.centerYAnchor.constraint(equalTo: viewC.view.centerYAnchor).isActive = true
+        loginStackView.widthAnchor.constraint(equalToConstant: 300.0).isActive = true
         
-        profileBtn.rightAnchor.constraint(equalTo: safeRightAnchor).isActive = true
-        profileBtn.topAnchor.constraint(equalTo: safeTopAnchor, constant: 10).isActive = true
+        emailInput.leftAnchor.constraint(equalTo: loginStackView.leftAnchor).isActive = true
+        emailInput.rightAnchor.constraint(equalTo: loginStackView.rightAnchor).isActive = true
+        
+        pwdInput.leftAnchor.constraint(equalTo: loginStackView.leftAnchor).isActive = true
+        pwdInput.rightAnchor.constraint(equalTo: loginStackView.rightAnchor).isActive = true
+        
+        loginBtn.leftAnchor.constraint(equalTo: loginStackView.leftAnchor).isActive = true
+        loginBtn.rightAnchor.constraint(equalTo: loginStackView.rightAnchor).isActive = true
+        loginBtn.heightAnchor.constraint(equalToConstant: 40.0).isActive = true
     }
     
     func setupBtnActions() {
-//        newGameBtn.addTarget(self, action: #selector(goToNewGame(_:)), for: .touchUpInside)
-//        profileBtn.addTarget(self, action: #selector(goToProfile(_:)), for: .touchUpInside)
+        loginBtn.addTarget(self, action: #selector(performLogin(_:)), for: .touchUpInside)
+    }
+    
+    func performLogin(_ sender: UIButton!) {
+        //
     }
     
 }
