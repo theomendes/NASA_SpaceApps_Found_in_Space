@@ -8,7 +8,7 @@
 
 import SpriteKit
 
-class Level: SKScene {
+class Level: SKScene, SKPhysicsContactDelegate {
     var spaceship: Spaceship?
     var stars: [Star]?
     
@@ -19,6 +19,9 @@ class Level: SKScene {
         super.init(size: view.frame.size)
         scaleMode = .aspectFill
         anchorPoint = CGPoint(x: 0.5, y: 0.5)
+        
+        physicsWorld.gravity = CGVector(dx: 0, dy: 0)
+        physicsWorld.contactDelegate = self
         
         let background = SKSpriteNode(texture: SKTexture(imageNamed: levelID),
                                       color: UIColor.clear,

@@ -24,21 +24,16 @@ class Star: SKSpriteNode {
         return grf
     }
     
-    public init(starTextureName: String,
-                radius: CGFloat,
+    public init(radius: CGFloat,
                 position: CGPoint = CGPoint(x: 0, y: 0),
                 strength: Float = 0.001,
-                diameterRatio: CGFloat = 3,
+                diameter: CGFloat = 3,
                 angularVelocity: CGFloat = 0) {
         self.radius = radius
         self.strength = strength
         
-        let image = SKTexture(imageNamed: starTextureName)
-        let scale = diameterRatio * radius / image.size().width
+        super.init(texture: nil, color: UIColor.clear, size: CGSize(width: diameter, height: diameter))
         
-        super.init(texture: image, color: UIColor.red, size: image.size())
-        
-        setScale(scale)
         physicsBody = SKPhysicsBody(circleOfRadius: radius)
         self.position = position
         physicsBody?.angularVelocity = angularVelocity
