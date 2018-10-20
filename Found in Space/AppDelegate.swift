@@ -19,6 +19,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         FirebaseApp.configure()
         
+        
+        // MARK: - Set initial ViewController
+        window = UIWindow(frame: UIScreen.main.bounds)
+        
+        // Create a new instance of ViewController
+        let mainViewController = ViewController()
+        
+        // Set initial ViewController
+        window?.rootViewController = mainViewController
+        
+        // Present the window
+        window?.makeKeyAndVisible()
+        
         return true
     }
 
