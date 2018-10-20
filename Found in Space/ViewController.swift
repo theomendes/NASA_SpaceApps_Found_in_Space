@@ -55,7 +55,8 @@ class ViewController: UIViewController {
             view.presentScene(level)
             
             view.ignoresSiblingOrder = true
-            view.showsFields = true
+            view.showsFields = false
+            view.showsPhysics = false
             setNeedsFocusUpdate()
         }
                 
