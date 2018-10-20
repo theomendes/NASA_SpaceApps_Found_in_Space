@@ -6,64 +6,57 @@
 //  Copyright © 2018 pedro ferraz. All rights reserved.
 //
 
-import Foundation
 import SpriteKit
 
-public class Planet: SKSpriteNode {
+class Spaceship: SKSpriteNode {
     var radius: CGFloat
-    let starGravityCategory: UInt32 = 0x1 << 0
-    let planetGravityCategory: UInt32 = 0x1 << 1
-    let satelliteGravityCategory: UInt32 = 0x1 << 2
-    let starBodyCategory: UInt32 = 0x1 << 3
-    let planetBodyCategory: UInt32 = 0x1 << 4
-    let satelliteBodyCategory: UInt32 = 0x1 << 5
-    let astronautBodyCategoty: UInt32 = 0x1 << 6
     
-    public required init?(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    public init(planetTextureName: String, position: CGPoint, velocity: CGVector, radius: CGFloat, angularVelocity: CGFloat = 0) {
+    init(
+        spaceshipTextureName: String,
+        position: CGPoint,
+        velocity: CGVector,
+        radius: CGFloat,
+        angularVelocity: CGFloat = 0) {
         self.radius = radius
         
         var gravityField: SKFieldNode {
-            let gf = SKFieldNode.radialGravityField()
-            gf.strength = Float(pow(self.radius, 2)) * pow(10, -2)
-            gf.categoryBitMask = planetGravityCategory
-            gf.isEnabled = true;
-            //            gf.region = SKRegion(radius: Float(CGFloat(self.radius)))
-            return gf
+            let grf = SKFieldNode.radialGravityField()
+            grf.strength = Float(pow(radius, 2)) * pow(10, -2)
+            grf.categoryBitMask = Constants.spaceshipGravityCategory
+            grf.isEnabled = true
+            return grf
         }
         
-        let image = SKTexture(imageNamed: planetTextureName)
+        let image = SKTexture(imageNamed: spaceshipTextureName)
         let scale = 2 * radius / image.size().width
         
         super.init(texture: image, color: UIColor.green, size: image.size())
         
-        self.setScale(scale)
-        self.physicsBody = SKPhysicsBody(circleOfRadius: self.radius)
+        setScale(scale)
+        physicsBody = SKPhysicsBody(circleOfRadius: radius)
         
-        self.physicsBody?.friction = 0
-        self.physicsBody?.linearDamping = 0
-        self.physicsBody?.angularDamping = 0
+        physicsBody?.friction = 0.2
+        physicsBody?.linearDamping = 0
+        physicsBody?.angularDamping = 0
         
         self.position = position
-        self.zPosition = 1
-        self.physicsBody?.velocity = velocity
-        self.physicsBody?.angularVelocity = angularVelocity
+        zPosition = 1
+        physicsBody?.velocity = velocity
+        physicsBody?.angularVelocity = angularVelocity
         
-        self.physicsBody?.fieldBitMask = starGravityCategory //É atraído por estrelas
-        self.physicsBody?.categoryBitMask = planetBodyCategory //É da categoria planeta
-        self.physicsBody?.collisionBitMask = 0 //starBodyCategory //Colide com estrelas
-        self.physicsBody?.contactTestBitMask = starBodyCategory
-        self.physicsBody?.usesPreciseCollisionDetection = true
+        physicsBody?.fieldBitMask = Constants.starGravityCategory //É atraído por estrelas
+        physicsBody?.categoryBitMask = Constants.spaceshipBodyCategory //É da categoria planeta
+        physicsBody?.collisionBitMask = 0 //starBodyCategory //Colide com estrelas
+        physicsBody?.contactTestBitMask = Constants.starBodyCategory
+        physicsBody?.usesPreciseCollisionDetection = true
         
         physicsBody?.isDynamic = true
         
-        self.addChild(gravityField)
+        addChild(gravityField)
     }
-    
-    
+
 }
-
-

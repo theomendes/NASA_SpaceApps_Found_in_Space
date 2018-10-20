@@ -1,38 +1,35 @@
 //
-//  Star.swift
-//  WWDC2018
+//  Level.swift
+//  Found in Space
 //
-//  Created by pedro ferraz on 19/03/18.
-//  Copyright © 2018 pedro ferraz. All rights reserved.
+//  Created by pedro ferraz on 20/10/18.
+//  Copyright © 2018 NASA Space Apps 2018. All rights reserved.
 //
 
-import Foundation
 import SpriteKit
 
-public class Star: SKSpriteNode {
+class Star: SKSpriteNode {
     var radius: CGFloat
     var strength: Float
-    let starGravityCategory: UInt32 = 0x1 << 0
-    let planetGravityCategory: UInt32 = 0x1 << 1
-    let satelliteGravityCategory: UInt32 = 0x1 << 2
-    let starBodyCategory: UInt32 = 0x1 << 3
-    let planetBodyCategory: UInt32 = 0x1 << 4
-    let satelliteBodyCategory: UInt32 = 0x1 << 5
-    let astronautBodyCategoty: UInt32 = 0x1 << 6
     
     public required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
     var gravityField: SKFieldNode {
-        let gf = SKFieldNode.radialGravityField()
-        gf.strength = Float(pow(self.radius, 2)) * self.strength
-        gf.categoryBitMask = starGravityCategory
-        gf.isEnabled = true;
-        return gf
+        let grf = SKFieldNode.radialGravityField()
+        grf.strength = Float(pow(radius, 2)) * strength
+        grf.categoryBitMask = Constants.starGravityCategory
+        grf.isEnabled = true
+        return grf
     }
     
-    public init(starTextureName: String, radius: CGFloat, position: CGPoint = CGPoint(x: 0, y: 0), strength: Float = 0.001, diameterRatio: CGFloat = 3, angularVelocity: CGFloat = 0) {
+    public init(starTextureName: String,
+                radius: CGFloat,
+                position: CGPoint = CGPoint(x: 0, y: 0),
+                strength: Float = 0.001,
+                diameterRatio: CGFloat = 3,
+                angularVelocity: CGFloat = 0) {
         self.radius = radius
         self.strength = strength
         
@@ -40,22 +37,20 @@ public class Star: SKSpriteNode {
         let scale = diameterRatio * radius / image.size().width
         
         super.init(texture: image, color: UIColor.red, size: image.size())
-
         
-        self.setScale(scale)
-        self.physicsBody = SKPhysicsBody(circleOfRadius: self.radius)
+        setScale(scale)
+        physicsBody = SKPhysicsBody(circleOfRadius: radius)
         self.position = position
-        self.physicsBody?.angularVelocity = angularVelocity
+        physicsBody?.angularVelocity = angularVelocity
         
-        self.physicsBody?.fieldBitMask = 0
-        self.physicsBody?.collisionBitMask = 0
-        self.physicsBody?.categoryBitMask = starBodyCategory //É da categoria estrela
-        self.physicsBody?.contactTestBitMask = planetBodyCategory
+        physicsBody?.fieldBitMask = 0
+        physicsBody?.collisionBitMask = 0
+        physicsBody?.categoryBitMask = Constants.starBodyCategory
+        physicsBody?.contactTestBitMask = Constants.spaceshipBodyCategory
         
         physicsBody?.isDynamic = true
         
-        self.addChild(gravityField)
+        addChild(gravityField)
     }
     
 }
-
