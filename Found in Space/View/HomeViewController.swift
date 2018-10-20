@@ -22,5 +22,9 @@ class HomeViewController: UIViewController, HomeView {
     func goToNewGame(_ sender: UIButton!) {
         // Do something
     }
+    
+    func goToProfile(_ sender: UIButton!) {
+        // do something
+    }
 
 }
