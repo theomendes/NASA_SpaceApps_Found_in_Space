@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         
         // Create a new instance of ViewController
-        let mainViewController = ViewController()
+        let mainViewController = HomeViewController()
         
         // Set initial ViewController
         window?.rootViewController = mainViewController
