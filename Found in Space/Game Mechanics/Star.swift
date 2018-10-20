@@ -12,10 +12,6 @@ class Star: SKSpriteNode {
     var radius: CGFloat
     var strength: Float
     
-    public required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
     var gravityField: SKFieldNode {
         let grf = SKFieldNode.radialGravityField()
         grf.strength = Float(pow(radius, 2)) * strength
@@ -24,17 +20,18 @@ class Star: SKSpriteNode {
         return grf
     }
     
-    public init(radius: CGFloat,
-                position: CGPoint = CGPoint(x: 0, y: 0),
-                strength: Float = 0.001,
-                diameter: CGFloat = 3,
-                angularVelocity: CGFloat = 0) {
+    init(
+        radius: CGFloat,
+        position: CGPoint = CGPoint(x: 0, y: 0),
+        strength: Float = 0.001,
+        diameter: CGFloat = 3,
+        angularVelocity: CGFloat = 0) {
         self.radius = radius
         self.strength = strength
         
-        super.init(texture: nil, color: UIColor.clear, size: CGSize(width: diameter, height: diameter))
+        super.init(texture: nil, color: UIColor.clear, size: CGSize(width: 1, height: 1))
         
-        physicsBody = SKPhysicsBody(circleOfRadius: radius)
+        physicsBody = SKPhysicsBody(circleOfRadius: diameter)
         self.position = position
         physicsBody?.angularVelocity = angularVelocity
         
@@ -46,6 +43,10 @@ class Star: SKSpriteNode {
         physicsBody?.isDynamic = true
         
         addChild(gravityField)
+    }
+    
+    public required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
 }

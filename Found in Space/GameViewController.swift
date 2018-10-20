@@ -23,19 +23,19 @@ class GameViewController: UIViewController {
         let star0 = Star(radius: 100,
                         position: CGPoint(x: -105, y: -12),
                         strength: 0.00001,
-                        diameter: 20,
+                        diameter: 15,
                         angularVelocity: 0)
         
         let star1 = Star(radius: 50,
                          position: CGPoint(x: 140, y: 75),
                          strength: 0.0001,
-                         diameter: 30,
+                         diameter: 7,
                          angularVelocity: 0)
         
         let star2 = Star(radius: 50,
                          position: CGPoint(x: 110, y: -60),
                          strength: 0.0001,
-                         diameter: 20,
+                         diameter: 7,
                          angularVelocity: 0)
         
         stars.append(star0)
@@ -55,7 +55,8 @@ class GameViewController: UIViewController {
             view.presentScene(level)
             
             view.ignoresSiblingOrder = true
-            view.showsFields = true
+//            view.showsFields = true
+//            view.showsPhysics = true
             setNeedsFocusUpdate()
         }
                 
