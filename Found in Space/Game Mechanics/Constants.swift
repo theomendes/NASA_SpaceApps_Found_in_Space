@@ -11,4 +11,5 @@ struct Constants {
     static let spaceshipGravityCategory: UInt32 = 0x1 << 1
     static let starBodyCategory: UInt32 = 0x1 << 2
     static let spaceshipBodyCategory: UInt32 = 0x1 << 3
+    static let hubbleBodyCategory: UInt32 = 0x1 << 4
 }
