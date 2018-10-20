@@ -86,11 +86,14 @@ class Level: SKScene, SKPhysicsContactDelegate {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if !hasLaunched {
-            for touch in touches {
-                let location = touch.location(in: self)
+        for touch in touches {
+            let location = touch.location(in: self)
+            if !hasLaunched {
                 self.finalPoint = location
                 drawLine(to: location)
+            } else {
+                let direction = CGVector.new(pointA: location, pointB: (self.spaceship?.position)!)
+                self.spaceship?.physicsBody?.applyImpulse(direction / 1000)
             }
         }
     }
@@ -144,6 +147,7 @@ class Level: SKScene, SKPhysicsContactDelegate {
     }
     
     func reset() {
+        self.hasLaunched = false
         let lostScreen = SKSpriteNode(color: UIColor.black, size: self.size)
         lostScreen.alpha = 0
         lostScreen.zPosition = 3
@@ -163,7 +167,6 @@ class Level: SKScene, SKPhysicsContactDelegate {
             self.spaceship?.position = self.initialPosition
             self.spaceship?.physicsBody?.isDynamic = false
             self.addChild(self.spaceship!)
-            self.hasLaunched = false
         })
     }
     
