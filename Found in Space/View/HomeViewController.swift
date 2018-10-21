@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Firebase
 
 class HomeViewController: UIViewController, HomeView {
     var presenter: HomePresenter!
@@ -21,7 +20,6 @@ class HomeViewController: UIViewController, HomeView {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        Analytics.setScreenName("Home View Controller", screenClass: "HomeViewController")
     }
     
     func goToNewGame(_ sender: UIButton!) {

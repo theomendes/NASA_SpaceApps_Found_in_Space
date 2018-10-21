@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Firebase
 
 class LoginViewController: UIViewController, LoginView {
     
@@ -28,7 +27,6 @@ class LoginViewController: UIViewController, LoginView {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        Analytics.setScreenName("Home View Controller", screenClass: "HomeViewController")
     }
     
     func performLogin(_ sender: UIButton!) {
