@@ -53,6 +53,32 @@ PODS:
   - GoogleUtilities/UserDefaults (5.3.3):
     - GoogleUtilities/Logger
   - GTMSessionFetcher/Core (1.2.0)
+  - MaterialComponents/AnimationTiming (58.0.0)
+  - MaterialComponents/Palettes (58.0.0)
+  - MaterialComponents/private/Application (58.0.0)
+  - MaterialComponents/private/Math (58.0.0)
+  - MaterialComponents/schemes/Color (58.0.0)
+  - MaterialComponents/schemes/Typography (58.0.0)
+  - MaterialComponents/TextFields (58.0.0):
+    - MaterialComponents/AnimationTiming
+    - MaterialComponents/Palettes
+    - MaterialComponents/private/Math
+    - MaterialComponents/Typography
+    - MDFInternationalization
+  - "MaterialComponents/TextFields+ColorThemer (58.0.0)":
+    - MaterialComponents/TextFields
+    - MaterialComponents/Themes
+  - "MaterialComponents/TextFields+TypographyThemer (58.0.0)":
+    - MaterialComponents/schemes/Typography
+    - MaterialComponents/TextFields
+  - MaterialComponents/Themes (58.0.0):
+    - MaterialComponents/schemes/Color
+    - MaterialComponents/schemes/Typography
+  - MaterialComponents/Typography (58.0.0):
+    - MaterialComponents/private/Application
+    - MaterialComponents/private/Math
+  - MDFInternationalization (1.1.0)
+  - MDFTextAccessibility (1.2.0)
   - nanopb (0.3.8):
     - nanopb/decode (= 0.3.8)
     - nanopb/encode (= 0.3.8)
@@ -63,6 +89,10 @@ PODS:
 DEPENDENCIES:
   - Firebase/Auth (~> 5.0)
   - Firebase/Core (~> 5.10)
+  - MaterialComponents/TextFields (~> 58.0.0)
+  - "MaterialComponents/TextFields+ColorThemer"
+  - "MaterialComponents/TextFields+TypographyThemer"
+  - MDFTextAccessibility (~> 1.2)
   - SwiftLint (~> 0.27)
 
 SPEC REPOS:
@@ -76,6 +106,9 @@ SPEC REPOS:
     - GoogleAppMeasurement
     - GoogleUtilities
     - GTMSessionFetcher
+    - MaterialComponents
+    - MDFInternationalization
+    - MDFTextAccessibility
     - nanopb
     - SwiftLint
 
@@ -89,9 +122,12 @@ SPEC CHECKSUMS:
   GoogleAppMeasurement: 2b3a023a61239c8d002e6e4fcf4abce8eddce0e0
   GoogleUtilities: 8208aee3e97a1ae93d44c57e96c476a5a3b03f0a
   GTMSessionFetcher: 0c4baf0a73acd0041bf9f71ea018deedab5ea84e
+  MaterialComponents: 0520466595b729ebd106e84b96626803aca4a8d2
+  MDFInternationalization: b5b8626628abf026e630e5ebaeee563037712cbb
+  MDFTextAccessibility: 94098925e0853551c5a311ce7c1ecefbe297cdb6
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   SwiftLint: 3207c1faa2240bf8973b191820a116113cd11073
 
-PODFILE CHECKSUM: 9e17a8a990f691be6249367cfa50528f6e202887
+PODFILE CHECKSUM: 1733be21711b05f317f7e55e63d3701ec1d6c8b4
 
 COCOAPODS: 1.5.3

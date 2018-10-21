@@ -17,7 +17,9 @@
 //==============================
 "login-email-placeholder" = "E-mail";
 "login-password-placeholder" = "Password";
-"login-login-placeholder" = "Login";
+"login-login-button" = "Login";
+"login-signup-button" = "Don't have an account? Create now!";
+"login-title-label" = "Login";
 
 //==============================
 //      PAUSE SCREEN

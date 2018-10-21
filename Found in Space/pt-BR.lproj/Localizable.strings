@@ -18,6 +18,7 @@
 "login-email-placeholder" = "Email";
 "login-password-placeholder" = "Senha";
 "login-login-placeholder" = "Entrar";
+"login-signup-placeholder" = "Não tem uma conta? Crie uma agora!";
 //==============================
 //      PAUSE SCREEN
 //==============================
