@@ -6,6 +6,7 @@
 //  Copyright © 2018 NASA Space Apps 2018. All rights reserved.
 //
 
+import Foundation
 import UIKit
 
 class PauseViewController: UIViewController {
@@ -71,15 +72,14 @@ class PauseViewController: UIViewController {
         
         view.addSubview(resumeBtn)
         view.addSubview(exitBtn)
-        //        setPlayButtonConstraints()
-        //        setExitButtonConstraints()
+        setPlayButtonConstraints()
+        setExitButtonConstraints()
         
         let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.regular)
         blurView = UIVisualEffectView(effect: blurEffect)
         
         view.insertSubview(blurView, at: 0)
-        
-        //        setUpBlurViewConstraints()
+        setUpBlurViewConstraints()
     }
     
     private func setUpBlurViewConstraints() {
@@ -91,28 +91,26 @@ class PauseViewController: UIViewController {
         blurView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
     }
     
-    //    private func setPlayButtonConstraints() {
-    //        NSLayoutConstraint.activate([
-    //            playButton.heightAnchor.constraint(equalToConstant: 68),
-    //            playButton.widthAnchor.constraint(equalToConstant: 292),
-    //            playButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-    //            playButton.topAnchor.constraint(equalTo: view.centerYAnchor, constant: 20)
-    //            ])
-    //    }
-    //
-    //    private func setExitButtonConstraints() {
-    //        NSLayoutConstraint.activate([
-    //            exitButton.heightAnchor.constraint(equalToConstant: 68),
-    //            exitButton.widthAnchor.constraint(equalToConstant: 292),
-    //            exitButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-    //            exitButton.topAnchor.constraint(equalTo: playButton.bottomAnchor, constant: 20)
-    //            ])
-    //    }
+        private func setPlayButtonConstraints() {
+            NSLayoutConstraint.activate([
+                resumeBtn.heightAnchor.constraint(equalToConstant: 68),
+                resumeBtn.widthAnchor.constraint(equalToConstant: 292),
+                resumeBtn.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                resumeBtn.topAnchor.constraint(equalTo: view.topAnchor, constant: 120)
+                ])
+        }
+    
+        private func setExitButtonConstraints() {
+            NSLayoutConstraint.activate([
+                exitBtn.heightAnchor.constraint(equalToConstant: 68),
+                exitBtn.widthAnchor.constraint(equalToConstant: 292),
+                exitBtn.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                exitBtn.topAnchor.constraint(equalTo: resumeBtn.bottomAnchor, constant: 20)
+                ])
+        }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 }
-
-import Foundation

@@ -34,9 +34,11 @@ class GameViewController: UIViewController {
         self.skview = SKView(frame: self.view.bounds)
         self.view.addSubview(skview!)
         self.view.addSubview(pauseButton)
+        pauseButton.isHidden = true
         
         if let view = skview {
-            level = Level(from: levelsData[1], in: self.view)
+            level = Level(from: levelsData[0], in: self.view)
+            level.controller = self
             view.presentScene(level)
             
             view.ignoresSiblingOrder = true
@@ -44,9 +46,7 @@ class GameViewController: UIViewController {
 //            view.showsPhysics = true
             setNeedsFocusUpdate()
         }
-        
         setPauseButtonConstraints()
-        
     }
     
     @objc func pause() {
@@ -56,7 +56,7 @@ class GameViewController: UIViewController {
             addChild(pauseController!)
             pauseController!.view.frame = view.frame
             view.addSubview(pauseController!.view)
-//            setPauseViewConstraints()
+            setPauseViewConstraints()
             pauseController!.didMove(toParent: self)
         }
     }
@@ -97,13 +97,23 @@ class GameViewController: UIViewController {
     private func setPauseButtonConstraints() {
         if #available(iOS 11.0, *) {
             pauseButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true
-            pauseButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 35).isActive = true
+            pauseButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 30).isActive = true
         } else {
             pauseButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30).isActive = true
             pauseButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 30).isActive = true
         }
         pauseButton.widthAnchor.constraint(equalToConstant: 51.47).isActive = true
         pauseButton.heightAnchor.constraint(equalToConstant: 19.5).isActive = true
+    }
+    
+    func setPauseViewConstraints() {
+        guard let pauseController = pauseController else { return }
+        NSLayoutConstraint.activate([
+            pauseController.view.heightAnchor.constraint(equalTo: view.heightAnchor),
+            pauseController.view.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            pauseController.view.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            pauseController.view.widthAnchor.constraint(equalTo: view.widthAnchor)
+            ])
     }
 
 }

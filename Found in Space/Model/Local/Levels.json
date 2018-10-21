@@ -5,19 +5,19 @@
             {
                 "radius": 100,
                 "position": [-105, -12],
-                "strength": 0.00001,
+                "strength": 0.00002,
                 "diameter": 15
             },
             {
                 "radius": 50,
                 "position": [140, 75],
-                "strength": 0.0001,
+                "strength": 0.00001,
                 "diameter": 7
             },
             {
                 "radius": 50,
                 "position": [110, -60],
-                "strength": 0.0001,
+                "strength": 0.00001,
                 "diameter": 7
             }
         ],

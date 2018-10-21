@@ -22,8 +22,8 @@ class BoostBar: SKCropNode {
         mask.yScale = 0.3
         
         let meterTexture = SKTexture(imageNamed: "fuelCharge")
-        meter = SKSpriteNode(texture: nil, color: UIColor.white, size: mask.size)
-        meter.color = .green
+        meter = SKSpriteNode(texture: meterTexture, color: UIColor.green, size: mask.size)
+        meter.run(SKAction.colorize(with: UIColor.green, colorBlendFactor: 1, duration: 0))
         meter.anchorPoint = CGPoint(x: 0, y: 0.5)
         meter.position.x = mask.position.x - mask.size.width/2
         
