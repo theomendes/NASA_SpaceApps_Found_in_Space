@@ -16,6 +16,8 @@ class Level: SKScene, SKPhysicsContactDelegate {
     var stars: [Star]?
     var boostBar: BoostBar
     var levelID: String
+    var labelNode = SKLabelNode(fontNamed: "Oxygen")
+    var titleNode = SKLabelNode(fontNamed: "Oxygen")
     
     var initialPosition: CGPoint
     var finalPoint: CGPoint?
@@ -29,6 +31,7 @@ class Level: SKScene, SKPhysicsContactDelegate {
     
     var removableNodes:[SKNode] = []
     let mySpacecrafts:[GarageSpacecraft] = [GarageSpacecraft(name: "mercury"), GarageSpacecraft(name: "apollo"), GarageSpacecraft(name: "shuttle"), GarageSpacecraft(name: "dreamchaser")]
+    let myTitles:[String] = ["The Atlas", "The Apollo", "The Endeavour", "The Dream Chaser"]
     var current = 0
     
     init(levelID: String, spaceship: Spaceship, stars: [Star], in view: UIView) {
@@ -89,6 +92,25 @@ class Level: SKScene, SKPhysicsContactDelegate {
         self.addChild(barBackground)
         
         displaySpaceshipChoice()
+        addChild(labelNode)
+        self.labelNode.preferredMaxLayoutWidth = 250
+        self.labelNode.fontSize = 15
+        self.labelNode.fontColor = UIColor.white
+        self.labelNode.position = CGPoint(x: 250, y: 0)
+        self.labelNode.numberOfLines = 0
+        self.labelNode.verticalAlignmentMode = .center
+        self.labelNode.horizontalAlignmentMode = .right
+        self.labelNode.zPosition = 5
+        
+        addChild(titleNode)
+        self.titleNode.preferredMaxLayoutWidth = 200
+        self.titleNode.fontSize = 20
+        self.titleNode.fontColor = UIColor.white
+        self.titleNode.position = CGPoint(x: 30, y: 120)
+        self.titleNode.numberOfLines = 0
+        self.titleNode.horizontalAlignmentMode = .left
+        self.titleNode.zPosition = 5
+        
     }
     
     convenience init?(from data: LevelData, in view: UIView) {
@@ -288,18 +310,18 @@ class Level: SKScene, SKPhysicsContactDelegate {
         
     }
     
-    
-    
     func displaySpaceshipChoice() {
-        
         let background = SKTexture(imageNamed: self.levelID)
         let backgroundNode = SKSpriteNode(texture: background)
         backgroundNode.zPosition = 4
+        let colorSprite = SKSpriteNode(texture: nil, color: .black, size: background.size())
+        colorSprite.zPosition = 5
+        addChild(colorSprite)
+        colorSprite.alpha = 0.5
         addChild(backgroundNode)
         self.removableNodes.append(backgroundNode)
-        
+        self.removableNodes.append(colorSprite)
         displaySpacecraft(current: 0)
-        
     }
     
     func displayGame() {
@@ -307,6 +329,8 @@ class Level: SKScene, SKPhysicsContactDelegate {
         for nodes in removableNodes {
             nodes.removeFromParent()
         }
+        self.labelNode.removeFromParent()
+        self.titleNode.removeFromParent()
     }
     
     func displaySpacecraft(current: Int) {
@@ -314,6 +338,9 @@ class Level: SKScene, SKPhysicsContactDelegate {
         addChild(spacecraft)
         self.removableNodes.append(spacecraft)
         spacecraft.zPosition = 5
+        let text = spacecraft.descriptionText
+        self.labelNode.text = text
+        self.titleNode.text = myTitles[current]
     }
     
     func swipeLeft() {
