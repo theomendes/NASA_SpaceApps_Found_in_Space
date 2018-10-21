@@ -28,13 +28,16 @@ class HomeViewController: UIViewController, HomeView {
         // Do something
         print("New Game touched")
         let navigationController = UINavigationController(rootViewController: GameViewController())
+        navigationController.modalTransitionStyle = .crossDissolve
         self.present(navigationController, animated: true, completion: nil)
     }
     
     func goToProfile(_ sender: UIButton!) {
         // do something
         print("Profile touched")
-        self.present(LoginViewController(), animated: true, completion: nil)
+        let rootViewController = LoginViewController()
+        rootViewController.modalTransitionStyle = .crossDissolve
+        self.present(rootViewController, animated: true, completion: nil)
     }
 
 }

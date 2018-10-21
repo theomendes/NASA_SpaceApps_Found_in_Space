@@ -12,6 +12,7 @@
 		1D2E5D94217B6A1E008DD793 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2E5D93217B6A1E008DD793 /* Constants.swift */; };
 		1D2E5D96217B6B22008DD793 /* Spaceship.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2E5D95217B6B22008DD793 /* Spaceship.swift */; };
 		1D2E5D9A217B7958008DD793 /* Reference.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1D2E5D99217B7958008DD793 /* Reference.sks */; };
+		31455FDB217CAF1B00454D0E /* UIButtonWithImageAndShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31455FDA217CAF1B00454D0E /* UIButtonWithImageAndShadow.swift */; };
 		3197FE9C217B7F6300011ED3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3197FE9B217B7F6300011ED3 /* User.swift */; };
 		3197FE9E217B84A100011ED3 /* GlobalScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3197FE9D217B84A100011ED3 /* GlobalScore.swift */; };
 		3197FEA1217B93E300011ED3 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3197FEA0217B93E300011ED3 /* HomeViewController.swift */; };
@@ -51,6 +52,7 @@
 		1D2E5D93217B6A1E008DD793 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		1D2E5D95217B6B22008DD793 /* Spaceship.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spaceship.swift; sourceTree = "<group>"; };
 		1D2E5D99217B7958008DD793 /* Reference.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Reference.sks; sourceTree = "<group>"; };
+		31455FDA217CAF1B00454D0E /* UIButtonWithImageAndShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonWithImageAndShadow.swift; sourceTree = "<group>"; };
 		3197FE9B217B7F6300011ED3 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		3197FE9D217B84A100011ED3 /* GlobalScore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalScore.swift; sourceTree = "<group>"; };
 		3197FEA0217B93E300011ED3 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 			isa = PBXGroup;
 			children = (
 				3197FEEA217BE2C400011ED3 /* UIButtonWithGradientAndShadow.swift */,
+				31455FDA217CAF1B00454D0E /* UIButtonWithImageAndShadow.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -397,6 +400,9 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-Found in Space/Pods-Found in Space-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/MDFInternationalization/MDFInternationalization.framework",
+				"${BUILT_PRODUCTS_DIR}/MDFTextAccessibility/MDFTextAccessibility.framework",
+				"${BUILT_PRODUCTS_DIR}/MaterialComponents/MaterialComponents.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -405,6 +411,9 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MDFInternationalization.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MDFTextAccessibility.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MaterialComponents.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -462,6 +471,7 @@
 				3197FEE8217BDBCC00011ED3 /* UIColor.swift in Sources */,
 				3197FEEB217BE2C400011ED3 /* UIButtonWithGradientAndShadow.swift in Sources */,
 				3197FEA5217B967C00011ED3 /* HomePresenter.swift in Sources */,
+				31455FDB217CAF1B00454D0E /* UIButtonWithImageAndShadow.swift in Sources */,
 				1D2E5D96217B6B22008DD793 /* Spaceship.swift in Sources */,
 				31EA400B217B4F32001C5464 /* AppDelegate.swift in Sources */,
 				3197FEA1217B93E300011ED3 /* HomeViewController.swift in Sources */,
