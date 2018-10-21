@@ -13,7 +13,7 @@ import MaterialComponents.MaterialTextFields_TypographyThemer
 
 @objc protocol LoginView {
     @objc func performLogin(_ sender: UIButton!)
-    @objc func dismissView(_ sender: UIButton!)
+    @objc func dismiss(_ sender:UIButton!)
     @objc func keyboardWillShow(_ notification: NSNotification)
     @objc func keyboardWillHide(_ notification: NSNotification)
     @objc func didTapTouch(_ sender: UIGestureRecognizer)
@@ -177,9 +177,9 @@ class LoginPresenter: LoginViewPresenter {
         LoginPresenter.passwordController.errorColor = UIColor(hex: "f8e71c")
         
         viewC.view.addSubview(backgroundImage)
-        viewC.view.addSubview(closeBtn)
         viewC.view.addSubview(scrollView)
         viewC.view.addSubview(formStackView)
+        viewC.view.addSubview(closeBtn)
         
         // Text Fields
         formStackView.addArrangedSubview(titleLabel)
@@ -272,7 +272,7 @@ class LoginPresenter: LoginViewPresenter {
     }
     func setupBtnActions() {
         loginBtn.addTarget(self, action: #selector(performLogin(_:)), for: .touchUpInside)
-        closeBtn.addTarget(self, action: #selector(dismissView(_:)), for: .touchUpInside)
+        closeBtn.addTarget(self, action: #selector(dismiss(_:)), for: .touchUpInside)
     }
     
     func setupActions() {
@@ -284,8 +284,8 @@ class LoginPresenter: LoginViewPresenter {
         view.performLogin(sender)
     }
     
-    func dismissView(_ sender: UIButton!) {
-        view.dismissView(sender)
+    func dismiss(_ sender: UIButton!) {
+        view.dismiss(sender)
     }
     
     func keyboardWillShow(_ notification: NSNotification) {

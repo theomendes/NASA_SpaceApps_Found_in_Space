@@ -52,10 +52,9 @@ class LoginViewController: UIViewController, LoginView {
         self.view.endEditing(true)
     }
     
-    func dismissView(_ sender: UIButton!) {
+    func dismiss(_ sender: UIButton!) {
         print("Oh No")
-        let root = UIApplication.shared.keyWindow?.rootViewController
-        root?.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
 
 }
