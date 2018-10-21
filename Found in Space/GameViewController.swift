@@ -42,7 +42,7 @@ class GameViewController: UIViewController {
         stars.append(star1)
         stars.append(star2)
         
-        let spaceship = Spaceship(spaceshipTextureName: "spaceship",
+        let spaceship = Spaceship(spaceshipTextureName: "shuttle",
                                   position: CGPoint(x: -265, y: -120),
                                   velocity: CGVector(dx: 10, dy: 50),
                                   radius: 5)

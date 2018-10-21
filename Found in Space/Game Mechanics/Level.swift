@@ -22,6 +22,8 @@ class Level: SKScene, SKPhysicsContactDelegate {
     var playing = true
     let loseDelay = 0.3
     
+    let boostBar: BoostBar
+    
     init(levelID: String, spaceship: Spaceship, stars: [Star], in view: UIView) {
         
         self.spaceship = spaceship
@@ -34,6 +36,8 @@ class Level: SKScene, SKPhysicsContactDelegate {
                             angularVelocity: 0)
         
         boundMax = view.bounds.width/2
+        
+        boostBar = BoostBar(position: CGPoint(x: -201, y: 151))
         
         super.init(size: view.frame.size)
         scaleMode = .aspectFill
@@ -52,7 +56,6 @@ class Level: SKScene, SKPhysicsContactDelegate {
         
         addChild(hubble)
         
-        
         for star in stars {
             addChild(star)
         }
@@ -65,6 +68,7 @@ class Level: SKScene, SKPhysicsContactDelegate {
         let zoomInAction = SKAction.scale(to: 0.9, duration: 0)
         cameraNode.run(zoomInAction)
         
+        //        self.addChild(boostBar)å
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -152,7 +156,7 @@ class Level: SKScene, SKPhysicsContactDelegate {
         if contact.bodyA.categoryBitMask == Constants.hubbleBodyCategory || contact.bodyB.categoryBitMask == Constants.hubbleBodyCategory {
             print("yay")
         }
-        
+            
         else if contact.bodyA.categoryBitMask > contact.bodyB.categoryBitMask {
             firstNode.physicsBody?.isDynamic = false
             explosion?.position = firstNode.position
@@ -182,7 +186,7 @@ class Level: SKScene, SKPhysicsContactDelegate {
             self.addChild(lostScreen)
             lostScreen.run(lostAction)
         })
-            
+        
         DispatchQueue.main.asyncAfter(deadline: .now() + loseDelay + 0.2, execute: {
             self.spaceship?.removeFromParent()
             self.spaceship?.removeAllActions()
@@ -210,44 +214,4 @@ class Level: SKScene, SKPhysicsContactDelegate {
         }
         
     }
-}
-
-func / (lhs: CGVector, rhs: CGFloat) -> CGVector {
-    return CGVector(dx: lhs.dx/rhs, dy: lhs.dy/rhs)
-}
-
-func / (lhs: CGPoint, rhs: CGFloat) -> CGPoint {
-    return CGPoint(x: lhs.x/rhs, y: lhs.y/rhs)
-}
-
-func * (lhs: CGVector, rhs: CGFloat) -> CGVector {
-    return CGVector(dx: lhs.dx*rhs, dy: lhs.dy*rhs)
-}
-
-func distance(_ pointA: CGPoint, _ pointB: CGPoint) -> CGFloat {
-    return sqrt((pointA.x-pointB.x)*(pointA.x-pointB.x) + (pointA.y-pointB.y)*(pointA.y-pointB.y))
-}
-
-func unitVector(_ pointA: CGPoint, _ pointB: CGPoint) -> CGVector {
-    return CGVector(dx: pointB.x - pointA.x, dy: pointB.y - pointA.y)/distance(pointA, pointB)
-}
-
-//swiftlint:disable:next identifier_name
-func translade(point: CGPoint, by: CGVector) -> CGPoint {
-    return CGPoint(x: point.x + by.dx, y: point.y + by.dy)
-}
-
-extension CGVector {
-    static func new(pointA: CGPoint, pointB: CGPoint) -> CGVector {
-        return CGVector(dx: pointB.x - pointA.x, dy: pointB.y - pointA.y)
-    }
-    
-    func norm() -> CGFloat {
-        return sqrt((self.dx*self.dx)+(self.dy*self.dy))
-    }
-    
-    func normalized() -> CGVector {
-        return self / self.norm()
-    }
-
 }
