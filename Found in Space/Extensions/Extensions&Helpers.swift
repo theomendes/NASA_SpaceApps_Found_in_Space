@@ -8,12 +8,20 @@
 
 import SpriteKit
 
-func +(rhs: CGPoint, lhs: CGPoint) -> CGPoint {
+func + (rhs: CGPoint, lhs: CGPoint) -> CGPoint {
     return CGPoint(x: rhs.x+lhs.x, y: rhs.y+lhs.y)
+}
+
+func - (lhs: CGPoint, rhs: CGSize) -> CGPoint {
+    return CGPoint(x: lhs.x-rhs.width, y: lhs.y-rhs.height)
 }
 
 func / (lhs: CGVector, rhs: CGFloat) -> CGVector {
     return CGVector(dx: lhs.dx/rhs, dy: lhs.dy/rhs)
+}
+
+func / (lhs: CGSize, rhs: CGFloat) -> CGSize {
+    return CGSize(width: lhs.width/rhs, height: lhs.height/rhs)
 }
 
 func / (lhs: CGPoint, rhs: CGFloat) -> CGPoint {

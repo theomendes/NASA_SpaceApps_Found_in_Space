@@ -27,7 +27,6 @@ class Star: SKSpriteNode {
         diameter: CGFloat = 3,
         angularVelocity: CGFloat = 0) {
         
-        
         self.radius = radius
         self.strength = strength
         

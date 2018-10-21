@@ -8,33 +8,71 @@
 
 import SpriteKit
 
-class BoostBar: SKSpriteNode {
+class BoostBar: SKCropNode {
     private var meter: SKSpriteNode
+    private var mask: SKSpriteNode
+    private var boostMax = 3
+    private var actualBoost = 0
+    var boostable = true
     
     init(position: CGPoint) {
-//        let texture = SKTexture(imageNamed: <#T##String#>)
-        meter = SKSpriteNode(texture: nil, color: UIColor.white, size: CGSize(width: 403.063, height: 124.912))
-        super.init(texture: nil, color: .clear, size: CGSize(width: 0, height: 0))
+        let maskTexture = SKTexture(imageNamed: "fuelMask")
+        mask = SKSpriteNode(texture: maskTexture, color: UIColor.white, size: maskTexture.size())
+        mask.xScale = 0.3
+        mask.yScale = 0.3
         
-        self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+        let meterTexture = SKTexture(imageNamed: "fuelCharge")
+        meter = SKSpriteNode(texture: nil, color: UIColor.white, size: mask.size)
+        meter.color = .green
+        meter.anchorPoint = CGPoint(x: 0, y: 0.5)
+        meter.position.x = mask.position.x - mask.size.width/2
         
-        self.zPosition = 1
-        meter.zPosition = 2
+        super.init()
         
         self.position = position
-        meter.position = CGPoint(x: absolutePosition(of: self).x + 50-meter.frame.size.width/2, y: absolutePosition(of: self).y)
         
-        let maskbar = SKCropNode()
-        maskbar.maskNode = SKSpriteNode(fileNamed: "fuelMask")
-        maskbar.addChild(meter)
-        
-        self.addChild(maskbar)
-        
+        self.maskNode = mask
+        self.addChild(meter)
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    func animateDecrease() -> SKAction {
+        let decrease = SKAction.scaleX(to: CGFloat(boostMax-actualBoost) / CGFloat(boostMax), duration: 0.5)
+        
+        let color = UIColor(red: CGFloat(actualBoost)/CGFloat(boostMax),
+                            green: 1-CGFloat(actualBoost)/CGFloat(boostMax),
+                            blue: 0,
+                            alpha: 1)
+        let animatecolor = SKAction.colorize(with: color, colorBlendFactor: 1, duration: 0.3)
+        
+        let animate = SKAction.group([decrease, animatecolor])
+        return animate
+    }
+    
+    func decreaseEnergy() {
+        if actualBoost < boostMax {
+            actualBoost += 1
+            self.meter.run(animateDecrease())
+        } else {
+            boostable = false
+        }
+    }
+    
+    func refill() {
+        self.actualBoost = 0
+        self.boostable = true
+        let action = SKAction.group([SKAction.scaleX(to: 1, duration: 0.2),
+                                        SKAction.colorize(with: UIColor.green,
+                                                          colorBlendFactor: 1,
+                                                          duration: 0.2)])
+        let sequence = SKAction.sequence([action, SKAction.run { self.meter.color = .green }])
+    
+        self.meter.run(sequence)
+    }
+    
 }
 
 extension SKNode {

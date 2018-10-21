@@ -37,7 +37,7 @@ class Level: SKScene, SKPhysicsContactDelegate {
         
         boundMax = view.bounds.width/2
         
-        boostBar = BoostBar(position: CGPoint(x: -201, y: 151))
+        boostBar = BoostBar(position: CGPoint(x: -150, y: 130))
         
         super.init(size: view.frame.size)
         scaleMode = .aspectFill
@@ -68,7 +68,16 @@ class Level: SKScene, SKPhysicsContactDelegate {
         let zoomInAction = SKAction.scale(to: 0.9, duration: 0)
         cameraNode.run(zoomInAction)
         
-        //        self.addChild(boostBar)å
+        let backgroundTexture = SKTexture(imageNamed: "fuelBar")
+        let barBackground = SKSpriteNode(texture: backgroundTexture,
+                                         color: UIColor.white,
+                                         size: backgroundTexture.size())
+        barBackground.xScale = 0.3
+        barBackground.yScale = 0.3
+        barBackground.position = boostBar.position
+        barBackground.zPosition = boostBar.zPosition - 1
+        self.addChild(boostBar)
+        self.addChild(barBackground)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -112,10 +121,11 @@ class Level: SKScene, SKPhysicsContactDelegate {
             if !hasLaunched && playing {
                 self.finalPoint = location
                 drawLine(to: location)
-            } else {
+            } else if boostBar.boostable {
                 var direction = CGVector.new(pointA: (self.spaceship?.position)!, pointB: location)
                 direction = direction.normalized()
                 self.spaceship?.physicsBody?.applyImpulse(direction / 3)
+                boostBar.decreaseEnergy()
             }
         }
     }
@@ -155,9 +165,7 @@ class Level: SKScene, SKPhysicsContactDelegate {
         
         if contact.bodyA.categoryBitMask == Constants.hubbleBodyCategory || contact.bodyB.categoryBitMask == Constants.hubbleBodyCategory {
             print("yay")
-        }
-            
-        else if contact.bodyA.categoryBitMask > contact.bodyB.categoryBitMask {
+        } else if contact.bodyA.categoryBitMask > contact.bodyB.categoryBitMask {
             firstNode.physicsBody?.isDynamic = false
             explosion?.position = firstNode.position
             addChild(explosion!)
@@ -185,6 +193,7 @@ class Level: SKScene, SKPhysicsContactDelegate {
         DispatchQueue.main.asyncAfter(deadline: .now() + loseDelay, execute: {
             self.addChild(lostScreen)
             lostScreen.run(lostAction)
+            self.boostBar.refill()
         })
         
         DispatchQueue.main.asyncAfter(deadline: .now() + loseDelay + 0.2, execute: {
