@@ -10,8 +10,9 @@
 		155F4928217BCF5A00A890AC /* Hubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155F4927217BCF5A00A890AC /* Hubble.swift */; };
 		155F492A217BEBFF00A890AC /* Explosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = 155F4929217BEBFF00A890AC /* Explosion.sks */; };
 		155F492C217BEEAF00A890AC /* GarageSpacecraft.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155F492B217BEEAF00A890AC /* GarageSpacecraft.swift */; };
-		155F492E217BF1D900A890AC /* Description.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155F492D217BF1D900A890AC /* Description.swift */; };
 		155F4932217C7D7E00A890AC /* Explosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = 155F4931217C7D7E00A890AC /* Explosion.sks */; };
+		155F4934217CABCD00A890AC /* LeftArrow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155F4933217CABCD00A890AC /* LeftArrow.swift */; };
+		155F4936217CAC4A00A890AC /* RightArrow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155F4935217CAC4A00A890AC /* RightArrow.swift */; };
 		1D2E5D90217B68C8008DD793 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2E5D8F217B68C8008DD793 /* Level.swift */; };
 		1D2E5D92217B69C4008DD793 /* Star.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2E5D91217B69C3008DD793 /* Star.swift */; };
 		1D2E5D94217B6A1E008DD793 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2E5D93217B6A1E008DD793 /* Constants.swift */; };
@@ -59,8 +60,9 @@
 		155F4927217BCF5A00A890AC /* Hubble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hubble.swift; sourceTree = "<group>"; };
 		155F4929217BEBFF00A890AC /* Explosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Explosion.sks; sourceTree = "<group>"; };
 		155F492B217BEEAF00A890AC /* GarageSpacecraft.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GarageSpacecraft.swift; sourceTree = "<group>"; };
-		155F492D217BF1D900A890AC /* Description.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Description.swift; sourceTree = "<group>"; };
 		155F4931217C7D7E00A890AC /* Explosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Explosion.sks; sourceTree = "<group>"; };
+		155F4933217CABCD00A890AC /* LeftArrow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftArrow.swift; sourceTree = "<group>"; };
+		155F4935217CAC4A00A890AC /* RightArrow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightArrow.swift; sourceTree = "<group>"; };
 		1D2E5D8F217B68C8008DD793 /* Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
 		1D2E5D91217B69C3008DD793 /* Star.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Star.swift; sourceTree = "<group>"; };
 		1D2E5D93217B6A1E008DD793 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -135,7 +137,8 @@
 				155F4929217BEBFF00A890AC /* Explosion.sks */,
 				1D2E5D99217B7958008DD793 /* Reference.sks */,
 				155F492B217BEEAF00A890AC /* GarageSpacecraft.swift */,
-				155F492D217BF1D900A890AC /* Description.swift */,
+				155F4933217CABCD00A890AC /* LeftArrow.swift */,
+				155F4935217CAC4A00A890AC /* RightArrow.swift */,
 			);
 			path = "Game Mechanics";
 			sourceTree = "<group>";
@@ -488,9 +491,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				155F4934217CABCD00A890AC /* LeftArrow.swift in Sources */,
 				3197FEDA217BBE5500011ED3 /* LoginPresenter.swift in Sources */,
 				1D48D60F217BF9750003AAE2 /* BoostBar.swift in Sources */,
 				1D2E5D94217B6A1E008DD793 /* Constants.swift in Sources */,
+				155F4936217CAC4A00A890AC /* RightArrow.swift in Sources */,
 				1D2E5D90217B68C8008DD793 /* Level.swift in Sources */,
 				31EA400D217B4F32001C5464 /* GameViewController.swift in Sources */,
 				1D48D61A217C143E0003AAE2 /* DaoJson.swift in Sources */,
@@ -509,7 +514,6 @@
 				155F492C217BEEAF00A890AC /* GarageSpacecraft.swift in Sources */,
 				3197FE9C217B7F6300011ED3 /* User.swift in Sources */,
 				1D2E5D92217B69C4008DD793 /* Star.swift in Sources */,
-				155F492E217BF1D900A890AC /* Description.swift in Sources */,
 				3197FED8217BBDCE00011ED3 /* LoginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

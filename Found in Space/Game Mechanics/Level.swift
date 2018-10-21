@@ -14,9 +14,10 @@ class Level: SKScene, SKPhysicsContactDelegate {
     
     var spaceship: Spaceship?
     var stars: [Star]?
+    var hubble: Hubble?
     var boostBar: BoostBar
     var levelID: String
-    var labelNode = SKLabelNode(fontNamed: "Oxygen")
+    var labelNode = SKLabelNode(fontNamed: "Oxygen-Light")
     var titleNode = SKLabelNode(fontNamed: "Oxygen")
     
     var initialPosition: CGPoint
@@ -45,12 +46,19 @@ class Level: SKScene, SKPhysicsContactDelegate {
                             position: CGPoint(x: 270, y: 0),
                             strength: 0.001,
                             angularVelocity: 0)
+        self.hubble = hubble
+        self.spaceship?.alpha = 0
+        for star in stars {
+            star.alpha = 0
+        }
+        self.hubble?.alpha = 0
         
         boundMax = view.bounds.width/2
         
         self.boostBar = BoostBar(position: CGPoint(x: -150, y: 130))
-        
+        self.boostBar.alpha = 0
         super.init(size: view.frame.size)
+        self.backgroundColor = .black
         scaleMode = .aspectFill
         anchorPoint = CGPoint(x: 0.5, y: 0.5)
         
@@ -65,7 +73,6 @@ class Level: SKScene, SKPhysicsContactDelegate {
         addChild(background)
         
         addChild(spaceship)
-        
         addChild(hubble)
         
         for star in stars {
@@ -96,17 +103,17 @@ class Level: SKScene, SKPhysicsContactDelegate {
         self.labelNode.preferredMaxLayoutWidth = 250
         self.labelNode.fontSize = 15
         self.labelNode.fontColor = UIColor.white
-        self.labelNode.position = CGPoint(x: 250, y: 0)
+        self.labelNode.position = CGPoint(x: 30, y: 85)
         self.labelNode.numberOfLines = 0
-        self.labelNode.verticalAlignmentMode = .center
-        self.labelNode.horizontalAlignmentMode = .right
+        self.labelNode.verticalAlignmentMode = .top
+        self.labelNode.horizontalAlignmentMode = .left
         self.labelNode.zPosition = 5
         
         addChild(titleNode)
         self.titleNode.preferredMaxLayoutWidth = 200
         self.titleNode.fontSize = 20
         self.titleNode.fontColor = UIColor.white
-        self.titleNode.position = CGPoint(x: 30, y: 120)
+        self.titleNode.position = CGPoint(x: 30, y: 105)
         self.titleNode.numberOfLines = 0
         self.titleNode.horizontalAlignmentMode = .left
         self.titleNode.zPosition = 5
@@ -179,7 +186,7 @@ class Level: SKScene, SKPhysicsContactDelegate {
             let touchedNode = self.atPoint(location)
             
             if let spacecraft = touchedNode as? GarageSpacecraft {
-                hasChosen = true
+//                hasChosen = true
                 displayGame()
             }
             if hasChosen {
@@ -196,10 +203,10 @@ class Level: SKScene, SKPhysicsContactDelegate {
             
             else {
                 
-                if location.x > 0 {
+                if let left = touchedNode as? LeftArrow{
                     swipeLeft()
                 }
-                else {
+                else if let right = touchedNode as? RightArrow{
                     swipeRight()
                 }
             }
@@ -290,9 +297,6 @@ class Level: SKScene, SKPhysicsContactDelegate {
     }
     
     override func update(_ currentTime: TimeInterval) {
-        if hasChosen {
-            displayGame()
-        }
         
         if distance(CGPoint.zero, (spaceship?.position)!) > boundMax {
             reset()
@@ -321,16 +325,58 @@ class Level: SKScene, SKPhysicsContactDelegate {
         addChild(backgroundNode)
         self.removableNodes.append(backgroundNode)
         self.removableNodes.append(colorSprite)
+        let right = RightArrow()
+        let left = LeftArrow()
+        addChild(right)
+        addChild(left)
+        let title = SKLabelNode(fontNamed: "Oxygen")
+        title.position = CGPoint(x: -130, y: 130)
+        title.text = "Choose your spacecraft"
+        title.fontSize = 20
+        title.fontColor = UIColor.white
+        addChild(title)
+        title.zPosition = 5
+        self.removableNodes.append(title)
+        self.removableNodes.append(right)
+        self.removableNodes.append(left)
+        let label = SKLabelNode(fontNamed: "Oxygen")
+        label.position = CGPoint(x: 0, y: -145)
+        label.text = "Touch the spacecraft to select"
+        label.fontSize = 13
+        label.fontColor = UIColor.white
+        addChild(label)
+        label.zPosition = 5
+        self.removableNodes.append(label)
         displaySpacecraft(current: 0)
     }
     
     func displayGame() {
-        self.spaceship?.texture = mySpacecrafts[current].texture
-        for nodes in removableNodes {
-            nodes.removeFromParent()
+        let out = SKAction.fadeOut(withDuration: 0.5)
+        
+        let back = SKAction.fadeIn(withDuration: 0.5)
+        
+        let remove = SKAction.run({
+            for nodes in self.removableNodes {
+                nodes.removeFromParent()
+            }
+            self.labelNode.removeFromParent()
+            self.titleNode.removeFromParent()
+            self.spaceship?.texture = self.mySpacecrafts[self.current].texture
+        })
+        
+        let show = SKAction.run {
+            self.spaceship?.alpha = 1
+            for star in self.stars! {
+                star.alpha = 1
+            }
+            self.hubble?.alpha = 1
+            self.boostBar.alpha = 1
+            self.hasChosen = true
+
         }
-        self.labelNode.removeFromParent()
-        self.titleNode.removeFromParent()
+        let sequence = SKAction.sequence([out, remove, show, back])
+        self.run(sequence)
+        
     }
     
     func displaySpacecraft(current: Int) {
@@ -343,7 +389,7 @@ class Level: SKScene, SKPhysicsContactDelegate {
         self.titleNode.text = myTitles[current]
     }
     
-    func swipeLeft() {
+    func swipeRight() {
      
         if self.current == 3 {
             self.current = 0
@@ -356,7 +402,7 @@ class Level: SKScene, SKPhysicsContactDelegate {
         
     }
     
-    func swipeRight() {
+    func swipeLeft() {
         if self.current == 0 {
             self.current = 3
         } else {
