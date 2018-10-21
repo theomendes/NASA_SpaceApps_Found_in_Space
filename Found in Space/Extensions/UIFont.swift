@@ -8,7 +8,13 @@
 import UIKit
 
 extension UIFont {
+    class var homeBtn30: UIFont {
+        return UIFont(name: "Oxygen-Bold", size: 30.0)!
+    }
     class var homeBtn20: UIFont {
         return UIFont(name: "Oxygen-Bold", size: 20.0)!
+    }
+    class var homeBtn12: UIFont {
+        return UIFont(name: "Oxygen-Regular", size: 12.0)!
     }
 }
