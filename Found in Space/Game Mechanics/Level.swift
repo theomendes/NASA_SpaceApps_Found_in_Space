@@ -47,6 +47,8 @@ class Level: SKScene, SKPhysicsContactDelegate {
         return startTime == nil
     }
     
+    var theView:UIView
+    
     var controller: GameViewController? //criar protocolo
         
     init(levelID: String, spaceship: Spaceship, stars: [Star], in view: UIView) {
@@ -54,6 +56,8 @@ class Level: SKScene, SKPhysicsContactDelegate {
         self.stars = stars
         self.initialPosition = spaceship.position
         self.levelID = levelID
+        
+        self.theView = view
         
         let hubble = Hubble(radius: 50,
                             position: CGPoint(x: 270, y: 0),
@@ -282,7 +286,14 @@ class Level: SKScene, SKPhysicsContactDelegate {
             if score > highestScore {
                 highestScore = score
             }
-            print("yay")
+            let victory = SKAction.run {
+                let newScene = Victory(levelWon: 1, score: 3456, in: self.theView)
+                newScene.scaleMode = .aspectFill
+                self.scene?.view?.presentScene(newScene, transition: SKTransition.fade(withDuration: 1))
+            }
+            run(victory)
+            
+            
         } else if contact.bodyA.categoryBitMask > contact.bodyB.categoryBitMask {
             firstNode.physicsBody?.isDynamic = false
             explosion?.position = firstNode.position
