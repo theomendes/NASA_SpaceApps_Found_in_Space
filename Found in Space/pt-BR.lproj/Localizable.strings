@@ -18,3 +18,8 @@
 "login-email-placeholder" = "Email";
 "login-password-placeholder" = "Senha";
 "login-login-placeholder" = "Entrar";
+//==============================
+//      PAUSE SCREEN
+//==============================
+"resume-game" = "Continuar";
+"exit-game" = "Sair";

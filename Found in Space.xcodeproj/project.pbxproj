@@ -19,6 +19,7 @@
 		1D48D619217C143E0003AAE2 /* LevelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D48D616217C143E0003AAE2 /* LevelData.swift */; };
 		1D48D61A217C143E0003AAE2 /* DaoJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D48D617217C143E0003AAE2 /* DaoJson.swift */; };
 		1D48D61B217C143E0003AAE2 /* Levels.json in Resources */ = {isa = PBXBuildFile; fileRef = 1D48D618217C143E0003AAE2 /* Levels.json */; };
+		1D48D61D217C9F900003AAE2 /* PauseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D48D61C217C9F900003AAE2 /* PauseViewController.swift */; };
 		3197FE9C217B7F6300011ED3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3197FE9B217B7F6300011ED3 /* User.swift */; };
 		3197FE9E217B84A100011ED3 /* GlobalScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3197FE9D217B84A100011ED3 /* GlobalScore.swift */; };
 		3197FEA1217B93E300011ED3 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3197FEA0217B93E300011ED3 /* HomeViewController.swift */; };
@@ -65,6 +66,7 @@
 		1D48D616217C143E0003AAE2 /* LevelData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelData.swift; sourceTree = "<group>"; };
 		1D48D617217C143E0003AAE2 /* DaoJson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DaoJson.swift; sourceTree = "<group>"; };
 		1D48D618217C143E0003AAE2 /* Levels.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Levels.json; sourceTree = "<group>"; };
+		1D48D61C217C9F900003AAE2 /* PauseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PauseViewController.swift; sourceTree = "<group>"; };
 		3197FE9B217B7F6300011ED3 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		3197FE9D217B84A100011ED3 /* GlobalScore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalScore.swift; sourceTree = "<group>"; };
 		3197FEA0217B93E300011ED3 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -246,6 +248,7 @@
 				1D48D610217BF97E0003AAE2 /* GameUI */,
 				1D2E5D8E217B687A008DD793 /* Game Mechanics */,
 				31EA400A217B4F32001C5464 /* AppDelegate.swift */,
+				1D48D61C217C9F900003AAE2 /* PauseViewController.swift */,
 				31EA400C217B4F32001C5464 /* GameViewController.swift */,
 				31EA4011217B4F33001C5464 /* Assets.xcassets */,
 				31EA4016217B4F33001C5464 /* Info.plist */,
@@ -489,6 +492,7 @@
 				3197FEA5217B967C00011ED3 /* HomePresenter.swift in Sources */,
 				1D2E5D96217B6B22008DD793 /* Spaceship.swift in Sources */,
 				1D48D612217BF9A00003AAE2 /* Extensions&Helpers.swift in Sources */,
+				1D48D61D217C9F900003AAE2 /* PauseViewController.swift in Sources */,
 				31EA400B217B4F32001C5464 /* AppDelegate.swift in Sources */,
 				155F4928217BCF5A00A890AC /* Hubble.swift in Sources */,
 				1D48D619217C143E0003AAE2 /* LevelData.swift in Sources */,

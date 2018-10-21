@@ -22,7 +22,7 @@
             }
         ],
         "spaceship": {
-            "index": 1,
+            "index": 0,
             "position": [-265, -120],
             "radius": 5
         }
@@ -50,7 +50,7 @@
             }
         ],
         "spaceship": {
-            "index": 3,
+            "index": 0,
             "position": [-265, -120],
             "radius": 5
         }

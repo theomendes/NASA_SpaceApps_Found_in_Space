@@ -24,6 +24,13 @@ class Level: SKScene, SKPhysicsContactDelegate {
     
     let boostBar: BoostBar
     
+    var timer: Timer!
+    var startTime: DispatchTime?
+    var elapsedTime: TimeInterval = 0
+    var isGamePaused: Bool {
+        return startTime == nil
+    }
+        
     init(levelID: String, spaceship: Spaceship, stars: [Star], in view: UIView) {
         
         self.spaceship = spaceship
@@ -37,7 +44,7 @@ class Level: SKScene, SKPhysicsContactDelegate {
         
         boundMax = view.bounds.width/2
         
-        boostBar = BoostBar(position: CGPoint(x: -150, y: 130))
+        boostBar = BoostBar(position: CGPoint(x: -131, y: view.bounds.size.height/2 - 59))
         
         super.init(size: view.frame.size)
         scaleMode = .aspectFill
@@ -229,6 +236,38 @@ class Level: SKScene, SKPhysicsContactDelegate {
             self.addChild(self.spaceship!)
             self.playing = true
         })
+    }
+    
+    func startGameTimer() {
+        guard isGamePaused else { return }
+        
+        startTime = DispatchTime.now()
+    }
+    
+    func pauseGameTimer() {
+        guard !isGamePaused else { return }
+        
+        let endTime = DispatchTime.now()
+        let elapsedNano: Double = Double(endTime.uptimeNanoseconds - startTime!.uptimeNanoseconds)
+        self.elapsedTime += elapsedNano/1_000_000_000
+        
+        startTime = nil
+    }
+    
+    func pause() -> Bool {
+        guard !isGamePaused else { return false }
+        
+        self.isPaused = true
+        pauseGameTimer()
+        
+        startTime = nil
+        
+        return true
+    }
+    
+    func play() {
+        self.isPaused = false
+        startGameTimer()
     }
     
     override func update(_ currentTime: TimeInterval) {

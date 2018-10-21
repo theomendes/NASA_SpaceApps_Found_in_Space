@@ -18,3 +18,9 @@
 "login-email-placeholder" = "E-mail";
 "login-password-placeholder" = "Password";
 "login-login-placeholder" = "Login";
+
+//==============================
+//      PAUSE SCREEN
+//==============================
+"resume-game" = "Resume";
+"exit-game" = "Exit";
