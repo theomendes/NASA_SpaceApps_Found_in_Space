@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/theghostcitizen/NASA_SpaceApps.svg?branch=master)](https://travis-ci.com/theghostcitizen/NASA_SpaceApps)
+[![Build Status](https://travis-ci.com/theghostcitizen/NASA_SpaceApps_Found_in_Space.svg?branch=master)](https://travis-ci.com/theghostcitizen/NASA_SpaceApps_Found_in_Space)
 
 <p align="center">
 <a href="https://2018.spaceappschallenge.org/">
