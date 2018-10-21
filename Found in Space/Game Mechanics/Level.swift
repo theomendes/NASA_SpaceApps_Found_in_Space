@@ -9,6 +9,9 @@
 import SpriteKit
 
 class Level: SKScene, SKPhysicsContactDelegate {
+    
+    var hasChosen = false
+    
     var spaceship: Spaceship?
     var stars: [Star]?
     
@@ -33,6 +36,8 @@ class Level: SKScene, SKPhysicsContactDelegate {
                             strength: 0.001,
                             angularVelocity: 0)
         
+        
+        
         boundMax = view.bounds.width/2
         
         super.init(size: view.frame.size)
@@ -51,6 +56,12 @@ class Level: SKScene, SKPhysicsContactDelegate {
         addChild(spaceship)
         
         addChild(hubble)
+        
+        
+        //testeGarage
+        
+        let garage = GarageSpacecraft(name: "mercury")
+        addChild(garage)
         
         
         for star in stars {
@@ -104,6 +115,8 @@ class Level: SKScene, SKPhysicsContactDelegate {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch in touches {
+            
+            
             let location = touch.location(in: self)
             if !hasLaunched && playing {
                 self.finalPoint = location
@@ -210,7 +223,20 @@ class Level: SKScene, SKPhysicsContactDelegate {
         }
         
     }
+    
+    
+    
+    func displaySpaceshipChoice() {
+        
+    }
+    
+    func displayGame() {
+        
+    }
 }
+
+
+//FUNCOES AUXILIARES
 
 func / (lhs: CGVector, rhs: CGFloat) -> CGVector {
     return CGVector(dx: lhs.dx/rhs, dy: lhs.dy/rhs)

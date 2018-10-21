@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		155F4928217BCF5A00A890AC /* Hubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155F4927217BCF5A00A890AC /* Hubble.swift */; };
+		155F492A217BEBFF00A890AC /* Explosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = 155F4929217BEBFF00A890AC /* Explosion.sks */; };
+		155F492C217BEEAF00A890AC /* GarageSpacecraft.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155F492B217BEEAF00A890AC /* GarageSpacecraft.swift */; };
+		155F492E217BF1D900A890AC /* Description.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155F492D217BF1D900A890AC /* Description.swift */; };
 		1D2E5D90217B68C8008DD793 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2E5D8F217B68C8008DD793 /* Level.swift */; };
 		1D2E5D92217B69C4008DD793 /* Star.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2E5D91217B69C3008DD793 /* Star.swift */; };
 		1D2E5D94217B6A1E008DD793 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2E5D93217B6A1E008DD793 /* Constants.swift */; };
@@ -48,6 +51,9 @@
 
 /* Begin PBXFileReference section */
 		155F4927217BCF5A00A890AC /* Hubble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hubble.swift; sourceTree = "<group>"; };
+		155F4929217BEBFF00A890AC /* Explosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Explosion.sks; sourceTree = "<group>"; };
+		155F492B217BEEAF00A890AC /* GarageSpacecraft.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GarageSpacecraft.swift; sourceTree = "<group>"; };
+		155F492D217BF1D900A890AC /* Description.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Description.swift; sourceTree = "<group>"; };
 		1D2E5D8F217B68C8008DD793 /* Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
 		1D2E5D91217B69C3008DD793 /* Star.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Star.swift; sourceTree = "<group>"; };
 		1D2E5D93217B6A1E008DD793 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -120,7 +126,10 @@
 				155F4927217BCF5A00A890AC /* Hubble.swift */,
 				1D2E5D91217B69C3008DD793 /* Star.swift */,
 				1D2E5D93217B6A1E008DD793 /* Constants.swift */,
+				155F4929217BEBFF00A890AC /* Explosion.sks */,
 				1D2E5D99217B7958008DD793 /* Reference.sks */,
+				155F492B217BEEAF00A890AC /* GarageSpacecraft.swift */,
+				155F492D217BF1D900A890AC /* Description.swift */,
 			);
 			path = "Game Mechanics";
 			sourceTree = "<group>";
@@ -357,6 +366,7 @@
 				3197FED3217BBAD000011ED3 /* Localizable.strings in Resources */,
 				3197FEE2217BD15E00011ED3 /* Oxygen-Bold.ttf in Resources */,
 				3197FECA217BB23E00011ED3 /* Launch Screen.storyboard in Resources */,
+				155F492A217BEBFF00A890AC /* Explosion.sks in Resources */,
 				3197FEE4217BD15E00011ED3 /* Oxygen-Regular.ttf in Resources */,
 				1D2E5D9A217B7958008DD793 /* Reference.sks in Resources */,
 			);
@@ -472,8 +482,10 @@
 				3197FE9E217B84A100011ED3 /* GlobalScore.swift in Sources */,
 				3197FEDD217BCD5F00011ED3 /* UIFont.swift in Sources */,
 				3197FEE6217BDB2900011ED3 /* UIView.swift in Sources */,
+				155F492C217BEEAF00A890AC /* GarageSpacecraft.swift in Sources */,
 				3197FE9C217B7F6300011ED3 /* User.swift in Sources */,
 				1D2E5D92217B69C4008DD793 /* Star.swift in Sources */,
+				155F492E217BF1D900A890AC /* Description.swift in Sources */,
 				3197FED8217BBDCE00011ED3 /* LoginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
