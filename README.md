@@ -6,7 +6,7 @@
   </a>
 </p>
 <h1 align="center">Found in Space</h1>
-<h4 align="center">NASA Space Apps Challenge 2018 Rio de Janeiro</h4>
+<h4 align="center">NASA Space Apps Challenge 2018 | Rio de Janeiro</h4>
 "Found in Space" is a physics-based game where you navigate through the gravitational fields of stars photographed by the Hubble Space Telescope. Learn about physics, NASA’s history and future, and the space phenomena photographed by Hubble along the way.
 
 #### Project Video
