@@ -21,7 +21,9 @@
 		1D48D61A217C143E0003AAE2 /* DaoJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D48D617217C143E0003AAE2 /* DaoJson.swift */; };
 		1D48D61B217C143E0003AAE2 /* Levels.json in Resources */ = {isa = PBXBuildFile; fileRef = 1D48D618217C143E0003AAE2 /* Levels.json */; };
 		1D48D61D217C9F900003AAE2 /* PauseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D48D61C217C9F900003AAE2 /* PauseViewController.swift */; };
+		1DCB3863217CE48300B4E5C3 /* Boost.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1DCB3862217CE48300B4E5C3 /* Boost.sks */; };
 		1DFA9F6F217CC79C00D3CFA5 /* GarageSpacecraft.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DFA9F6E217CC79C00D3CFA5 /* GarageSpacecraft.swift */; };
+		1DFA9F73217CD7DC00D3CFA5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1DFA9F71217CD7DC00D3CFA5 /* Assets.xcassets */; };
 		31455FDB217CAF1B00454D0E /* UIButtonWithImageAndShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31455FDA217CAF1B00454D0E /* UIButtonWithImageAndShadow.swift */; };
 		31455FDD217CBDB800454D0E /* Explosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = 31455FDC217CBDB800454D0E /* Explosion.sks */; };
 		3197FE9C217B7F6300011ED3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3197FE9B217B7F6300011ED3 /* User.swift */; };
@@ -72,7 +74,9 @@
 		1D48D617217C143E0003AAE2 /* DaoJson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DaoJson.swift; sourceTree = "<group>"; };
 		1D48D618217C143E0003AAE2 /* Levels.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Levels.json; sourceTree = "<group>"; };
 		1D48D61C217C9F900003AAE2 /* PauseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PauseViewController.swift; sourceTree = "<group>"; };
+		1DCB3862217CE48300B4E5C3 /* Boost.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Boost.sks; sourceTree = "<group>"; };
 		1DFA9F6E217CC79C00D3CFA5 /* GarageSpacecraft.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GarageSpacecraft.swift; sourceTree = "<group>"; };
+		1DFA9F71217CD7DC00D3CFA5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		31455FDA217CAF1B00454D0E /* UIButtonWithImageAndShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonWithImageAndShadow.swift; sourceTree = "<group>"; };
 		31455FDC217CBDB800454D0E /* Explosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Explosion.sks; sourceTree = "<group>"; };
 		3197FE9B217B7F6300011ED3 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -135,11 +139,13 @@
 				1D2E5D95217B6B22008DD793 /* Spaceship.swift */,
 				155F4927217BCF5A00A890AC /* Hubble.swift */,
 				31455FDC217CBDB800454D0E /* Explosion.sks */,
+				1DCB3862217CE48300B4E5C3 /* Boost.sks */,
 				1D2E5D91217B69C3008DD793 /* Star.swift */,
 				1D2E5D93217B6A1E008DD793 /* Constants.swift */,
 				1D2E5D99217B7958008DD793 /* Reference.sks */,
 				155F4933217CABCD00A890AC /* LeftArrow.swift */,
 				155F4935217CAC4A00A890AC /* RightArrow.swift */,
+				1DFA9F71217CD7DC00D3CFA5 /* Assets.xcassets */,
 			);
 			path = "Game Mechanics";
 			sourceTree = "<group>";
@@ -387,6 +393,8 @@
 			files = (
 				31EA4012217B4F33001C5464 /* Assets.xcassets in Resources */,
 				3197FEE3217BD15E00011ED3 /* Oxygen-Light.ttf in Resources */,
+				1DCB3863217CE48300B4E5C3 /* Boost.sks in Resources */,
+				1DFA9F73217CD7DC00D3CFA5 /* Assets.xcassets in Resources */,
 				3197FED3217BBAD000011ED3 /* Localizable.strings in Resources */,
 				3197FEE2217BD15E00011ED3 /* Oxygen-Bold.ttf in Resources */,
 				3197FECA217BB23E00011ED3 /* Launch Screen.storyboard in Resources */,

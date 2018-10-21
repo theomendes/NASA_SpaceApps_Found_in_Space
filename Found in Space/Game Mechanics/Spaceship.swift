@@ -41,6 +41,7 @@ class Spaceship: SKSpriteNode {
         physicsBody?.linearDamping = 0
         physicsBody?.angularDamping = 0
         
+        self.anchorPoint = CGPoint(x: 0.5, y: 0)
         self.position = position
         zPosition = 1
         

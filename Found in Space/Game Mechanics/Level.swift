@@ -18,6 +18,9 @@ class Level: SKScene, SKPhysicsContactDelegate {
     var scoreText = SKLabelNode(fontNamed: "Oxygen-Light")
     
     var spaceship: Spaceship?
+    var boostParticle: SKEmitterNode {
+        return SKEmitterNode(fileNamed: "Boost")!
+    }
     var stars: [Star]?
     var hubble: Hubble?
     var boostBar: BoostBar
@@ -230,6 +233,14 @@ class Level: SKScene, SKPhysicsContactDelegate {
                     self.spaceship?.physicsBody?.applyImpulse(direction / 3)
                     boostBar.decreaseEnergy()
                     score -= 100
+                    
+                    if direction.dx > 0 {
+                        boostParticle.emissionAngle = atan(direction.dy/direction.dx) - CGFloat.pi/2
+                    } else {
+                        boostParticle.emissionAngle = atan(direction.dy/direction.dx) + CGFloat.pi/2
+                    }
+                    
+                    spaceship?.addChild(boostParticle)
                 }
             } else {
                 if let left = touchedNode as? LeftArrow {
