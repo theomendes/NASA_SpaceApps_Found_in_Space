@@ -466,7 +466,7 @@ class Level: SKScene, SKPhysicsContactDelegate {
             self.hubble?.alpha = 1
             self.boostBar.alpha = 1
             self.hasChosen = true
-
+            
         }
         let sequence = SKAction.sequence([out, remove, show, back])
         self.run(sequence)
