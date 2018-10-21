@@ -40,6 +40,8 @@ class Level: SKScene, SKPhysicsContactDelegate {
     var isGamePaused: Bool {
         return startTime == nil
     }
+    
+    var controller: GameViewController? //criar protocolo
         
     init(levelID: String, spaceship: Spaceship, stars: [Star], in view: UIView) {
         
@@ -180,13 +182,10 @@ class Level: SKScene, SKPhysicsContactDelegate {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch in touches {
-            
-            
             let location = touch.location(in: self)
             let touchedNode = self.atPoint(location)
             
             if let spacecraft = touchedNode as? GarageSpacecraft {
-                hasChosen = true
                 displayGame()
             }
             if hasChosen {
@@ -199,14 +198,10 @@ class Level: SKScene, SKPhysicsContactDelegate {
                     self.spaceship?.physicsBody?.applyImpulse(direction / 3)
                     boostBar.decreaseEnergy()
                 }
-            }
-            
-            else {
-                
+            } else {
                 if location.x > 0 {
                     swipeLeft()
-                }
-                else {
+                } else {
                     swipeRight()
                 }
             }
@@ -281,6 +276,7 @@ class Level: SKScene, SKPhysicsContactDelegate {
             self.addChild(lostScreen)
             lostScreen.run(lostAction)
             self.boostBar.refill()
+            self.controller?.pauseButton.alpha = 0
         })
         
         DispatchQueue.main.asyncAfter(deadline: .now() + loseDelay + 0.2, execute: {
@@ -291,6 +287,10 @@ class Level: SKScene, SKPhysicsContactDelegate {
             self.spaceship?.physicsBody?.isDynamic = false
             self.addChild(self.spaceship!)
             self.playing = true
+        })
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + loseDelay + 0.25, execute: {
+            self.controller?.pauseButton.alpha = 1
         })
     }
     
@@ -331,7 +331,7 @@ class Level: SKScene, SKPhysicsContactDelegate {
             displayGame()
         }
         
-        if distance(CGPoint.zero, (spaceship?.position)!) > boundMax {
+        if distance(CGPoint.zero, (spaceship?.position)!) > boundMax && playing {
             reset()
         }
         
@@ -344,7 +344,6 @@ class Level: SKScene, SKPhysicsContactDelegate {
                 self.spaceship?.zRotation = atan(yvel/xvel) + CGFloat.pi/2
             }
         }
-        
     }
     
     func displaySpaceshipChoice() {
@@ -368,6 +367,10 @@ class Level: SKScene, SKPhysicsContactDelegate {
         }
         self.labelNode.removeFromParent()
         self.titleNode.removeFromParent()
+        
+        hasChosen = true
+        controller?.pauseButton.isHidden = false
+        startGameTimer()
     }
     
     func displaySpacecraft(current: Int) {
@@ -381,7 +384,6 @@ class Level: SKScene, SKPhysicsContactDelegate {
     }
     
     func swipeLeft() {
-     
         if self.current == 3 {
             self.current = 0
         } else {
@@ -390,7 +392,6 @@ class Level: SKScene, SKPhysicsContactDelegate {
         self.removableNodes[self.removableNodes.count - 1].removeFromParent()
         self.removableNodes.remove(at: self.removableNodes.count - 1)
         displaySpacecraft(current: self.current)
-        
     }
     
     func swipeRight() {
