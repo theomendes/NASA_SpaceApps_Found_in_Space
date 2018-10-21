@@ -37,7 +37,7 @@ class GameViewController: UIViewController {
         pauseButton.isHidden = true
         
         if let view = skview {
-            level = Level(from: levelsData[1], in: self.view)
+            level = Level(from: levelsData[0], in: self.view)
             level.controller = self
             view.presentScene(level)
             
@@ -97,7 +97,7 @@ class GameViewController: UIViewController {
     private func setPauseButtonConstraints() {
         if #available(iOS 11.0, *) {
             pauseButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true
-            pauseButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 35).isActive = true
+            pauseButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 30).isActive = true
         } else {
             pauseButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30).isActive = true
             pauseButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 30).isActive = true

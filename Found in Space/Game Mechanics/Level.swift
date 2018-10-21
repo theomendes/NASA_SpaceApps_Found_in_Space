@@ -11,6 +11,10 @@ import SpriteKit
 class Level: SKScene, SKPhysicsContactDelegate {
     
     var hasChosen = false
+    var score = 10000
+    var highestScore = 0
+    var scoreNode = SKLabelNode(fontNamed: "Oxygen-Light")
+    var scoreText = SKLabelNode(fontNamed: "Oxygen-Light")
     
     var spaceship: Spaceship?
     var stars: [Star]?
@@ -45,7 +49,6 @@ class Level: SKScene, SKPhysicsContactDelegate {
     var controller: GameViewController? //criar protocolo
         
     init(levelID: String, spaceship: Spaceship, stars: [Star], in view: UIView) {
-        
         self.spaceship = spaceship
         self.stars = stars
         self.initialPosition = spaceship.position
@@ -64,7 +67,7 @@ class Level: SKScene, SKPhysicsContactDelegate {
         
         boundMax = view.bounds.width/2
         
-        boostBar = BoostBar(position: CGPoint(x: -131, y: view.bounds.size.height/2 - 59))
+        boostBar = BoostBar(position: CGPoint(x: -131, y: view.bounds.size.height/2 - 54)) //-59
         
         super.init(size: view.frame.size)
         self.backgroundColor = .black
@@ -103,6 +106,7 @@ class Level: SKScene, SKPhysicsContactDelegate {
         barBackground.xScale = 0.3
         barBackground.yScale = 0.3
         barBackground.position = boostBar.position
+        boostBar.zPosition = 3
         barBackground.zPosition = boostBar.zPosition - 1
         self.addChild(boostBar)
         self.addChild(barBackground)
@@ -120,13 +124,31 @@ class Level: SKScene, SKPhysicsContactDelegate {
         
         addChild(titleNode)
         self.titleNode.preferredMaxLayoutWidth = 200
-        self.titleNode.fontSize = 20
+        self.titleNode.fontSize = 25
         self.titleNode.fontColor = UIColor.white
         self.titleNode.position = CGPoint(x: 30, y: 105)
         self.titleNode.numberOfLines = 0
         self.titleNode.horizontalAlignmentMode = .left
         self.titleNode.zPosition = 5
         
+        //Scores
+        self.scoreText.preferredMaxLayoutWidth = 250
+        self.scoreText.fontSize = 15
+        self.scoreText.fontColor = UIColor.white
+        self.scoreText.position = CGPoint(x: view.bounds.size.width/2 - 70, y: view.bounds.size.height/2 - 30)
+        self.scoreText.numberOfLines = 0
+        self.scoreText.verticalAlignmentMode = .top
+        self.scoreText.horizontalAlignmentMode = .right
+        self.scoreText.text = "Score"
+        
+        self.scoreNode.preferredMaxLayoutWidth = 250
+        self.scoreNode.fontSize = 27
+        self.scoreNode.fontColor = UIColor.white
+        self.scoreNode.position = CGPoint(x: view.bounds.size.width/2 - 70, y: view.bounds.size.height/2 - 40)
+        self.scoreNode.numberOfLines = 0
+        self.scoreNode.verticalAlignmentMode = .top
+        self.scoreNode.horizontalAlignmentMode = .right
+        self.scoreNode.text = "\(score)"
     }
     
     convenience init?(from data: LevelData, in view: UIView) {
@@ -193,8 +215,9 @@ class Level: SKScene, SKPhysicsContactDelegate {
             let touchedNode = self.atPoint(location)
             
             if let spacecraft = touchedNode as? GarageSpacecraft {
-//                hasChosen = true
                 displayGame()
+                addChild(scoreNode)
+                addChild(scoreText)
             }
             if hasChosen {
                 if !hasLaunched && playing {
@@ -205,15 +228,12 @@ class Level: SKScene, SKPhysicsContactDelegate {
                     direction = direction.normalized()
                     self.spaceship?.physicsBody?.applyImpulse(direction / 3)
                     boostBar.decreaseEnergy()
+                    score -= 100
                 }
-            }
-            
-            else {
-                
-                if let left = touchedNode as? LeftArrow{
+            } else {
+                if let left = touchedNode as? LeftArrow {
                     swipeLeft()
-                }
-                else if let right = touchedNode as? RightArrow{
+                } else if let right = touchedNode as? RightArrow {
                     swipeRight()
                 }
             }
@@ -258,6 +278,9 @@ class Level: SKScene, SKPhysicsContactDelegate {
                                        .removeFromParent()])
         
         if contact.bodyA.categoryBitMask == Constants.hubbleBodyCategory || contact.bodyB.categoryBitMask == Constants.hubbleBodyCategory {
+            if score > highestScore {
+                highestScore = score
+            }
             print("yay")
         } else if contact.bodyA.categoryBitMask > contact.bodyB.categoryBitMask {
             firstNode.physicsBody?.isDynamic = false
@@ -277,6 +300,7 @@ class Level: SKScene, SKPhysicsContactDelegate {
     func reset() {
         self.hasLaunched = false
         self.playing = false
+        
         let lostScreen = SKSpriteNode(color: UIColor.black, size: self.size)
         lostScreen.alpha = 0
         lostScreen.zPosition = 3
@@ -299,6 +323,8 @@ class Level: SKScene, SKPhysicsContactDelegate {
             self.spaceship?.physicsBody?.isDynamic = false
             self.addChild(self.spaceship!)
             self.playing = true
+            self.score = 10000
+            self.scoreNode.text = "\(self.score)"
         })
         
         DispatchQueue.main.asyncAfter(deadline: .now() + loseDelay + 0.25, execute: {
@@ -352,6 +378,8 @@ class Level: SKScene, SKPhysicsContactDelegate {
             } else {
                 self.spaceship?.zRotation = atan(yvel/xvel) + CGFloat.pi/2
             }
+            self.score -= 10
+            self.scoreNode.text = "\(score)"
         }
     }
     
@@ -393,7 +421,6 @@ class Level: SKScene, SKPhysicsContactDelegate {
     
     func displayGame() {
         let out = SKAction.fadeOut(withDuration: 0.5)
-        
         let back = SKAction.fadeIn(withDuration: 0.5)
         
         let remove = SKAction.run({
@@ -434,7 +461,6 @@ class Level: SKScene, SKPhysicsContactDelegate {
     }
     
     func swipeRight() {
-     
         if self.current == 3 {
             self.current = 0
         } else {
