@@ -10,6 +10,10 @@
 		155F4928217BCF5A00A890AC /* Hubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155F4927217BCF5A00A890AC /* Hubble.swift */; };
 		155F4934217CABCD00A890AC /* LeftArrow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155F4933217CABCD00A890AC /* LeftArrow.swift */; };
 		155F4936217CAC4A00A890AC /* RightArrow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155F4935217CAC4A00A890AC /* RightArrow.swift */; };
+		155F4942217CE5A300A890AC /* Victory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155F4941217CE5A300A890AC /* Victory.swift */; };
+		155F4944217CE5BC00A890AC /* Polaroids.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155F4943217CE5BC00A890AC /* Polaroids.swift */; };
+		155F4946217CE5CE00A890AC /* DoneButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155F4945217CE5CE00A890AC /* DoneButton.swift */; };
+		155F4948217CE5DE00A890AC /* CatálogoFotos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155F4947217CE5DD00A890AC /* CatálogoFotos.swift */; };
 		1D2E5D90217B68C8008DD793 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2E5D8F217B68C8008DD793 /* Level.swift */; };
 		1D2E5D92217B69C4008DD793 /* Star.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2E5D91217B69C3008DD793 /* Star.swift */; };
 		1D2E5D94217B6A1E008DD793 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2E5D93217B6A1E008DD793 /* Constants.swift */; };
@@ -64,6 +68,10 @@
 		155F4927217BCF5A00A890AC /* Hubble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hubble.swift; sourceTree = "<group>"; };
 		155F4933217CABCD00A890AC /* LeftArrow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftArrow.swift; sourceTree = "<group>"; };
 		155F4935217CAC4A00A890AC /* RightArrow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightArrow.swift; sourceTree = "<group>"; };
+		155F4941217CE5A300A890AC /* Victory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Victory.swift; sourceTree = "<group>"; };
+		155F4943217CE5BC00A890AC /* Polaroids.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Polaroids.swift; sourceTree = "<group>"; };
+		155F4945217CE5CE00A890AC /* DoneButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoneButton.swift; sourceTree = "<group>"; };
+		155F4947217CE5DD00A890AC /* CatálogoFotos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CatálogoFotos.swift"; sourceTree = "<group>"; };
 		1D2E5D8F217B68C8008DD793 /* Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
 		1D2E5D91217B69C3008DD793 /* Star.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Star.swift; sourceTree = "<group>"; };
 		1D2E5D93217B6A1E008DD793 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -136,6 +144,7 @@
 		1D2E5D8E217B687A008DD793 /* Game Mechanics */ = {
 			isa = PBXGroup;
 			children = (
+				155F4941217CE5A300A890AC /* Victory.swift */,
 				1DFA9F6E217CC79C00D3CFA5 /* GarageSpacecraft.swift */,
 				1D2E5D8F217B68C8008DD793 /* Level.swift */,
 				1D2E5D95217B6B22008DD793 /* Spaceship.swift */,
@@ -146,6 +155,9 @@
 				1D2E5D99217B7958008DD793 /* Reference.sks */,
 				155F4933217CABCD00A890AC /* LeftArrow.swift */,
 				155F4935217CAC4A00A890AC /* RightArrow.swift */,
+				155F4943217CE5BC00A890AC /* Polaroids.swift */,
+				155F4945217CE5CE00A890AC /* DoneButton.swift */,
+				155F4947217CE5DD00A890AC /* CatálogoFotos.swift */,
 			);
 			path = "Game Mechanics";
 			sourceTree = "<group>";
@@ -516,6 +528,7 @@
 				1D48D60F217BF9750003AAE2 /* BoostBar.swift in Sources */,
 				1D2E5D94217B6A1E008DD793 /* Constants.swift in Sources */,
 				155F4936217CAC4A00A890AC /* RightArrow.swift in Sources */,
+				155F4948217CE5DE00A890AC /* CatálogoFotos.swift in Sources */,
 				1D2E5D90217B68C8008DD793 /* Level.swift in Sources */,
 				31EA400D217B4F32001C5464 /* GameViewController.swift in Sources */,
 				1D48D61A217C143E0003AAE2 /* DaoJson.swift in Sources */,
@@ -526,10 +539,13 @@
 				1DFA9F6F217CC79C00D3CFA5 /* GarageSpacecraft.swift in Sources */,
 				1D2E5D96217B6B22008DD793 /* Spaceship.swift in Sources */,
 				1D48D612217BF9A00003AAE2 /* Extensions&Helpers.swift in Sources */,
+				155F4946217CE5CE00A890AC /* DoneButton.swift in Sources */,
 				1D48D61D217C9F900003AAE2 /* PauseViewController.swift in Sources */,
 				31EA400B217B4F32001C5464 /* AppDelegate.swift in Sources */,
 				31D20612217CC5D400BBAD7D /* Achievements.swift in Sources */,
+				155F4942217CE5A300A890AC /* Victory.swift in Sources */,
 				155F4928217BCF5A00A890AC /* Hubble.swift in Sources */,
+				155F4944217CE5BC00A890AC /* Polaroids.swift in Sources */,
 				1D48D619217C143E0003AAE2 /* LevelData.swift in Sources */,
 				3197FEA1217B93E300011ED3 /* HomeViewController.swift in Sources */,
 				3197FE9E217B84A100011ED3 /* GlobalScore.swift in Sources */,
@@ -698,6 +714,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SV3T6FB38J;
+				DEVELOPMENT_TEAM = 32H23754C8;
 				INFOPLIST_FILE = "Found in Space/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -717,6 +734,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SV3T6FB38J;
+				DEVELOPMENT_TEAM = 32H23754C8;
 				INFOPLIST_FILE = "Found in Space/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
