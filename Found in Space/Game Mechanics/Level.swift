@@ -14,6 +14,8 @@ class Level: SKScene, SKPhysicsContactDelegate {
     
     var spaceship: Spaceship?
     var stars: [Star]?
+    var boostBar: BoostBar
+    var levelID: String
     
     var initialPosition: CGPoint
     var finalPoint: CGPoint?
@@ -25,11 +27,16 @@ class Level: SKScene, SKPhysicsContactDelegate {
     var playing = true
     let loseDelay = 0.3
     
+    var removableNodes:[SKNode] = []
+    let mySpacecrafts:[GarageSpacecraft] = [GarageSpacecraft(name: "mercury"), GarageSpacecraft(name: "apollo"), GarageSpacecraft(name: "shuttle"), GarageSpacecraft(name: "dreamchaser")]
+    var current = 0
+    
     init(levelID: String, spaceship: Spaceship, stars: [Star], in view: UIView) {
         
         self.spaceship = spaceship
         self.stars = stars
         self.initialPosition = spaceship.position
+        self.levelID = levelID
         
         let hubble = Hubble(radius: 50,
                             position: CGPoint(x: 270, y: 0),
@@ -38,7 +45,7 @@ class Level: SKScene, SKPhysicsContactDelegate {
         
         boundMax = view.bounds.width/2
         
-        boostBar = BoostBar(position: CGPoint(x: -150, y: 130))
+        self.boostBar = BoostBar(position: CGPoint(x: -150, y: 130))
         
         super.init(size: view.frame.size)
         scaleMode = .aspectFill
@@ -80,6 +87,8 @@ class Level: SKScene, SKPhysicsContactDelegate {
         barBackground.zPosition = boostBar.zPosition - 1
         self.addChild(boostBar)
         self.addChild(barBackground)
+        
+        displaySpaceshipChoice()
     }
     
     convenience init?(from data: LevelData, in view: UIView) {
@@ -145,36 +154,60 @@ class Level: SKScene, SKPhysicsContactDelegate {
             
             
             let location = touch.location(in: self)
-            if !hasLaunched && playing {
-                self.finalPoint = location
-                drawLine(to: location)
-            } else if boostBar.boostable {
-                var direction = CGVector.new(pointA: (self.spaceship?.position)!, pointB: location)
-                direction = direction.normalized()
-                self.spaceship?.physicsBody?.applyImpulse(direction / 3)
-                boostBar.decreaseEnergy()
+            let touchedNode = self.atPoint(location)
+            
+            if let spacecraft = touchedNode as? GarageSpacecraft {
+                hasChosen = true
+                displayGame()
+            }
+            if hasChosen {
+                if !hasLaunched && playing {
+                    self.finalPoint = location
+                    drawLine(to: location)
+                } else if boostBar.boostable {
+                    var direction = CGVector.new(pointA: (self.spaceship?.position)!, pointB: location)
+                    direction = direction.normalized()
+                    self.spaceship?.physicsBody?.applyImpulse(direction / 3)
+                    boostBar.decreaseEnergy()
+                }
+            }
+            
+            else {
+                
+                if location.x > 0 {
+                    swipeLeft()
+                }
+                else {
+                    swipeRight()
+                }
             }
         }
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if !hasLaunched && playing {
-            for touch in touches {
-                let location = touch.location(in: self)
-                self.finalPoint = location
-                pathNode.removeFromParent()
-                drawLine(to: location)
+        
+        if hasChosen {
+            if !hasLaunched && playing {
+                for touch in touches {
+                    let location = touch.location(in: self)
+                    self.finalPoint = location
+                    pathNode.removeFromParent()
+                    drawLine(to: location)
+                }
             }
         }
+        
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if !hasLaunched && playing {
-            pathNode.removeFromParent()
-            let velocity = CGVector.new(pointA: (spaceship?.position)!, pointB: finalPoint!)
-            self.spaceship?.physicsBody?.isDynamic = true
-            self.spaceship?.physicsBody?.velocity = velocity/5
-            hasLaunched = true
+        if hasChosen {
+            if !hasLaunched && playing {
+                pathNode.removeFromParent()
+                let velocity = CGVector.new(pointA: (spaceship?.position)!, pointB: finalPoint!)
+                self.spaceship?.physicsBody?.isDynamic = true
+                self.spaceship?.physicsBody?.velocity = velocity/5
+                hasLaunched = true
+            }
         }
     }
     
@@ -235,6 +268,10 @@ class Level: SKScene, SKPhysicsContactDelegate {
     }
     
     override func update(_ currentTime: TimeInterval) {
+        if hasChosen {
+            displayGame()
+        }
+        
         if distance(CGPoint.zero, (spaceship?.position)!) > boundMax {
             reset()
         }
@@ -255,9 +292,51 @@ class Level: SKScene, SKPhysicsContactDelegate {
     
     func displaySpaceshipChoice() {
         
+        let background = SKTexture(imageNamed: self.levelID)
+        let backgroundNode = SKSpriteNode(texture: background)
+        backgroundNode.zPosition = 4
+        addChild(backgroundNode)
+        self.removableNodes.append(backgroundNode)
+        
+        displaySpacecraft(current: 0)
+        
     }
     
     func displayGame() {
+        self.spaceship?.texture = mySpacecrafts[current].texture
+        for nodes in removableNodes {
+            nodes.removeFromParent()
+        }
+    }
+    
+    func displaySpacecraft(current: Int) {
+        let spacecraft = self.mySpacecrafts[current]
+        addChild(spacecraft)
+        self.removableNodes.append(spacecraft)
+        spacecraft.zPosition = 5
+    }
+    
+    func swipeLeft() {
+     
+        if self.current == 3 {
+            self.current = 0
+        } else {
+            self.current += 1
+        }
+        self.removableNodes[self.removableNodes.count - 1].removeFromParent()
+        self.removableNodes.remove(at: self.removableNodes.count - 1)
+        displaySpacecraft(current: self.current)
         
+    }
+    
+    func swipeRight() {
+        if self.current == 0 {
+            self.current = 3
+        } else {
+            self.current -= 1
+        }
+        self.removableNodes[self.removableNodes.count - 1].removeFromParent()
+        self.removableNodes.remove(at: self.removableNodes.count - 1)
+        displaySpacecraft(current: self.current)
     }
 }

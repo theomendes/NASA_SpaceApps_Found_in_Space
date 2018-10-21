@@ -18,6 +18,7 @@ class Description:SKLabelNode {
         self.text = spaceship.descriptionText
         self.fontSize = 30
         self.fontColor = UIColor.white
+        self.position = CGPoint(x: 200, y: 0)
     }
     
     required init?(coder aDecoder: NSCoder) {
