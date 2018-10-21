@@ -46,7 +46,8 @@ class Level: SKScene, SKPhysicsContactDelegate {
         physicsWorld.gravity = CGVector(dx: 0, dy: 0)
         physicsWorld.contactDelegate = self
         
-        let background = SKSpriteNode(texture: SKTexture(imageNamed: levelID),
+        let bgTexture = SKTexture(imageNamed: levelID)
+        let background = SKSpriteNode(texture: bgTexture,
                                       color: UIColor.clear,
                                       size: view.frame.size)
         background.zPosition = -10
@@ -78,6 +79,29 @@ class Level: SKScene, SKPhysicsContactDelegate {
         barBackground.zPosition = boostBar.zPosition - 1
         self.addChild(boostBar)
         self.addChild(barBackground)
+    }
+    
+    convenience init?(from data: LevelData, in view: UIView) {
+        let levelID = data.levelID
+        let spaceship = Spaceship(spaceshipTextureName: Constants.shipTextures[data.spaceship.index],
+                                  position: CGPoint(x: data.spaceship.position[0],
+                                                    y: data.spaceship.position[1]),
+                                  radius: CGFloat(data.spaceship.radius))
+        
+        var stars: [Star] = []
+        //swiftlint:disable:next identifier_name
+        for i in 0..<data.stars.count {
+            let star = Star(radius: CGFloat(data.stars[i].radius),
+                            position: CGPoint(x: data.stars[i].position[0],
+                                              y: data.stars[i].position[1]),
+                            strength: data.stars[i].strength,
+                            diameter: CGFloat(data.stars[i].diameter))
+            stars.append(star)
+        }
+        self.init(levelID: levelID,
+                  spaceship: spaceship,
+                  stars: stars,
+                  in: view)
     }
     
     required init?(coder aDecoder: NSCoder) {

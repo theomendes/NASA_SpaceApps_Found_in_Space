@@ -16,6 +16,9 @@
 		1D48D60F217BF9750003AAE2 /* BoostBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D48D60E217BF9150003AAE2 /* BoostBar.swift */; };
 		1D48D612217BF9A00003AAE2 /* Extensions&Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D48D611217BF9A00003AAE2 /* Extensions&Helpers.swift */; };
 		1D48D615217BFA870003AAE2 /* Explosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1D48D614217BFA870003AAE2 /* Explosion.sks */; };
+		1D48D619217C143E0003AAE2 /* LevelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D48D616217C143E0003AAE2 /* LevelData.swift */; };
+		1D48D61A217C143E0003AAE2 /* DaoJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D48D617217C143E0003AAE2 /* DaoJson.swift */; };
+		1D48D61B217C143E0003AAE2 /* Levels.json in Resources */ = {isa = PBXBuildFile; fileRef = 1D48D618217C143E0003AAE2 /* Levels.json */; };
 		3197FE9C217B7F6300011ED3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3197FE9B217B7F6300011ED3 /* User.swift */; };
 		3197FE9E217B84A100011ED3 /* GlobalScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3197FE9D217B84A100011ED3 /* GlobalScore.swift */; };
 		3197FEA1217B93E300011ED3 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3197FEA0217B93E300011ED3 /* HomeViewController.swift */; };
@@ -59,6 +62,9 @@
 		1D48D60E217BF9150003AAE2 /* BoostBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoostBar.swift; sourceTree = "<group>"; };
 		1D48D611217BF9A00003AAE2 /* Extensions&Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extensions&Helpers.swift"; sourceTree = "<group>"; };
 		1D48D614217BFA870003AAE2 /* Explosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = Explosion.sks; path = "../../../../../Desktop/ProjetoQuebrado/Found in Space/Game Mechanics/Explosion.sks"; sourceTree = "<group>"; };
+		1D48D616217C143E0003AAE2 /* LevelData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelData.swift; sourceTree = "<group>"; };
+		1D48D617217C143E0003AAE2 /* DaoJson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DaoJson.swift; sourceTree = "<group>"; };
+		1D48D618217C143E0003AAE2 /* Levels.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Levels.json; sourceTree = "<group>"; };
 		3197FE9B217B7F6300011ED3 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		3197FE9D217B84A100011ED3 /* GlobalScore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalScore.swift; sourceTree = "<group>"; };
 		3197FEA0217B93E300011ED3 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -150,6 +156,9 @@
 		3197FE9F217B84A600011ED3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				1D48D617217C143E0003AAE2 /* DaoJson.swift */,
+				1D48D616217C143E0003AAE2 /* LevelData.swift */,
+				1D48D618217C143E0003AAE2 /* Levels.json */,
 				3197FE9D217B84A100011ED3 /* GlobalScore.swift */,
 				3197FE9B217B7F6300011ED3 /* User.swift */,
 			);
@@ -367,6 +376,7 @@
 				3197FEE2217BD15E00011ED3 /* Oxygen-Bold.ttf in Resources */,
 				3197FECA217BB23E00011ED3 /* Launch Screen.storyboard in Resources */,
 				1D48D615217BFA870003AAE2 /* Explosion.sks in Resources */,
+				1D48D61B217C143E0003AAE2 /* Levels.json in Resources */,
 				3197FEE4217BD15E00011ED3 /* Oxygen-Regular.ttf in Resources */,
 				1D2E5D9A217B7958008DD793 /* Reference.sks in Resources */,
 			);
@@ -473,6 +483,7 @@
 				1D2E5D94217B6A1E008DD793 /* Constants.swift in Sources */,
 				1D2E5D90217B68C8008DD793 /* Level.swift in Sources */,
 				31EA400D217B4F32001C5464 /* GameViewController.swift in Sources */,
+				1D48D61A217C143E0003AAE2 /* DaoJson.swift in Sources */,
 				3197FEE8217BDBCC00011ED3 /* UIColor.swift in Sources */,
 				3197FEEB217BE2C400011ED3 /* UIButtonWithGradientAndShadow.swift in Sources */,
 				3197FEA5217B967C00011ED3 /* HomePresenter.swift in Sources */,
@@ -480,6 +491,7 @@
 				1D48D612217BF9A00003AAE2 /* Extensions&Helpers.swift in Sources */,
 				31EA400B217B4F32001C5464 /* AppDelegate.swift in Sources */,
 				155F4928217BCF5A00A890AC /* Hubble.swift in Sources */,
+				1D48D619217C143E0003AAE2 /* LevelData.swift in Sources */,
 				3197FEA1217B93E300011ED3 /* HomeViewController.swift in Sources */,
 				3197FE9E217B84A100011ED3 /* GlobalScore.swift in Sources */,
 				3197FEDD217BCD5F00011ED3 /* UIFont.swift in Sources */,

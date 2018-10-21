@@ -14,9 +14,7 @@ class Spaceship: SKSpriteNode {
     init(
         spaceshipTextureName: String,
         position: CGPoint,
-        velocity: CGVector,
-        radius: CGFloat,
-        angularVelocity: CGFloat = 0) {
+        radius: CGFloat) {
         self.radius = radius
         
         var gravityField: SKFieldNode {
@@ -28,7 +26,7 @@ class Spaceship: SKSpriteNode {
         }
         
         let image = SKTexture(imageNamed: spaceshipTextureName)
-        let scale = 2 * radius / image.size().width
+        let scale = 3 * radius / image.size().width
         
         super.init(texture: image, color: UIColor.green, size: image.size())
         
@@ -41,8 +39,6 @@ class Spaceship: SKSpriteNode {
         
         self.position = position
         zPosition = 1
-        physicsBody?.velocity = velocity
-        physicsBody?.angularVelocity = angularVelocity
         
         physicsBody?.fieldBitMask = Constants.starGravityCategory
         physicsBody?.categoryBitMask = Constants.spaceshipBodyCategory

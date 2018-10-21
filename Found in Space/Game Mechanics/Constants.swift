@@ -7,6 +7,8 @@
 //
 
 struct Constants {
+    static let shipTextures = ["apollo", "dreamchaser", "mercury", "shuttle"]
+    
     static let starGravityCategory: UInt32 = 0x1 << 0
     static let spaceshipGravityCategory: UInt32 = 0x1 << 1
     static let starBodyCategory: UInt32 = 0x1 << 2
