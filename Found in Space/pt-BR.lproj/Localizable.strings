@@ -19,6 +19,8 @@
 "login-password-placeholder" = "Senha";
 "login-login-placeholder" = "Entrar";
 "login-signup-placeholder" = "Não tem uma conta? Crie uma agora!";
+"login-title-label" = "Entrar";
+
 //==============================
 //      PAUSE SCREEN
 //==============================
