@@ -52,6 +52,17 @@ class GameViewController: UIViewController {
         setPauseButtonConstraints()
     }
     
+    func gotoSelection() {
+        if let view = skview {
+            let levelSelection = ChoiceLevel(size: self.view.bounds.size)
+            levelSelection.controller = self
+            view.presentScene(levelSelection)
+            
+            view.ignoresSiblingOrder = true
+            setNeedsFocusUpdate()
+        }
+    }
+    
     func present(index: Int) {
         if let view = skview {
             level = Level(from: levelsData[index], in: self.view)

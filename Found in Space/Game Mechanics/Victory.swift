@@ -100,7 +100,7 @@ class Victory: SKScene {
             
             if let done = touchedNode as? DoneButton {
                 //Go to levels
-                self.controller?.dismiss(animated: true, completion: nil)
+                self.controller?.gotoSelection()
             }
             
         }

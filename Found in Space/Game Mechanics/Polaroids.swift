@@ -32,9 +32,9 @@ class Polaroids:SKSpriteNode {
         let photoTexture = SKTexture(imageNamed: catalogo.catalogo[level - 1].photoID)
         let photo = SKSpriteNode(texture: photoTexture, color: .clear, size: photoTexture.size()) // photoTexture.size()
         photo.position = CGPoint(x: self.position.x, y: self.position.y + 20)
-        photo.scale(to: fixedSize)
+//        photo.scale(to: fixedSize)
         
-//        photo.setScale(0.29)
+        photo.setScale(0.26)
         photo.zPosition = 4
         scene.addChild(photo)
         
