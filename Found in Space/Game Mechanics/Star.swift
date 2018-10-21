@@ -24,9 +24,7 @@ class Star: SKSpriteNode {
         radius: CGFloat,
         position: CGPoint = CGPoint(x: 0, y: 0),
         strength: Float = 0.001,
-        diameter: CGFloat = 3,
-        angularVelocity: CGFloat = 0) {
-        
+        diameter: CGFloat = 3) {
         
         self.radius = radius
         self.strength = strength
@@ -35,7 +33,6 @@ class Star: SKSpriteNode {
         
         physicsBody = SKPhysicsBody(circleOfRadius: diameter)
         self.position = position
-        physicsBody?.angularVelocity = angularVelocity
         
         physicsBody?.fieldBitMask = 0
         physicsBody?.collisionBitMask = 0

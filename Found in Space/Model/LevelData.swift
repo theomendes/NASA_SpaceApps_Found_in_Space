@@ -6,12 +6,21 @@
 //  Copyright © 2018 NASA Space Apps 2018. All rights reserved.
 //
 
+struct StarData: Codable {
+    let radius: Int
+    let position: [Int]
+    let strength: Float
+    let diameter: Int
+}
+
+struct SpaceshipData: Codable {
+    let index: Int
+    let position: [Int]
+    let radius: Float
+}
+
 struct LevelData: Codable {
-    let id: String
-    let type: Int
-    let gridSize: [Int]
-    let plasmas: [[Int]]
-    let obstacles: [[Int]]
-    let ghost: [Int]
-    let goal: Int
+    let levelID: String
+    let stars: [StarData]
+    let spaceship: SpaceshipData
 }

@@ -36,9 +36,9 @@ class Level: SKScene, SKPhysicsContactDelegate {
                             strength: 0.001,
                             angularVelocity: 0)
         
-        
-        
         boundMax = view.bounds.width/2
+        
+        boostBar = BoostBar(position: CGPoint(x: -150, y: 130))
         
         super.init(size: view.frame.size)
         scaleMode = .aspectFill
@@ -47,7 +47,8 @@ class Level: SKScene, SKPhysicsContactDelegate {
         physicsWorld.gravity = CGVector(dx: 0, dy: 0)
         physicsWorld.contactDelegate = self
         
-        let background = SKSpriteNode(texture: SKTexture(imageNamed: levelID),
+        let bgTexture = SKTexture(imageNamed: levelID)
+        let background = SKSpriteNode(texture: bgTexture,
                                       color: UIColor.clear,
                                       size: view.frame.size)
         background.zPosition = -10
@@ -56,13 +57,6 @@ class Level: SKScene, SKPhysicsContactDelegate {
         addChild(spaceship)
         
         addChild(hubble)
-        
-        
-        //testeGarage
-        
-        let garage = GarageSpacecraft(name: "mercury")
-        addChild(garage)
-        
         
         for star in stars {
             addChild(star)
@@ -76,6 +70,39 @@ class Level: SKScene, SKPhysicsContactDelegate {
         let zoomInAction = SKAction.scale(to: 0.9, duration: 0)
         cameraNode.run(zoomInAction)
         
+        let backgroundTexture = SKTexture(imageNamed: "fuelBar")
+        let barBackground = SKSpriteNode(texture: backgroundTexture,
+                                         color: UIColor.white,
+                                         size: backgroundTexture.size())
+        barBackground.xScale = 0.3
+        barBackground.yScale = 0.3
+        barBackground.position = boostBar.position
+        barBackground.zPosition = boostBar.zPosition - 1
+        self.addChild(boostBar)
+        self.addChild(barBackground)
+    }
+    
+    convenience init?(from data: LevelData, in view: UIView) {
+        let levelID = data.levelID
+        let spaceship = Spaceship(spaceshipTextureName: Constants.shipTextures[data.spaceship.index],
+                                  position: CGPoint(x: data.spaceship.position[0],
+                                                    y: data.spaceship.position[1]),
+                                  radius: CGFloat(data.spaceship.radius))
+        
+        var stars: [Star] = []
+        //swiftlint:disable:next identifier_name
+        for i in 0..<data.stars.count {
+            let star = Star(radius: CGFloat(data.stars[i].radius),
+                            position: CGPoint(x: data.stars[i].position[0],
+                                              y: data.stars[i].position[1]),
+                            strength: data.stars[i].strength,
+                            diameter: CGFloat(data.stars[i].diameter))
+            stars.append(star)
+        }
+        self.init(levelID: levelID,
+                  spaceship: spaceship,
+                  stars: stars,
+                  in: view)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -121,10 +148,11 @@ class Level: SKScene, SKPhysicsContactDelegate {
             if !hasLaunched && playing {
                 self.finalPoint = location
                 drawLine(to: location)
-            } else {
+            } else if boostBar.boostable {
                 var direction = CGVector.new(pointA: (self.spaceship?.position)!, pointB: location)
                 direction = direction.normalized()
                 self.spaceship?.physicsBody?.applyImpulse(direction / 3)
+                boostBar.decreaseEnergy()
             }
         }
     }
@@ -164,9 +192,7 @@ class Level: SKScene, SKPhysicsContactDelegate {
         
         if contact.bodyA.categoryBitMask == Constants.hubbleBodyCategory || contact.bodyB.categoryBitMask == Constants.hubbleBodyCategory {
             print("yay")
-        }
-        
-        else if contact.bodyA.categoryBitMask > contact.bodyB.categoryBitMask {
+        } else if contact.bodyA.categoryBitMask > contact.bodyB.categoryBitMask {
             firstNode.physicsBody?.isDynamic = false
             explosion?.position = firstNode.position
             addChild(explosion!)
@@ -194,8 +220,9 @@ class Level: SKScene, SKPhysicsContactDelegate {
         DispatchQueue.main.asyncAfter(deadline: .now() + loseDelay, execute: {
             self.addChild(lostScreen)
             lostScreen.run(lostAction)
+            self.boostBar.refill()
         })
-            
+        
         DispatchQueue.main.asyncAfter(deadline: .now() + loseDelay + 0.2, execute: {
             self.spaceship?.removeFromParent()
             self.spaceship?.removeAllActions()
@@ -233,47 +260,4 @@ class Level: SKScene, SKPhysicsContactDelegate {
     func displayGame() {
         
     }
-}
-
-
-//FUNCOES AUXILIARES
-
-func / (lhs: CGVector, rhs: CGFloat) -> CGVector {
-    return CGVector(dx: lhs.dx/rhs, dy: lhs.dy/rhs)
-}
-
-func / (lhs: CGPoint, rhs: CGFloat) -> CGPoint {
-    return CGPoint(x: lhs.x/rhs, y: lhs.y/rhs)
-}
-
-func * (lhs: CGVector, rhs: CGFloat) -> CGVector {
-    return CGVector(dx: lhs.dx*rhs, dy: lhs.dy*rhs)
-}
-
-func distance(_ pointA: CGPoint, _ pointB: CGPoint) -> CGFloat {
-    return sqrt((pointA.x-pointB.x)*(pointA.x-pointB.x) + (pointA.y-pointB.y)*(pointA.y-pointB.y))
-}
-
-func unitVector(_ pointA: CGPoint, _ pointB: CGPoint) -> CGVector {
-    return CGVector(dx: pointB.x - pointA.x, dy: pointB.y - pointA.y)/distance(pointA, pointB)
-}
-
-//swiftlint:disable:next identifier_name
-func translade(point: CGPoint, by: CGVector) -> CGPoint {
-    return CGPoint(x: point.x + by.dx, y: point.y + by.dy)
-}
-
-extension CGVector {
-    static func new(pointA: CGPoint, pointB: CGPoint) -> CGVector {
-        return CGVector(dx: pointB.x - pointA.x, dy: pointB.y - pointA.y)
-    }
-    
-    func norm() -> CGFloat {
-        return sqrt((self.dx*self.dx)+(self.dy*self.dy))
-    }
-    
-    func normalized() -> CGVector {
-        return self / self.norm()
-    }
-
 }
