@@ -12,11 +12,13 @@ struct GlobalScore {
     var uid: String
     var user: String
     var score: Int
+    var level: Int
     
     var dictionary: [String: Any] {
         return [
             "user": user,
-            "score": score
+            "score": score,
+            "level": level
         ]
     }
 }
@@ -24,9 +26,10 @@ struct GlobalScore {
 extension GlobalScore {
     init?(dictionary: [String: Any], uid: String) {
         guard  let user = dictionary["user"] as? String,
-            let score = dictionary["score"] as? Int
+            let score = dictionary["score"] as? Int,
+            let level = dictionary["level"] as? Int
             else { return nil }
         
-        self.init(uid: uid, user: user, score: score)
+        self.init(uid: uid, user: user, score: score, level: level)
     }
 }
