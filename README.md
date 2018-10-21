@@ -24,7 +24,7 @@ During the adventure, the player also learns in practice some concepts of physic
 This was our team first time participating in a hackathon, and it was tough, but we are very proud of what we've accomplished.
 
 #### Resources used:
-https://www.nasa.gov/mission_pages/hubble/main/index.html
+https://www.nasa.gov/mission_pages/hubble/main/index.html<br>
 https://www.nasa.gov/mission_pages/hubble/multimedia/index.html
 #### Technologies used
 * Swift 4
