@@ -7,11 +7,6 @@ target 'Found in Space' do
 
   # Pods for Found in Space
   pod 'SwiftLint', '~> 0.27'
-  pod 'SwiftLint', '~> 0.27'
-  pod 'Firebase/Core', '~> 5.10'
-  pod 'Firebase/Auth', '~> 5.0'
-  pod 'Firebase/Firestore'
-  pod 'SDWebImage'
   pod 'MDFTextAccessibility', '~> 1.2'
   pod 'MaterialComponents/TextFields', '~> 58.0.0'
   pod 'MaterialComponents/TextFields+ColorThemer'

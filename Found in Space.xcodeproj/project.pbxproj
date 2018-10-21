@@ -40,7 +40,8 @@
 		3197FEE8217BDBCC00011ED3 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3197FEE7217BDBCC00011ED3 /* UIColor.swift */; };
 		3197FEEB217BE2C400011ED3 /* UIButtonWithGradientAndShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3197FEEA217BE2C400011ED3 /* UIButtonWithGradientAndShadow.swift */; };
 		31D20612217CC5D400BBAD7D /* Achievements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D20611217CC5D400BBAD7D /* Achievements.swift */; };
-		31D2061A217CCC1C00BBAD7D /* LocalCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D20619217CCC1C00BBAD7D /* LocalCollection.swift */; };
+		31D2061C217CE1AC00BBAD7D /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D2061B217CE1AC00BBAD7D /* HistoryViewController.swift */; };
+		31D2061E217CE1C100BBAD7D /* HistoryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D2061D217CE1C100BBAD7D /* HistoryPresenter.swift */; };
 		31EA400B217B4F32001C5464 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EA400A217B4F32001C5464 /* AppDelegate.swift */; };
 		31EA400D217B4F32001C5464 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EA400C217B4F32001C5464 /* GameViewController.swift */; };
 		31EA4012217B4F33001C5464 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31EA4011217B4F33001C5464 /* Assets.xcassets */; };
@@ -94,7 +95,8 @@
 		3197FEE7217BDBCC00011ED3 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		3197FEEA217BE2C400011ED3 /* UIButtonWithGradientAndShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonWithGradientAndShadow.swift; sourceTree = "<group>"; };
 		31D20611217CC5D400BBAD7D /* Achievements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Achievements.swift; sourceTree = "<group>"; };
-		31D20619217CCC1C00BBAD7D /* LocalCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalCollection.swift; sourceTree = "<group>"; };
+		31D2061B217CE1AC00BBAD7D /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		31D2061D217CE1C100BBAD7D /* HistoryPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryPresenter.swift; sourceTree = "<group>"; };
 		31EA4007217B4F32001C5464 /* Found in Space.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Found in Space.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		31EA400A217B4F32001C5464 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		31EA400C217B4F32001C5464 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
@@ -169,7 +171,6 @@
 		3197FE99217B7F0A00011ED3 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				31D20619217CCC1C00BBAD7D /* LocalCollection.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -197,6 +198,7 @@
 			children = (
 				3197FEA0217B93E300011ED3 /* HomeViewController.swift */,
 				3197FED7217BBDCE00011ED3 /* LoginViewController.swift */,
+				31D2061B217CE1AC00BBAD7D /* HistoryViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -206,6 +208,7 @@
 			children = (
 				3197FEA4217B967C00011ED3 /* HomePresenter.swift */,
 				3197FED9217BBE5500011ED3 /* LoginPresenter.swift */,
+				31D2061D217CE1C100BBAD7D /* HistoryPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -436,8 +439,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "
-";
+			shellScript = "\n";
 		};
 		C08D1F293F8830949561D92E /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -448,41 +450,17 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Found in Space/Pods-Found in Space-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
-				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/MDFInternationalization/MDFInternationalization.framework",
 				"${BUILT_PRODUCTS_DIR}/MDFTextAccessibility/MDFTextAccessibility.framework",
 				"${BUILT_PRODUCTS_DIR}/MaterialComponents/MaterialComponents.framework",
-				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
-				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
-				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
-				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
-				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
-				"${BUILT_PRODUCTS_DIR}/gRPC-ProtoRPC/ProtoRPC.framework",
-				"${BUILT_PRODUCTS_DIR}/gRPC-RxLibrary/RxLibrary.framework",
-				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MDFInternationalization.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MDFTextAccessibility.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MaterialComponents.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProtoRPC.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxLibrary.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -532,6 +510,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31D2061C217CE1AC00BBAD7D /* HistoryViewController.swift in Sources */,
 				155F4934217CABCD00A890AC /* LeftArrow.swift in Sources */,
 				3197FEDA217BBE5500011ED3 /* LoginPresenter.swift in Sources */,
 				1D48D60F217BF9750003AAE2 /* BoostBar.swift in Sources */,
@@ -544,7 +523,6 @@
 				3197FEEB217BE2C400011ED3 /* UIButtonWithGradientAndShadow.swift in Sources */,
 				3197FEA5217B967C00011ED3 /* HomePresenter.swift in Sources */,
 				31455FDB217CAF1B00454D0E /* UIButtonWithImageAndShadow.swift in Sources */,
-				31D2061A217CCC1C00BBAD7D /* LocalCollection.swift in Sources */,
 				1DFA9F6F217CC79C00D3CFA5 /* GarageSpacecraft.swift in Sources */,
 				1D2E5D96217B6B22008DD793 /* Spaceship.swift in Sources */,
 				1D48D612217BF9A00003AAE2 /* Extensions&Helpers.swift in Sources */,
@@ -556,6 +534,7 @@
 				3197FEA1217B93E300011ED3 /* HomeViewController.swift in Sources */,
 				3197FE9E217B84A100011ED3 /* GlobalScore.swift in Sources */,
 				3197FEDD217BCD5F00011ED3 /* UIFont.swift in Sources */,
+				31D2061E217CE1C100BBAD7D /* HistoryPresenter.swift in Sources */,
 				3197FEE6217BDB2900011ED3 /* UIView.swift in Sources */,
 				3197FE9C217B7F6300011ED3 /* User.swift in Sources */,
 				1D2E5D92217B69C4008DD793 /* Star.swift in Sources */,
@@ -718,7 +697,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = S92SHJVP84;
+				DEVELOPMENT_TEAM = SV3T6FB38J;
 				INFOPLIST_FILE = "Found in Space/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -737,7 +716,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = S92SHJVP84;
+				DEVELOPMENT_TEAM = SV3T6FB38J;
 				INFOPLIST_FILE = "Found in Space/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

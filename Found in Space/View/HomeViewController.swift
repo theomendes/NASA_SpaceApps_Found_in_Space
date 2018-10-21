@@ -27,7 +27,8 @@ class HomeViewController: UIViewController, HomeView {
     func goToNewGame(_ sender: UIButton!) {
         // Do something
         print("New Game touched")
-        let navigationController = UINavigationController(rootViewController: GameViewController())
+        let navigationController = UINavigationController(rootViewController: HistoryViewController())
+//        let rootViewController = HistoryViewController()
         navigationController.modalTransitionStyle = .crossDissolve
         self.present(navigationController, animated: true, completion: nil)
     }

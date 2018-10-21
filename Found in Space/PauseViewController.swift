@@ -82,6 +82,18 @@ class PauseViewController: UIViewController {
         setUpBlurViewConstraints()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        // Show the Navigation Bar
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        // Hide the Navigation Bar
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
+    }
+    
     private func setUpBlurViewConstraints() {
         blurView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -91,23 +103,23 @@ class PauseViewController: UIViewController {
         blurView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
     }
     
-        private func setPlayButtonConstraints() {
-            NSLayoutConstraint.activate([
-                resumeBtn.heightAnchor.constraint(equalToConstant: 68),
-                resumeBtn.widthAnchor.constraint(equalToConstant: 292),
-                resumeBtn.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-                resumeBtn.topAnchor.constraint(equalTo: view.topAnchor, constant: 120)
-                ])
-        }
+    private func setPlayButtonConstraints() {
+        NSLayoutConstraint.activate([
+            resumeBtn.heightAnchor.constraint(equalToConstant: 68),
+            resumeBtn.widthAnchor.constraint(equalToConstant: 292),
+            resumeBtn.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            resumeBtn.topAnchor.constraint(equalTo: view.topAnchor, constant: 120)
+            ])
+    }
     
-        private func setExitButtonConstraints() {
-            NSLayoutConstraint.activate([
-                exitBtn.heightAnchor.constraint(equalToConstant: 68),
-                exitBtn.widthAnchor.constraint(equalToConstant: 292),
-                exitBtn.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-                exitBtn.topAnchor.constraint(equalTo: resumeBtn.bottomAnchor, constant: 20)
-                ])
-        }
+    private func setExitButtonConstraints() {
+        NSLayoutConstraint.activate([
+            exitBtn.heightAnchor.constraint(equalToConstant: 68),
+            exitBtn.widthAnchor.constraint(equalToConstant: 292),
+            exitBtn.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            exitBtn.topAnchor.constraint(equalTo: resumeBtn.bottomAnchor, constant: 20)
+            ])
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
