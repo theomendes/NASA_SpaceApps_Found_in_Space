@@ -8,6 +8,7 @@
 
 import SpriteKit
 
+//swiftlint:disable next type_body_length
 class Level: SKScene, SKPhysicsContactDelegate {
     
     var hasChosen = false
@@ -334,7 +335,6 @@ class Level: SKScene, SKPhysicsContactDelegate {
     
     func startGameTimer() {
         guard isGamePaused else { return }
-        
         startTime = DispatchTime.now()
     }
     
@@ -378,7 +378,11 @@ class Level: SKScene, SKPhysicsContactDelegate {
             } else {
                 self.spaceship?.zRotation = atan(yvel/xvel) + CGFloat.pi/2
             }
-            self.score -= 10
+            if self.score > 0 {
+                self.score -= 10
+            } else {
+                self.score = 0
+            }
             self.scoreNode.text = "\(score)"
         }
     }
