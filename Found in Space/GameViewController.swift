@@ -37,9 +37,12 @@ class GameViewController: UIViewController {
         pauseButton.isHidden = true
         
         if let view = skview {
-            level = Level(from: levelsData[0], in: self.view)
-            level.controller = self
-            view.presentScene(level)
+//            level = Level(from: levelsData[0], in: self.view)
+//            level.controller = self
+//            view.presentScene(level)
+            let levelSelection = ChoiceLevel(size: self.view.bounds.size)
+            levelSelection.controller = self
+            view.presentScene(levelSelection)
             
             view.ignoresSiblingOrder = true
 //            view.showsFields = true
@@ -47,6 +50,20 @@ class GameViewController: UIViewController {
             setNeedsFocusUpdate()
         }
         setPauseButtonConstraints()
+    }
+    
+    func present(index: Int) {
+        if let view = skview {
+            level = Level(from: levelsData[index], in: self.view)
+            level.controller = self
+            view.presentScene(self.level, transition: SKTransition.crossFade(withDuration: 0.5))
+            
+            view.ignoresSiblingOrder = true
+            //            view.showsFields = true
+            //            view.showsPhysics = true
+            setNeedsFocusUpdate()
+            
+        }
     }
     
     @objc func pause() {

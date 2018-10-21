@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Firebase
 
 class HomeViewController: UIViewController, HomeView {
     var presenter: HomePresenter!
@@ -21,13 +20,13 @@ class HomeViewController: UIViewController, HomeView {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        Analytics.setScreenName("Home View Controller", screenClass: "HomeViewController")
     }
     
     func goToNewGame(_ sender: UIButton!) {
         // Do something
         print("New Game touched")
-        let navigationController = UINavigationController(rootViewController: GameViewController())
+        let navigationController = UINavigationController(rootViewController: HistoryViewController())
+//        let rootViewController = HistoryViewController()
         navigationController.modalTransitionStyle = .crossDissolve
         self.present(navigationController, animated: true, completion: nil)
     }
