@@ -13,11 +13,13 @@ class Victory:SKScene {
     
     var score:Int
     var theView:UIView
+    var level:Int
     
     
     init(levelWon: Int, score:Int, in view: UIView) {
         self.theView = view
         self.score = score
+        self.level = levelWon
         super.init(size: view.frame.size)
         self.backgroundColor = .black
         scaleMode = .aspectFill
@@ -70,10 +72,10 @@ class Victory:SKScene {
         scoreLabels(score: 3456, high: false)
         scoreLabels(score: 5678, high: true)
         
-        let polaroid1 = Polaroids(level: 1, scene: self, order: 1)
+        let polaroid1 = Polaroids(level: level, scene: self, order: 1)
         addChild(polaroid1)
         
-        let polaroid2 = Polaroids(level: 1, scene: self, order: 2)
+        let polaroid2 = Polaroids(level: level + 1, scene: self, order: 2)
         addChild(polaroid2)
     }
     

@@ -17,5 +17,5 @@ class CatálogoFotos {
         let photoDescription: String
     }
     
-    let catalogo:[PhotoData] = [PhotoData.init(photoID: "foto1", photoName: "Cone Nebula (NGC 2264)", photoDescription: "Star-Forming Pillar of Gas and Dust")]
+    let catalogo:[PhotoData] = [PhotoData.init(photoID: "foto1", photoName: "Cone Nebula (NGC 2264)", photoDescription: "Star-Forming Pillar of Gas and Dust"), PhotoData.init(photoID: "foto2", photoName: "Jupiter (2014)", photoDescription: "NASA, ESA, and A. Simon (Goddard Space Flight Center)") ]
 }
