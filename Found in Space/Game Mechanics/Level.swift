@@ -286,7 +286,6 @@ class Level: SKScene, SKPhysicsContactDelegate {
         let firstNode = contact.bodyA.node as! SKSpriteNode
         let secondNode = contact.bodyB.node as! SKSpriteNode
         //swiftlint:disable end
-        
         let explosion = SKEmitterNode(fileNamed: "Explosion")
         explosion?.particlePositionRange = CGVector(dx: 20, dy: 20)
         
@@ -298,13 +297,13 @@ class Level: SKScene, SKPhysicsContactDelegate {
                 highestScore = score
             }
             let victory = SKAction.run {
-                let newScene = Victory(levelWon: 1, score: 3456, in: self.theView)
+                self.controller?.pauseButton.isHidden = true
+                let newScene = Victory(levelWon: 1, score: self.score, in: self.theView)
                 newScene.scaleMode = .aspectFill
+                newScene.controller = self.controller
                 self.scene?.view?.presentScene(newScene, transition: SKTransition.fade(withDuration: 1))
             }
             run(victory)
-            
-            
         } else if contact.bodyA.categoryBitMask > contact.bodyB.categoryBitMask {
             firstNode.physicsBody?.isDynamic = false
             explosion?.position = firstNode.position

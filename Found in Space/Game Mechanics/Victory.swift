@@ -9,14 +9,14 @@
 import Foundation
 import SpriteKit
 
-class Victory:SKScene {
+class Victory: SKScene {
     
-    var score:Int
-    var theView:UIView
-    var level:Int
-    
-    
-    init(levelWon: Int, score:Int, in view: UIView) {
+    var score: Int
+    var theView: UIView
+    var level: Int
+    var controller: GameViewController?
+
+    init(levelWon: Int, score: Int, in view: UIView) {
         self.theView = view
         self.score = score
         self.level = levelWon
@@ -69,8 +69,7 @@ class Victory:SKScene {
         let done = DoneButton()
         self.addChild(done)
         
-        scoreLabels(score: 3456, high: false)
-//        scoreLabels(score: 5678, high: true)
+        scoreLabels(score: score, high: false)
         
         let polaroid1 = Polaroids(level: level, scene: self, order: 1)
         addChild(polaroid1)
@@ -90,7 +89,6 @@ class Victory:SKScene {
             lbl.position = CGPoint(x: 260, y: -15)
         }
         addChild(lbl)
-        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -102,6 +100,7 @@ class Victory:SKScene {
             
             if let done = touchedNode as? DoneButton {
                 //Go to levels
+                self.controller?.dismiss(animated: true, completion: nil)
             }
             
         }
