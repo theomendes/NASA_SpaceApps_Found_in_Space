@@ -9,8 +9,15 @@
 import SpriteKit
 
 class Level: SKScene, SKPhysicsContactDelegate {
+    
+    var hasChosen = false
+    
     var spaceship: Spaceship?
     var stars: [Star]?
+    var boostBar: BoostBar
+    var levelID: String
+    var labelNode = SKLabelNode(fontNamed: "Oxygen")
+    var titleNode = SKLabelNode(fontNamed: "Oxygen")
     
     var initialPosition: CGPoint
     var finalPoint: CGPoint?
@@ -22,7 +29,10 @@ class Level: SKScene, SKPhysicsContactDelegate {
     var playing = true
     let loseDelay = 0.3
     
-    let boostBar: BoostBar
+    var removableNodes:[SKNode] = []
+    let mySpacecrafts:[GarageSpacecraft] = [GarageSpacecraft(name: "mercury"), GarageSpacecraft(name: "apollo"), GarageSpacecraft(name: "shuttle"), GarageSpacecraft(name: "dreamchaser")]
+    let myTitles:[String] = ["The Atlas", "The Apollo", "The Endeavour", "The Dream Chaser"]
+    var current = 0
     
     var timer: Timer!
     var startTime: DispatchTime?
@@ -36,6 +46,7 @@ class Level: SKScene, SKPhysicsContactDelegate {
         self.spaceship = spaceship
         self.stars = stars
         self.initialPosition = spaceship.position
+        self.levelID = levelID
         
         let hubble = Hubble(radius: 50,
                             position: CGPoint(x: 270, y: 0),
@@ -86,6 +97,27 @@ class Level: SKScene, SKPhysicsContactDelegate {
         barBackground.zPosition = boostBar.zPosition - 1
         self.addChild(boostBar)
         self.addChild(barBackground)
+        
+        displaySpaceshipChoice()
+        addChild(labelNode)
+        self.labelNode.preferredMaxLayoutWidth = 250
+        self.labelNode.fontSize = 15
+        self.labelNode.fontColor = UIColor.white
+        self.labelNode.position = CGPoint(x: 250, y: 0)
+        self.labelNode.numberOfLines = 0
+        self.labelNode.verticalAlignmentMode = .center
+        self.labelNode.horizontalAlignmentMode = .right
+        self.labelNode.zPosition = 5
+        
+        addChild(titleNode)
+        self.titleNode.preferredMaxLayoutWidth = 200
+        self.titleNode.fontSize = 20
+        self.titleNode.fontColor = UIColor.white
+        self.titleNode.position = CGPoint(x: 30, y: 120)
+        self.titleNode.numberOfLines = 0
+        self.titleNode.horizontalAlignmentMode = .left
+        self.titleNode.zPosition = 5
+        
     }
     
     convenience init?(from data: LevelData, in view: UIView) {
@@ -148,37 +180,63 @@ class Level: SKScene, SKPhysicsContactDelegate {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch in touches {
+            
+            
             let location = touch.location(in: self)
-            if !hasLaunched && playing {
-                self.finalPoint = location
-                drawLine(to: location)
-            } else if boostBar.boostable {
-                var direction = CGVector.new(pointA: (self.spaceship?.position)!, pointB: location)
-                direction = direction.normalized()
-                self.spaceship?.physicsBody?.applyImpulse(direction / 3)
-                boostBar.decreaseEnergy()
+            let touchedNode = self.atPoint(location)
+            
+            if let spacecraft = touchedNode as? GarageSpacecraft {
+                hasChosen = true
+                displayGame()
+            }
+            if hasChosen {
+                if !hasLaunched && playing {
+                    self.finalPoint = location
+                    drawLine(to: location)
+                } else if boostBar.boostable {
+                    var direction = CGVector.new(pointA: (self.spaceship?.position)!, pointB: location)
+                    direction = direction.normalized()
+                    self.spaceship?.physicsBody?.applyImpulse(direction / 3)
+                    boostBar.decreaseEnergy()
+                }
+            }
+            
+            else {
+                
+                if location.x > 0 {
+                    swipeLeft()
+                }
+                else {
+                    swipeRight()
+                }
             }
         }
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if !hasLaunched && playing {
-            for touch in touches {
-                let location = touch.location(in: self)
-                self.finalPoint = location
-                pathNode.removeFromParent()
-                drawLine(to: location)
+        
+        if hasChosen {
+            if !hasLaunched && playing {
+                for touch in touches {
+                    let location = touch.location(in: self)
+                    self.finalPoint = location
+                    pathNode.removeFromParent()
+                    drawLine(to: location)
+                }
             }
         }
+        
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if !hasLaunched && playing {
-            pathNode.removeFromParent()
-            let velocity = CGVector.new(pointA: (spaceship?.position)!, pointB: finalPoint!)
-            self.spaceship?.physicsBody?.isDynamic = true
-            self.spaceship?.physicsBody?.velocity = velocity/5
-            hasLaunched = true
+        if hasChosen {
+            if !hasLaunched && playing {
+                pathNode.removeFromParent()
+                let velocity = CGVector.new(pointA: (spaceship?.position)!, pointB: finalPoint!)
+                self.spaceship?.physicsBody?.isDynamic = true
+                self.spaceship?.physicsBody?.velocity = velocity/5
+                hasLaunched = true
+            }
         }
     }
     
@@ -271,6 +329,10 @@ class Level: SKScene, SKPhysicsContactDelegate {
     }
     
     override func update(_ currentTime: TimeInterval) {
+        if hasChosen {
+            displayGame()
+        }
+        
         if distance(CGPoint.zero, (spaceship?.position)!) > boundMax {
             reset()
         }
@@ -285,5 +347,62 @@ class Level: SKScene, SKPhysicsContactDelegate {
             }
         }
         
+    }
+    
+    func displaySpaceshipChoice() {
+        let background = SKTexture(imageNamed: self.levelID)
+        let backgroundNode = SKSpriteNode(texture: background)
+        backgroundNode.zPosition = 4
+        let colorSprite = SKSpriteNode(texture: nil, color: .black, size: background.size())
+        colorSprite.zPosition = 5
+        addChild(colorSprite)
+        colorSprite.alpha = 0.5
+        addChild(backgroundNode)
+        self.removableNodes.append(backgroundNode)
+        self.removableNodes.append(colorSprite)
+        displaySpacecraft(current: 0)
+    }
+    
+    func displayGame() {
+        self.spaceship?.texture = mySpacecrafts[current].texture
+        for nodes in removableNodes {
+            nodes.removeFromParent()
+        }
+        self.labelNode.removeFromParent()
+        self.titleNode.removeFromParent()
+    }
+    
+    func displaySpacecraft(current: Int) {
+        let spacecraft = self.mySpacecrafts[current]
+        addChild(spacecraft)
+        self.removableNodes.append(spacecraft)
+        spacecraft.zPosition = 5
+        let text = spacecraft.descriptionText
+        self.labelNode.text = text
+        self.titleNode.text = myTitles[current]
+    }
+    
+    func swipeLeft() {
+     
+        if self.current == 3 {
+            self.current = 0
+        } else {
+            self.current += 1
+        }
+        self.removableNodes[self.removableNodes.count - 1].removeFromParent()
+        self.removableNodes.remove(at: self.removableNodes.count - 1)
+        displaySpacecraft(current: self.current)
+        
+    }
+    
+    func swipeRight() {
+        if self.current == 0 {
+            self.current = 3
+        } else {
+            self.current -= 1
+        }
+        self.removableNodes[self.removableNodes.count - 1].removeFromParent()
+        self.removableNodes.remove(at: self.removableNodes.count - 1)
+        displaySpacecraft(current: self.current)
     }
 }

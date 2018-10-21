@@ -10,12 +10,16 @@ import SpriteKit
 
 class Spaceship: SKSpriteNode {
     var radius: CGFloat
+    var oldPosition: CGPoint
+    
     
     init(
         spaceshipTextureName: String,
         position: CGPoint,
         radius: CGFloat) {
         self.radius = radius
+        self.oldPosition = position
+        
         
         var gravityField: SKFieldNode {
             let grf = SKFieldNode.radialGravityField()

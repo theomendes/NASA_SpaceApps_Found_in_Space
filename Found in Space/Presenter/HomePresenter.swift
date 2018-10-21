@@ -120,7 +120,7 @@ class HomePresenter: HomeViewPresenter {
         newGameBtn.widthAnchor.constraint(equalToConstant: 175.0).isActive = true
         newGameBtn.heightAnchor.constraint(equalToConstant: 57.0).isActive = true
         
-        profileBtn.rightAnchor.constraint(equalTo: safeRightAnchor).isActive = true
+        profileBtn.rightAnchor.constraint(equalTo: safeRightAnchor, constant: -20.0).isActive = true
         profileBtn.topAnchor.constraint(equalTo: safeTopAnchor, constant: 10).isActive = true
         profileBtn.widthAnchor.constraint(equalToConstant: 50.0).isActive = true
         profileBtn.heightAnchor.constraint(equalToConstant: 50.0).isActive = true
