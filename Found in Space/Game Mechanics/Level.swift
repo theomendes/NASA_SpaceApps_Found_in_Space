@@ -29,9 +29,9 @@ class Level: SKScene, SKPhysicsContactDelegate {
     var playing = true
     let loseDelay = 0.3
     
-    var removableNodes:[SKNode] = []
-    let mySpacecrafts:[GarageSpacecraft] = [GarageSpacecraft(name: "mercury"), GarageSpacecraft(name: "apollo"), GarageSpacecraft(name: "shuttle"), GarageSpacecraft(name: "dreamchaser")]
-    let myTitles:[String] = ["The Atlas", "The Apollo", "The Endeavour", "The Dream Chaser"]
+    var removableNodes: [SKNode] = []
+    let mySpacecrafts: [GarageSpacecraft] = [GarageSpacecraft(name: "mercury"), GarageSpacecraft(name: "apollo"), GarageSpacecraft(name: "shuttle"), GarageSpacecraft(name: "dreamchaser")]
+    let myTitles: [String] = ["The Atlas", "The Apollo", "The Endeavour", "The Dream Chaser"]
     var current = 0
     
     var timer: Timer!
@@ -214,7 +214,6 @@ class Level: SKScene, SKPhysicsContactDelegate {
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
         if hasChosen {
             if !hasLaunched && playing {
                 for touch in touches {
@@ -225,7 +224,6 @@ class Level: SKScene, SKPhysicsContactDelegate {
                 }
             }
         }
-        
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
