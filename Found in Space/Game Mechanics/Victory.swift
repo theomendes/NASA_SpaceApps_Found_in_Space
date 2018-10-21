@@ -58,7 +58,7 @@ class Victory:SKScene {
         scoreLblNode.zPosition = 5
         
         let highScoreLblNode = SKLabelNode(fontNamed: "Oxygen")
-        self.addChild(highScoreLblNode)
+//        self.addChild(highScoreLblNode)
         highScoreLblNode.text = "High score"
         highScoreLblNode.preferredMaxLayoutWidth = 250
         highScoreLblNode.fontSize = 21
@@ -70,7 +70,7 @@ class Victory:SKScene {
         self.addChild(done)
         
         scoreLabels(score: 3456, high: false)
-        scoreLabels(score: 5678, high: true)
+//        scoreLabels(score: 5678, high: true)
         
         let polaroid1 = Polaroids(level: level, scene: self, order: 1)
         addChild(polaroid1)
