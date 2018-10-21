@@ -20,3 +20,9 @@
 "login-login-button" = "Login";
 "login-signup-button" = "Don't have an account? Create now!";
 "login-title-label" = "Login";
+
+//==============================
+//      PAUSE SCREEN
+//==============================
+"resume-game" = "Resume";
+"exit-game" = "Exit";
