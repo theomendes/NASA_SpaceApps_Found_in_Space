@@ -11,8 +11,7 @@ import SpriteKit
 
 class Polaroids:SKSpriteNode {
     
-    
-    var catalogo = CatálogoFotos()
+    var catalogo = PhotoCatalog()
     
     init(level:Int, scene: SKScene, order:Int) {
         
@@ -29,7 +28,7 @@ class Polaroids:SKSpriteNode {
         
         let fixedSize = CGSize(width: 190, height: 190)
         
-        let photoTexture = SKTexture(imageNamed: catalogo.catalogo[level - 1].photoID)
+        let photoTexture = SKTexture(imageNamed: catalogo.catalog[level - 1].photoID)
         let photo = SKSpriteNode(texture: photoTexture, color: .clear, size: photoTexture.size()) // photoTexture.size()
         photo.position = CGPoint(x: self.position.x, y: self.position.y + 20)
 //        photo.scale(to: fixedSize)
@@ -39,7 +38,7 @@ class Polaroids:SKSpriteNode {
         scene.addChild(photo)
         
         let title = SKLabelNode(fontNamed: "Oxygen")
-        title.text = catalogo.catalogo[level - 1].photoName
+        title.text = catalogo.catalog[level - 1].photoName
         title.fontSize = 14
         title.fontColor = UIColor.black
         title.position = CGPoint(x: self.position.x + 95, y: self.position.y - 85)
@@ -48,7 +47,7 @@ class Polaroids:SKSpriteNode {
         scene.addChild(title)
         
         let descrip = SKLabelNode(fontNamed: "Oxygen-Light")
-        descrip.text = catalogo.catalogo[level - 1].photoDescription
+        descrip.text = catalogo.catalog[level - 1].photoDescription
         descrip.fontSize = 14
         descrip.fontColor = UIColor.black
         descrip.position = CGPoint(x: self.position.x + 95, y: self.position.y - 90)

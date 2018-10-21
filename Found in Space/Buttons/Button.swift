@@ -15,9 +15,9 @@ class Button: SKNode{
     private var action: () -> Void
     var labell: SKLabelNode
     var image: SKTexture
-    var isEnable = true
+    var isEnabled = true
     
-    init(imageNamed: String, buuu: @escaping () -> Void, label: String? = nil){
+    init(imageNamed: String, completion: @escaping () -> Void, label: String? = nil){
         image = SKTexture(imageNamed: imageNamed)
         button = SKSpriteNode(texture: image)
      
@@ -28,7 +28,7 @@ class Button: SKNode{
         cropNode.maskNode = button
         cropNode.addChild(mask)
         
-        action = buuu
+        action = completion
         
         labell = SKLabelNode(text: label)
         labell.position = CGPoint(x: button.position.x, y: button.position.y - button.size.height/2 - labell.fontSize * 0.75)
@@ -47,7 +47,7 @@ class Button: SKNode{
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setupNodes(){
+    func setupNodes() {
         button.zPosition = 0
         cropNode.zPosition = 3
     }
@@ -59,13 +59,13 @@ class Button: SKNode{
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if isEnable{
+        if isEnabled {
             mask.alpha = 0.5
         }
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if isEnable{
+        if isEnabled {
             for touch in touches {
                 let location: CGPoint = touch.location(in: self)
                 
@@ -79,7 +79,7 @@ class Button: SKNode{
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if isEnable{
+        if isEnabled {
             for touch in touches{
                 let location: CGPoint = touch.location(in: self)
                             
@@ -94,14 +94,14 @@ class Button: SKNode{
         }
     }
    
-    func disable(){
-        isEnable = false
+    func disable() {
+        isEnabled = false
         mask.alpha = 0.0
         button.alpha = 0.5
     }
     
-    func enable(){
-        isEnable = true
+    func enable() {
+        isEnabled = true
         mask.alpha = 0.0
         button.alpha = 1.0
     }

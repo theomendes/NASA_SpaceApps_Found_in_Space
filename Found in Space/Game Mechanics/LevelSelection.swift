@@ -9,7 +9,7 @@
 import SpriteKit
 import  AVFoundation
 
-class ChoiceLevel: SKScene {
+class LevelSelection: SKScene {
     let background = SKSpriteNode(imageNamed: "stageBg")
     let imageLevel1: String = "stage1"
     let imageLevel2: String = "stage2"
@@ -29,35 +29,35 @@ class ChoiceLevel: SKScene {
     }
     
     lazy var back: Button = {
-        var buttonn = Button(imageNamed: imageBack, buuu: setupBack)
-        buttonn.zPosition = 10
-        buttonn.position = CGPoint(x: self.size.width * 0.08, y: self.size.height * 0.9)
-        buttonn.setScale(0.3)
+        var button = Button(imageNamed: imageBack, completion: setupBack)
+        button.zPosition = 10
+        button.position = CGPoint(x: self.size.width * 0.08, y: self.size.height * 0.9)
+        button.setScale(0.3)
         
         
-        return buttonn
+        return button
     }()
     
     lazy var level1: Button = {
-        var buttonn = Button(imageNamed: imageLevel2, buuu: setupLevel2, label: "Proxima Centauri")
+        var button = Button(imageNamed: imageLevel2, completion: setupLevel2, label: "Proxima Centauri")
 
-        buttonn.zPosition = 10
-        buttonn.position = CGPoint(x: self.size.width * 0.24, y: self.size.height * 0.62)
+        button.zPosition = 10
+        button.position = CGPoint(x: self.size.width * 0.24, y: self.size.height * 0.62)
         
-        return buttonn
+        return button
     }()
     
     lazy var level2: Button = {
-        var buttonn = Button(imageNamed: imageLevel1, buuu: setupLevel1, label: "IRAS 14348-1447")
-        buttonn.zPosition = 10
-        buttonn.position = CGPoint(x: self.size.width * 0.5, y: self.size.height * 0.62)
-        buttonn.alpha = 0.5
+        var button = Button(imageNamed: imageLevel1, completion: setupLevel1, label: "IRAS 14348-1447")
+        button.zPosition = 10
+        button.position = CGPoint(x: self.size.width * 0.5, y: self.size.height * 0.62)
+        button.alpha = 0.5
         
-        return buttonn
+        return button
     }()
     
     lazy var level3: Button = {
-        var buttonn = Button(imageNamed: imageLevel3, buuu: setupLevel3, label: "V838 Monocerotis")
+        var buttonn = Button(imageNamed: imageLevel3, completion: setupLevel3, label: "V838 Monocerotis")
         buttonn.zPosition = 10
         buttonn.position = CGPoint(x: self.size.width * 0.76, y: self.size.height * 0.62)
         buttonn.alpha = 0.5

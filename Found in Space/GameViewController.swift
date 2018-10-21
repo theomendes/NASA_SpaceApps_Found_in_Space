@@ -40,7 +40,7 @@ class GameViewController: UIViewController {
 //            level = Level(from: levelsData[0], in: self.view)
 //            level.controller = self
 //            view.presentScene(level)
-            let levelSelection = ChoiceLevel(size: self.view.bounds.size)
+            let levelSelection = LevelSelection(size: self.view.bounds.size)
             levelSelection.controller = self
             view.presentScene(levelSelection)
             
@@ -54,7 +54,7 @@ class GameViewController: UIViewController {
     
     func gotoSelection() {
         if let view = skview {
-            let levelSelection = ChoiceLevel(size: self.view.bounds.size)
+            let levelSelection = LevelSelection(size: self.view.bounds.size)
             levelSelection.controller = self
             view.presentScene(levelSelection)
             
