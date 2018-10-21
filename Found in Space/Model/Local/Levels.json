@@ -1,0 +1,58 @@
+[
+    {
+        "levelID": "level1",
+        "stars": [
+            {
+                "radius": 100,
+                "position": [-105, -12],
+                "strength": 0.00002,
+                "diameter": 15
+            },
+            {
+                "radius": 50,
+                "position": [140, 75],
+                "strength": 0.00001,
+                "diameter": 7
+            },
+            {
+                "radius": 50,
+                "position": [110, -60],
+                "strength": 0.00001,
+                "diameter": 7
+            }
+        ],
+        "spaceship": {
+            "index": 0,
+            "position": [-265, -120],
+            "radius": 5
+        }
+    },
+    {
+        "levelID": "level2",
+        "stars": [
+            {
+                "radius": 70,
+                "position": [-110, 47],
+                "strength": 0.00001,
+                "diameter": 12
+            },
+            {
+                "radius": 50,
+                "position": [-48, -14],
+                "strength": 0.00001,
+                "diameter": 10
+            },
+            {
+                "radius": 70,
+                "position": [124, 12],
+                "strength": 0.00001,
+                "diameter": 10
+            }
+        ],
+        "spaceship": {
+            "index": 0,
+            "position": [-265, -120],
+            "radius": 5
+        }
+    }
+]

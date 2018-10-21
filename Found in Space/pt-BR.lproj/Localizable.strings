@@ -1,0 +1,28 @@
+/*
+ Localization.strings
+ Found in Space
+ 
+ Created by Theo Mendes on 20/10/18.
+ Copyright © 2018 NASA Space Apps 2018. All rights reserved.
+ */
+
+//==============================
+//      HOME PRESENTER
+//==============================
+"home-new-game" = "Novo Jogo";
+"home-profile" = "Perfil";
+
+//==============================
+//      LOGIN PRESENTER
+//==============================
+"login-email-placeholder" = "Email";
+"login-password-placeholder" = "Senha";
+"login-login-placeholder" = "Entrar";
+"login-signup-placeholder" = "Não tem uma conta? Crie uma agora!";
+"login-title-label" = "Entrar";
+
+//==============================
+//      PAUSE SCREEN
+//==============================
+"resume-game" = "Continuar";
+"exit-game" = "Sair";

@@ -1,0 +1,52 @@
+PODS:
+  - MaterialComponents/AnimationTiming (58.0.0)
+  - MaterialComponents/Palettes (58.0.0)
+  - MaterialComponents/private/Application (58.0.0)
+  - MaterialComponents/private/Math (58.0.0)
+  - MaterialComponents/schemes/Color (58.0.0)
+  - MaterialComponents/schemes/Typography (58.0.0)
+  - MaterialComponents/TextFields (58.0.0):
+    - MaterialComponents/AnimationTiming
+    - MaterialComponents/Palettes
+    - MaterialComponents/private/Math
+    - MaterialComponents/Typography
+    - MDFInternationalization
+  - "MaterialComponents/TextFields+ColorThemer (58.0.0)":
+    - MaterialComponents/TextFields
+    - MaterialComponents/Themes
+  - "MaterialComponents/TextFields+TypographyThemer (58.0.0)":
+    - MaterialComponents/schemes/Typography
+    - MaterialComponents/TextFields
+  - MaterialComponents/Themes (58.0.0):
+    - MaterialComponents/schemes/Color
+    - MaterialComponents/schemes/Typography
+  - MaterialComponents/Typography (58.0.0):
+    - MaterialComponents/private/Application
+    - MaterialComponents/private/Math
+  - MDFInternationalization (1.1.0)
+  - MDFTextAccessibility (1.2.0)
+  - SwiftLint (0.27.0)
+
+DEPENDENCIES:
+  - MaterialComponents/TextFields (~> 58.0.0)
+  - "MaterialComponents/TextFields+ColorThemer"
+  - "MaterialComponents/TextFields+TypographyThemer"
+  - MDFTextAccessibility (~> 1.2)
+  - SwiftLint (~> 0.27)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - MaterialComponents
+    - MDFInternationalization
+    - MDFTextAccessibility
+    - SwiftLint
+
+SPEC CHECKSUMS:
+  MaterialComponents: 0520466595b729ebd106e84b96626803aca4a8d2
+  MDFInternationalization: b5b8626628abf026e630e5ebaeee563037712cbb
+  MDFTextAccessibility: 94098925e0853551c5a311ce7c1ecefbe297cdb6
+  SwiftLint: 3207c1faa2240bf8973b191820a116113cd11073
+
+PODFILE CHECKSUM: c0b687325d88b64054aae9b98f840bfe45059568
+
+COCOAPODS: 1.5.3
